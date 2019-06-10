@@ -3,7 +3,7 @@
 
 ### This repository exists for technical communication with teachersand mentors.
 ### Assume there is a place for further:
-- [x] Default
+- [x] Start...
 - [ ] Homeworks
 - [ ] Individual tasks
 - [ ] Group tasks
