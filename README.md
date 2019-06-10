@@ -9,4 +9,4 @@
 - [ ] Group tasks
 - [ ] Project
 
-### `Lokong forward to joing this party!`
+### `Loking forward to joing this party!`
