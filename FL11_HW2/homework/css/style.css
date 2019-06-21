@@ -100,22 +100,18 @@ write your code here
       transform: perspective(700px)  rotate3d(0, 1, 0, -360deg);
       animation-timing-function: linear;
     }
-  
     40% {
       transform: perspective(700px) rotate3d(0, 1, 0, -190deg);
       animation-timing-function: linear;
     }
-  
     50% {
       transform: perspective(700px) rotate3d(0, 1, 0, -140deg);
       animation-timing-function: linear;
     }
-  
     80% {
       transform: perspective(700px)  rotate3d(0, 1, 0, 0deg);
       animation-timing-function: linear;
     }
-  
     to {
       transform: perspective(700px)  rotate3d(0, 1, 0, 0deg);
       animation-timing-function: linear;
