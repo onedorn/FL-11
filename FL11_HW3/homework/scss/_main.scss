@@ -1,0 +1,90 @@
+body{
+    margin: 0 auto;
+    padding: 0;
+}
+
+header {
+    margin: 0 auto;
+    max-width: 1535px;
+    height: 720px;
+    background: url(../img/m-h-day.jpg);
+    background-repeat: no-repeat;
+    border-bottom-right-radius: 40%;;
+    border: 0px solid #000000;
+    white-space: pre-line;
+
+    
+    .header-wrap {
+        width: 1225px;
+        margin: 0 auto;
+        
+    }
+
+    p.header_heading {
+        position: absolute;
+        top: -40px;
+        font-family: $fontSourcePro;
+        font-size: 75px;
+        font-weight: bolder;
+        letter-spacing: -1px;
+        white-space: pre-line;
+
+        
+    }
+    
+    p.header_text {
+        position: absolute;
+        font-size: 16px;
+        font-family: $fontHind;
+        top: 300px;
+        line-height: 25px;
+        letter-spacing: 1px;
+        
+    }
+
+    button {
+        position: absolute;
+        top: 499px;
+        width: 143px;
+        padding: 14px;
+        background-color: $buttonColor;
+        color: #fff;
+        border: none;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+}
+
+.landing-logo {
+    position: relative;
+
+    img {
+        float: left;
+        position: absolute;
+        top: -21px;
+    }
+    p {
+        font-size: 25px;
+        font-family: $fontHind;
+        margin: 0;
+        position: absolute;
+        top: -24px;
+        letter-spacing: 3px;
+        left: 60px;
+        font-weight: bold;
+        letter-spacing: -1px;
+        
+        
+        span {
+            font-size: 14px;
+        }
+    }
+}
+
+main {
+    margin: 0 auto;
+    max-width: 1535px;
+}
+
+
