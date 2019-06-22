@@ -10,6 +10,13 @@
     background: rgb(104,152,3);
     background: linear-gradient(45deg, rgba(104,152,3,1) 10%, rgba(45,91,217,1) 100%);
 }
+@mixin overlay {
+    content: '';
+    display: inline-block;
+    background: $overlay-color;
+    position: relative;
+    // z-index: -1;
+}
 
 
 body{
@@ -26,7 +33,8 @@ header {
     border-bottom-right-radius: 40%;
     white-space: pre-line;
     background-size: 100% 110%;
-
+    
+    
     p.header_heading {
         position: absolute;
         line-height: 80px;
@@ -35,13 +43,22 @@ header {
         font-size: 70px;
         font-weight: bold;
         width: 540px;
+        z-index: 4;
+        
     }
+    
     p.header_text {
         position: absolute;
         font-size: 16px;
         font-family: $fontHind;
         top: 300px;
         line-height: 24px;
+        &::before {
+            @include overlay;
+            width: 300px;
+            height: 25px;
+            bottom: 60px;
+        }
     }
     button {
         position: absolute;
@@ -93,14 +110,24 @@ header {
 main {
     margin: 0 auto;
     max-width: 1535px;
-
+    z-index: 2;
+    
     p.section_text {
         text-align: center;
         font-size: 40px;
         font-weight: bold;
         font-family: $fontSourcePro;
+        padding-left: 195px; 
+        &::after {
+            @include overlay;
+            width: 190px;
+            height: 16px;
+            top: 5px;
+            right: 210px;
+            z-index: -1;
+        }
     }
-
+    
     .section_card_wrap {
         @extend .header-wrap;
         display: flex;
@@ -126,12 +153,19 @@ main {
                 height: 100%;
                 border-radius: 7px;
             }
+            z-index: 1;
             .section_card_heading{
                 color: #fff;
                 font-size: 23px;
                 font-weight: bold;
                 margin: 20px 0 10px 0;
-                // span{}
+                span::after {
+                    @include overlay;
+                    width: 100%;
+                    height: 20%;
+                    bottom: 22px;
+                    z-index: -1;
+                }
             }
             .section_card_text {
                 color: $greyish;
@@ -148,7 +182,8 @@ main {
         position: relative;
         top: 110px;
         @include gradient;
-
+        z-index: 1;
+        
         .section_banner_text_wrap{
             height: 145px;
             
@@ -156,8 +191,16 @@ main {
                 font-family: $fontHind;
                 font-size: 30px;
                 font-weight: 900;
-                padding: 24px 0 12px 100px;
+                padding: 24px 0 12px 36px;
                 margin-bottom: 0;
+                &::before {
+                    @include overlay;
+                    width: 60px;
+                    height: 20px;
+                    left: 195px;
+                    top: 10px;
+                    z-index: -1;
+                }
             }
             .section_banner_text{
                 color: $greyish;
