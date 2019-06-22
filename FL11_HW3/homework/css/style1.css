@@ -1,8 +1,7 @@
 body {
   margin: 0 auto;
   padding: 0;
-  max-width: 1920px;
-  max-height: auto; }
+  max-width: 1920px; }
 
 header {
   max-width: 1535px;
@@ -13,9 +12,6 @@ header {
   border-bottom-right-radius: 40%;
   white-space: pre-line;
   background-size: 100% 110%; }
-  header .header-wrap {
-    width: 1225px;
-    margin: 0 auto; }
   header p.header_heading {
     position: absolute;
     line-height: 80px;
@@ -39,46 +35,51 @@ header {
     border: none;
     font-weight: bold;
     font-size: 1rem; }
+    header button:hover {
+      background: #ebdb4b;
+      color: white;
+      box-shadow: 0px 1px 3px #fcfcfc; }
 
-.landing-logo {
-  position: relative; }
-  .landing-logo img {
-    float: left;
-    position: absolute;
-    top: -17px; }
-  .landing-logo p {
-    font-size: 23px;
-    font-family: "Hind", sans-serif;
-    margin: 0;
-    position: absolute;
-    top: -17px;
-    letter-spacing: 3px;
-    left: 60px;
-    font-weight: bold;
-    letter-spacing: -1px; }
-    .landing-logo p span {
-      font-size: 12px;
-      letter-spacing: -1px;
-      position: relative;
-      top: 15px;
-      right: 54px; }
+.header-wrap, main .section_card_wrap, footer .section_card_wrap, footer .footer-wrap {
+  width: 1225px;
+  margin: 11px auto; }
+  .header-wrap .landing-logo, main .section_card_wrap .landing-logo, footer .section_card_wrap .landing-logo, footer .footer-wrap .landing-logo {
+    position: relative; }
+    .header-wrap .landing-logo img, main .section_card_wrap .landing-logo img, footer .section_card_wrap .landing-logo img, footer .footer-wrap .landing-logo img {
+      float: left;
+      position: absolute;
+      bottom: 35px; }
+    .header-wrap .landing-logo p, main .section_card_wrap .landing-logo p, footer .section_card_wrap .landing-logo p, footer .footer-wrap .landing-logo p {
+      font-size: 23px;
+      font-family: "Hind", sans-serif;
+      margin: 0;
+      position: absolute;
+      top: -27px;
+      letter-spacing: 3px;
+      left: 60px;
+      font-weight: bold;
+      letter-spacing: -1px; }
+      .header-wrap .landing-logo p span, main .section_card_wrap .landing-logo p span, footer .section_card_wrap .landing-logo p span, footer .footer-wrap .landing-logo p span {
+        font-size: 12px;
+        letter-spacing: -1px;
+        position: relative;
+        top: 15px;
+        right: 54px; }
 
-main {
+main, footer {
   margin: 0 auto;
   max-width: 1535px; }
-  main p.section_text {
+  main p.section_text, footer p.section_text {
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     font-family: "Source Sans Pro", sans-serif; }
-  main .section_card_wrap {
-    max-width: 1225px;
-    margin: 0 auto;
+  main .section_card_wrap, footer .section_card_wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly; }
-    main .section_card_wrap .section_card {
+    main .section_card_wrap .section_card, footer .section_card_wrap .section_card {
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -88,41 +89,43 @@ main {
       padding: 17px;
       border-radius: 7px;
       font-family: "Source Sans Pro", sans-serif; }
-      main .section_card_wrap .section_card:nth-child(2) {
+      main .section_card_wrap .section_card:nth-child(2), footer .section_card_wrap .section_card:nth-child(2) {
         margin: 0 15px; }
-      main .section_card_wrap .section_card img {
+      main .section_card_wrap .section_card img, footer .section_card_wrap .section_card img {
         width: 100%;
         height: 100%;
         border-radius: 7px; }
-      main .section_card_wrap .section_card .section_card_heading {
+      main .section_card_wrap .section_card .section_card_heading, footer .section_card_wrap .section_card .section_card_heading {
         color: #fff;
         font-size: 23px;
         font-weight: bold;
         margin: 20px 0 10px 0; }
-      main .section_card_wrap .section_card .section_card_text {
+      main .section_card_wrap .section_card .section_card_text, footer .section_card_wrap .section_card .section_card_text {
         color: #cadae0;
         text-align: center;
         font-size: 17px;
         margin: 10px 0; }
-  main .section_banner {
+  main .section_banner, footer .section_banner {
     max-width: 960px;
-    margin: 33px auto;
+    margin: 33px auto 40px;
     position: relative;
     top: 110px;
     background: #689803;
     background: linear-gradient(45deg, #689803 10%, #2d5bd9 100%); }
-    main .section_banner .section_banner_text_wrap .section_banner_heading {
-      font-family: "Hind", sans-serif;
-      font-size: 30px;
-      font-weight: 900;
-      padding: 24px 0 12px 100px;
-      margin-bottom: 0; }
-    main .section_banner .section_banner_text_wrap .section_banner_text {
-      color: #cadae0;
-      margin: 0;
-      padding: 0 106px;
-      font-family: "Source Sans Pro", sans-serif; }
-    main .section_banner .section_banner_button {
+    main .section_banner .section_banner_text_wrap, footer .section_banner .section_banner_text_wrap {
+      height: 145px; }
+      main .section_banner .section_banner_text_wrap .section_banner_heading, footer .section_banner .section_banner_text_wrap .section_banner_heading {
+        font-family: "Hind", sans-serif;
+        font-size: 30px;
+        font-weight: 900;
+        padding: 24px 0 12px 100px;
+        margin-bottom: 0; }
+      main .section_banner .section_banner_text_wrap .section_banner_text, footer .section_banner .section_banner_text_wrap .section_banner_text {
+        color: #cadae0;
+        margin: 0;
+        padding: 0 106px;
+        font-family: "Source Sans Pro", sans-serif; }
+    main .section_banner .section_banner_button, footer .section_banner .section_banner_button {
       padding: 13px 44px;
       background-color: #699900;
       color: #fff;
@@ -131,31 +134,36 @@ main {
       font-size: 1rem;
       text-align: right;
       position: relative;
-      bottom: 50px;
-      left: 718px; }
+      float: right;
+      bottom: 95px;
+      right: 100px; }
+      main .section_banner .section_banner_button:hover, footer .section_banner .section_banner_button:hover {
+        background: #ebdb4b;
+        color: white;
+        box-shadow: 0px 1px 3px #fcfcfc; }
 
 footer {
-  width: 1535px;
-  margin: 0 auto;
   background: #21232E; }
   footer .footer-wrap {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    max-width: 1225px;
-    margin: 0 auto;
     height: 300px; }
     footer .footer-wrap .footer_logo {
-      right: 20px; }
+      width: 200px;
+      flex-direction: row-reverse; }
+      footer .footer-wrap .footer_logo img {
+        bottom: -25px; }
       footer .footer-wrap .footer_logo p {
         font-size: 22px;
-        color: #fff;
-        right: 20px; }
+        color: #cadae0; }
     footer .footer-wrap .footer_text {
-      font-size: 17px;
-      color: #fff;
-      width: 300px; }
+      font-size: 15px;
+      color: #cadae0;
+      width: 300px;
+      justify-self: end;
+      padding-right: 70px; }
     footer .footer-wrap .footer-cr {
       font-size: 16px;
-      color: #fff; }
+      color: #cadae0; }
