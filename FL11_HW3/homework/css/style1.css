@@ -1,39 +1,39 @@
 body {
   margin: 0 auto;
-  padding: 0; }
+  padding: 0;
+  max-width: 1920px;
+  max-height: auto; }
 
 header {
-  margin: 0 auto;
   max-width: 1535px;
+  margin: 0 auto;
   height: 720px;
   background: url(../img/m-h-day.jpg);
   background-repeat: no-repeat;
   border-bottom-right-radius: 40%;
-  border: 0px solid #000000;
-  white-space: pre-line; }
+  white-space: pre-line;
+  background-size: 100% 110%; }
   header .header-wrap {
     width: 1225px;
     margin: 0 auto; }
   header p.header_heading {
     position: absolute;
-    top: -40px;
+    line-height: 80px;
+    top: -24px;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 75px;
-    font-weight: bolder;
-    letter-spacing: -1px;
-    white-space: pre-line; }
+    font-size: 70px;
+    font-weight: bold;
+    width: 540px; }
   header p.header_text {
     position: absolute;
     font-size: 16px;
     font-family: "Hind", sans-serif;
     top: 300px;
-    line-height: 25px;
-    letter-spacing: 1px; }
+    line-height: 24px; }
   header button {
     position: absolute;
     top: 499px;
-    width: 143px;
-    padding: 14px;
+    padding: 13px 44px;
     background-color: #699900;
     color: #fff;
     border: none;
@@ -45,20 +45,117 @@ header {
   .landing-logo img {
     float: left;
     position: absolute;
-    top: -21px; }
+    top: -17px; }
   .landing-logo p {
-    font-size: 25px;
+    font-size: 23px;
     font-family: "Hind", sans-serif;
     margin: 0;
     position: absolute;
-    top: -24px;
+    top: -17px;
     letter-spacing: 3px;
     left: 60px;
     font-weight: bold;
     letter-spacing: -1px; }
     .landing-logo p span {
-      font-size: 14px; }
+      font-size: 12px;
+      letter-spacing: -1px;
+      position: relative;
+      top: 15px;
+      right: 54px; }
 
 main {
   margin: 0 auto;
   max-width: 1535px; }
+  main p.section_text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Source Sans Pro", sans-serif; }
+  main .section_card_wrap {
+    max-width: 1225px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly; }
+    main .section_card_wrap .section_card {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 360px;
+      height: 415px;
+      background: #21232E;
+      padding: 17px;
+      border-radius: 7px;
+      font-family: "Source Sans Pro", sans-serif; }
+      main .section_card_wrap .section_card:nth-child(2) {
+        margin: 0 15px; }
+      main .section_card_wrap .section_card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 7px; }
+      main .section_card_wrap .section_card .section_card_heading {
+        color: #fff;
+        font-size: 23px;
+        font-weight: bold;
+        margin: 20px 0 10px 0; }
+      main .section_card_wrap .section_card .section_card_text {
+        color: #cadae0;
+        text-align: center;
+        font-size: 17px;
+        margin: 10px 0; }
+  main .section_banner {
+    max-width: 960px;
+    margin: 33px auto;
+    position: relative;
+    top: 110px;
+    background: #689803;
+    background: linear-gradient(45deg, #689803 10%, #2d5bd9 100%); }
+    main .section_banner .section_banner_text_wrap .section_banner_heading {
+      font-family: "Hind", sans-serif;
+      font-size: 30px;
+      font-weight: 900;
+      padding: 24px 0 12px 100px;
+      margin-bottom: 0; }
+    main .section_banner .section_banner_text_wrap .section_banner_text {
+      color: #cadae0;
+      margin: 0;
+      padding: 0 106px;
+      font-family: "Source Sans Pro", sans-serif; }
+    main .section_banner .section_banner_button {
+      padding: 13px 44px;
+      background-color: #699900;
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      text-align: right;
+      position: relative;
+      bottom: 50px;
+      left: 718px; }
+
+footer {
+  width: 1535px;
+  margin: 0 auto;
+  background: #21232E; }
+  footer .footer-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 1225px;
+    margin: 0 auto;
+    height: 300px; }
+    footer .footer-wrap .footer_logo {
+      right: 20px; }
+      footer .footer-wrap .footer_logo p {
+        font-size: 22px;
+        color: #fff;
+        right: 20px; }
+    footer .footer-wrap .footer_text {
+      font-size: 17px;
+      color: #fff;
+      width: 300px; }
+    footer .footer-wrap .footer-cr {
+      font-size: 16px;
+      color: #fff; }

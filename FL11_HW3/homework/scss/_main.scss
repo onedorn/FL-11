@@ -1,57 +1,63 @@
+// Mixins
+@mixin button {
+    padding: 13px 44px;
+    background-color: $buttonColor;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@mixin gradient {
+    background: rgb(104,152,3);
+    background: linear-gradient(45deg, rgba(104,152,3,1) 10%, rgba(45,91,217,1) 100%);
+}
+
+// End of mixins
+
+
 body{
     margin: 0 auto;
     padding: 0;
+    max-width: 1920px;
+    max-height: auto;
 }
 
 header {
-    margin: 0 auto;
     max-width: 1535px;
+    margin: 0 auto;
     height: 720px;
-    background: url(../img/m-h-day.jpg);
+    background: $banner;
     background-repeat: no-repeat;
-    border-bottom-right-radius: 40%;;
-    border: 0px solid #000000;
+    border-bottom-right-radius: 40%;
     white-space: pre-line;
-
-    
+    background-size: 100% 110%;
     .header-wrap {
         width: 1225px;
         margin: 0 auto;
-        
     }
-
     p.header_heading {
         position: absolute;
-        top: -40px;
+        line-height: 80px;
+        top: -24px;
         font-family: $fontSourcePro;
-        font-size: 75px;
-        font-weight: bolder;
-        letter-spacing: -1px;
-        white-space: pre-line;
-
-        
+        font-size: 70px;
+        font-weight: bold;
+        width: 540px;
     }
-    
     p.header_text {
         position: absolute;
         font-size: 16px;
         font-family: $fontHind;
         top: 300px;
-        line-height: 25px;
-        letter-spacing: 1px;
+        line-height: 24px;
         
     }
 
     button {
         position: absolute;
         top: 499px;
-        width: 143px;
-        padding: 14px;
-        background-color: $buttonColor;
-        color: #fff;
-        border: none;
-        font-weight: bold;
-        font-size: 1rem;
+        @include button;
     }
 
 }
@@ -62,14 +68,14 @@ header {
     img {
         float: left;
         position: absolute;
-        top: -21px;
+        top: -17px;
     }
     p {
-        font-size: 25px;
+        font-size: 23px;
         font-family: $fontHind;
         margin: 0;
         position: absolute;
-        top: -24px;
+        top: -17px;
         letter-spacing: 3px;
         left: 60px;
         font-weight: bold;
@@ -77,14 +83,136 @@ header {
         
         
         span {
-            font-size: 14px;
+            font-size: 12px;
+            letter-spacing: -1px;
+            position: relative;
+            top: 15px;
+            right: 54px;
         }
     }
 }
 
 main {
+    p.section_text {
+        text-align: center;
+        font-size: 40px;
+        font-weight: bold;
+        font-family: $fontSourcePro;
+    }
     margin: 0 auto;
     max-width: 1535px;
+    .section_card_wrap {
+        max-width: 1225px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        
+        .section_card {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 360px;
+            height: 415px;
+            background: #21232E;
+            padding: 17px;
+            border-radius: 7px;
+            font-family: $fontSourcePro;
+            &:nth-child(2) {
+                margin: 0 15px;
+            }
+            
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 7px;
+            }
+            .section_card_heading{
+                color: #fff;
+                font-size: 23px;
+                font-weight: bold;
+                margin: 20px 0 10px 0;
+                span{}
+            }
+            .section_card_text {
+                color: $greyish;
+                text-align: center;
+                font-size: 17px;
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .section_banner {
+        max-width: 960px;
+        margin: 33px auto;
+        position: relative;
+        top: 110px;
+        @include gradient;
+
+        .section_banner_text_wrap{
+            
+            .section_banner_heading{
+                font-family: $fontHind;
+                font-size: 30px;
+                font-weight: 900;
+                padding: 24px 0 12px 100px;
+                margin-bottom: 0;
+            }
+            .section_banner_text{
+                color: $greyish;
+                margin: 0;
+                padding: 0 106px;
+                font-family: $fontSourcePro;
+            }
+        }
+        .section_banner_button {
+            @include button;
+            text-align: right;
+            position: relative;
+            bottom: 50px;
+            left: 718px;
+        }
+    }
+}
+
+
+footer {
+    width: 1535px;
+    margin: 0 auto;
+    background: #21232E;
+    .footer-wrap{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        max-width: 1225px;
+        margin: 0 auto;
+        height: 300px;
+
+        .footer_logo{
+            right: 20px;
+
+            img {}
+            p {
+                font-size: 22px;
+                color: #fff;
+                right: 20px;
+            }
+        }
+        .footer_text{
+            font-size: 17px;
+            color: #fff;
+            width: 300px;
+        }
+        .footer-cr{
+            font-size: 16px;
+            color: #fff;
+        }
+     }
+
+    
 }
 
 
