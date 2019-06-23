@@ -1,7 +1,8 @@
 body {
   margin: 0 auto;
   padding: 0;
-  max-width: 1920px; }
+  max-width: 1920px;
+  background: #fff; }
 
 header {
   max-width: 1535px;
@@ -9,24 +10,28 @@ header {
   height: 720px;
   background: url(../img/m-h-day.jpg);
   background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   border-bottom-right-radius: 40%;
-  white-space: pre-line;
-  background-size: 100% 110%; }
+  white-space: pre-line; }
   header p.header_heading {
     position: absolute;
     line-height: 80px;
     top: -24px;
     font-family: "Source Sans Pro", sans-serif;
-    font-size: 70px;
+    font-size: 69px;
     font-weight: bold;
     width: 540px;
-    z-index: 4; }
+    z-index: 4;
+    letter-spacing: 2px;
+    color: black; }
   header p.header_text {
     position: absolute;
     font-size: 16px;
     font-family: "Hind", sans-serif;
-    top: 300px;
-    line-height: 24px; }
+    top: 295px;
+    line-height: 24px;
+    color: black; }
     header p.header_text::before {
       content: '';
       display: inline-block;
@@ -51,23 +56,24 @@ header {
 
 .header-wrap, main .section_card_wrap, footer .section_card_wrap, footer .footer-wrap {
   width: 1225px;
-  margin: 11px auto; }
+  margin: 0 auto; }
   .header-wrap .landing-logo, main .section_card_wrap .landing-logo, footer .section_card_wrap .landing-logo, footer .footer-wrap .landing-logo {
     position: relative; }
     .header-wrap .landing-logo img, main .section_card_wrap .landing-logo img, footer .section_card_wrap .landing-logo img, footer .footer-wrap .landing-logo img {
       float: left;
       position: absolute;
-      bottom: 35px; }
+      bottom: 25px; }
     .header-wrap .landing-logo p, main .section_card_wrap .landing-logo p, footer .section_card_wrap .landing-logo p, footer .footer-wrap .landing-logo p {
       font-size: 23px;
       font-family: "Hind", sans-serif;
       margin: 0;
       position: absolute;
-      top: -27px;
+      bottom: 35px;
       letter-spacing: 3px;
       left: 60px;
       font-weight: bold;
-      letter-spacing: -1px; }
+      letter-spacing: -1px;
+      color: black; }
       .header-wrap .landing-logo p span, main .section_card_wrap .landing-logo p span, footer .section_card_wrap .landing-logo p span, footer .footer-wrap .landing-logo p span {
         font-size: 12px;
         letter-spacing: -1px;
@@ -77,14 +83,15 @@ header {
 
 main, footer {
   margin: 0 auto;
-  max-width: 1535px;
-  z-index: 2; }
+  max-width: 1535px; }
   main p.section_text, footer p.section_text {
+    z-index: 2;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     font-family: "Source Sans Pro", sans-serif;
-    padding-left: 195px; }
+    padding-left: 195px;
+    color: black; }
     main p.section_text::after, footer p.section_text::after {
       content: '';
       display: inline-block;
@@ -102,8 +109,9 @@ main, footer {
     justify-content: space-evenly; }
     main .section_card_wrap .section_card, footer .section_card_wrap .section_card {
       display: flex;
-      align-items: center;
       flex-direction: column;
+      align-items: center;
+      justify-items: center;
       width: 360px;
       height: 415px;
       background: #21232E;
@@ -113,35 +121,35 @@ main, footer {
       z-index: 1; }
       main .section_card_wrap .section_card:nth-child(2), footer .section_card_wrap .section_card:nth-child(2) {
         margin: 0 15px; }
+      main .section_card_wrap .section_card:last-child .section_card_text, footer .section_card_wrap .section_card:last-child .section_card_text {
+        padding-bottom: 20px; }
       main .section_card_wrap .section_card img, footer .section_card_wrap .section_card img {
         width: 100%;
         height: 100%;
         border-radius: 7px; }
+      main .section_card_wrap .section_card .section_card_underline:nth-child(1), footer .section_card_wrap .section_card .section_card_underline:nth-child(1) {
+        background: #14A0C7;
+        display: block;
+        width: 100%;
+        height: 12px;
+        position: relative;
+        bottom: 12px;
+        z-index: -1; }
       main .section_card_wrap .section_card .section_card_heading, footer .section_card_wrap .section_card .section_card_heading {
         color: #fff;
         font-size: 23px;
         font-weight: bold;
-        margin: 20px 0 10px 0; }
-        main .section_card_wrap .section_card .section_card_heading span::after, footer .section_card_wrap .section_card .section_card_heading span::after {
-          content: '';
-          display: inline-block;
-          background: #14A0C7;
-          position: relative;
-          width: 100%;
-          height: 20%;
-          bottom: 22px;
-          z-index: -1; }
+        margin: 10px 0; }
       main .section_card_wrap .section_card .section_card_text, footer .section_card_wrap .section_card .section_card_text {
         color: #cadae0;
         text-align: center;
         font-size: 17px;
-        margin: 10px 0; }
+        margin: 0 0 10px 0; }
   main .section_banner, footer .section_banner {
     max-width: 960px;
-    margin: 33px auto 40px;
+    margin: 30px auto 40px;
     position: relative;
     top: 110px;
-    background: #689803;
     background: linear-gradient(45deg, #689803 10%, #2d5bd9 100%);
     z-index: 1; }
     main .section_banner .section_banner_text_wrap, footer .section_banner .section_banner_text_wrap {
@@ -151,16 +159,17 @@ main, footer {
         font-size: 30px;
         font-weight: 900;
         padding: 24px 0 12px 36px;
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        color: black; }
         main .section_banner .section_banner_text_wrap .section_banner_heading::before, footer .section_banner .section_banner_text_wrap .section_banner_heading::before {
           content: '';
           display: inline-block;
           background: #14A0C7;
           position: relative;
           width: 60px;
-          height: 20px;
+          height: 15px;
           left: 195px;
-          top: 10px;
+          top: 5px;
           z-index: -1; }
       main .section_banner .section_banner_text_wrap .section_banner_text, footer .section_banner .section_banner_text_wrap .section_banner_text {
         color: #cadae0;
@@ -194,9 +203,8 @@ footer {
     height: 300px; }
     footer .footer-wrap .footer_logo {
       width: 200px;
-      flex-direction: row-reverse; }
-      footer .footer-wrap .footer_logo img {
-        bottom: -25px; }
+      height: 100px;
+      align-items: center; }
       footer .footer-wrap .footer_logo p {
         font-size: 22px;
         color: #cadae0; }

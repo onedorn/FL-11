@@ -7,22 +7,25 @@
     font-size: 1rem;
 }
 @mixin gradient {
-    background: rgb(104,152,3);
-    background: linear-gradient(45deg, rgba(104,152,3,1) 10%, rgba(45,91,217,1) 100%);
+    background: $gradient
 }
 @mixin overlay {
     content: '';
     display: inline-block;
     background: $overlay-color;
     position: relative;
-    // z-index: -1;
 }
-
-
+@mixin button-hover {
+  background: $hover-color;
+  color: rgb(255, 255, 255);
+  box-shadow: 0px 1px 3px rgb(252, 252, 252);
+}
 body{
     margin: 0 auto;
     padding: 0;
-    max-width: 1920px;
+    max-width: 1920px;      
+    background: $bg-color-main;
+
 }
 header {
     max-width: 1535px;
@@ -30,29 +33,30 @@ header {
     height: 720px;
     background: $banner;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-bottom-right-radius: 40%;
     white-space: pre-line;
-    background-size: 100% 110%;
-    
-    
+
     p.header_heading {
         position: absolute;
         line-height: 80px;
         top: -24px;
         font-family: $fontSourcePro;
-        font-size: 70px;
+        font-size: 69px;
         font-weight: bold;
         width: 540px;
         z-index: 4;
-        
+        letter-spacing: 2px;
+        color: $header-heading;
     }
-    
     p.header_text {
         position: absolute;
         font-size: 16px;
         font-family: $fontHind;
-        top: 300px;
+        top: 295px;
         line-height: 24px;
+        color: $header-text;
         &::before {
             @include overlay;
             width: 300px;
@@ -65,37 +69,31 @@ header {
         top: 499px;
         @include button;
         &:hover {
-            background: rgb(235, 219, 75);
-            color: rgb(255, 255, 255);
-            box-shadow: 0px 1px 3px rgb(252, 252, 252);
+            @include button-hover;
         }
-        
     }
-    }
-
+}
 .header-wrap {
     width: 1225px;
-    margin: 11px auto;
-
+    margin: 0 auto;
     .landing-logo {
         position: relative;
-
         img {
             float: left;
             position: absolute;
-            bottom: 35px;
+            bottom: 25px;
         }
         p {
             font-size: 23px;
             font-family: $fontHind;
             margin: 0;
             position: absolute;
-            top: -27px;
+            bottom: 35px;
             letter-spacing: 3px;
             left: 60px;
             font-weight: bold;
             letter-spacing: -1px;
-
+            color: $logo-text;
             span {
                 font-size: 12px;
                 letter-spacing: -1px;
@@ -106,99 +104,102 @@ header {
         }
     }
 }
-
 main {
     margin: 0 auto;
     max-width: 1535px;
-    z-index: 2;
-    
     p.section_text {
-        text-align: center;
-        font-size: 40px;
-        font-weight: bold;
-        font-family: $fontSourcePro;
-        padding-left: 195px; 
-        &::after {
-            @include overlay;
-            width: 190px;
-            height: 16px;
-            top: 5px;
-            right: 210px;
-            z-index: -1;
+      z-index: 2;
+      text-align: center;
+      font-size: 40px;
+      font-weight: bold;
+      font-family: $fontSourcePro;
+      padding-left: 195px; 
+      color: $main-heading;
+      &::after {
+          @include overlay;
+          width: 190px;
+          height: 16px;
+          top: 5px;
+          right: 210px;
+          z-index: -1;
         }
     }
-    
     .section_card_wrap {
-        @extend .header-wrap;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-evenly;
-        
-        .section_card {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            width: 360px;
-            height: 415px;
-            background: $cards;
-            padding: 17px;
-            border-radius: 7px;
-            font-family: $fontSourcePro;
-            &:nth-child(2) {
-                margin: 0 15px;
+      @extend .header-wrap;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+      .section_card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-items: center;
+          width: 360px;
+          height: 415px;
+          background: $cards;
+          padding: 17px;
+          border-radius: 7px;
+          font-family: $fontSourcePro;
+          z-index: 1;
+          &:nth-child(2) {
+              margin: 0 15px;
+          }
+          &:last-child .section_card_text {
+            padding-bottom: 20px;
+          }
+          img{
+              width: 100%;
+              height: 100%;
+              border-radius: 7px;
+          }
+          .section_card_underline {
+            &:nth-child(1) {
+              background: $overlay-color;
+              display: block;
+              width: 100%;
+              height: 12px;
+              position: relative;
+              bottom: 12px;
+              z-index: -1;
             }
-            img{
-                width: 100%;
-                height: 100%;
-                border-radius: 7px;
-            }
-            z-index: 1;
-            .section_card_heading{
-                color: #fff;
-                font-size: 23px;
-                font-weight: bold;
-                margin: 20px 0 10px 0;
-                span::after {
-                    @include overlay;
-                    width: 100%;
-                    height: 20%;
-                    bottom: 22px;
-                    z-index: -1;
-                }
-            }
-            .section_card_text {
-                color: $greyish;
-                text-align: center;
-                font-size: 17px;
-                margin: 10px 0;
-            }
-        }
+          }
+          .section_card_heading{
+              color: #fff;
+              font-size: 23px;
+              font-weight: bold;
+              margin: 10px 0;
+          }
+          .section_card_text {
+              color: $greyish;
+              text-align: center;
+              font-size: 17px;
+              margin: 0 0 10px 0;
+          }
+      }
     }
-    
     .section_banner {
         max-width: 960px;
-        margin: 33px auto 40px;
+        margin: 30px auto 40px;
         position: relative;
         top: 110px;
         @include gradient;
         z-index: 1;
-        
         .section_banner_text_wrap{
             height: 145px;
-            
             .section_banner_heading{
                 font-family: $fontHind;
                 font-size: 30px;
                 font-weight: 900;
                 padding: 24px 0 12px 36px;
                 margin-bottom: 0;
+                color: $banner-text;
                 &::before {
                     @include overlay;
                     width: 60px;
-                    height: 20px;
+                    height: 15px;
                     left: 195px;
-                    top: 10px;
+                    top: 5px;
                     z-index: -1;
                 }
             }
@@ -212,9 +213,7 @@ main {
         .section_banner_button {
             @include button;
             &:hover {
-                background: rgb(235, 219, 75);
-                color: rgb(255, 255, 255);
-                box-shadow: 0px 1px 3px rgb(252, 252, 252);
+                @include button-hover;
             }
             text-align: right;
             position: relative;
@@ -224,12 +223,9 @@ main {
         }
     }
 }
-
-
 footer {
     @extend main;
     background: $footer;
-
     .footer-wrap{
         @extend .header-wrap;
         display: flex;
@@ -237,14 +233,10 @@ footer {
         justify-content: space-between;
         align-items: center;
         height: 300px;
-
         .footer_logo{
             width: 200px;
-            flex-direction: row-reverse;
-
-            img {
-                bottom: -25px;
-            }
+            height: 100px;
+            align-items: center;
             p {
                 font-size: 22px;
                 color: $greyish;
@@ -262,8 +254,6 @@ footer {
             color: $greyish;
         }
      }
-
-    
 }
 
 
