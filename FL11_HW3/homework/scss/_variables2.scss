@@ -1,19 +1,17 @@
 $page-colors: (
+    gradient: linear-gradient(45deg, rgba(218,158,9,1) 10%, rgba(148,47,81,1) 100%),
     white: #050505,
     black: #fff,
     greyish: #cadae0,
     dark: #3B3F50,
-    overlay: #FF4E33
+    overlay: #FF4E33,
+    bg-body: #21232E,
+    button: #E3AC00,
+    btn-hover: rgb(86, 75, 235)
 );
 $bcg-banner: (
-    theme: url(../img/m-h-night.jpg),
+    theme: url(../img/m-h-night.jpg)
 );
-
 $fontSourcePro: 'Source Sans Pro', sans-serif;
 $fontHind: 'Hind', sans-serif;
 $fontFresca: 'Fresca', sans-serif;
-
-$bg-color-main: #21232E;
-$buttonColor: #E3AC00;
-$gradient: linear-gradient(45deg, rgba(218,158,9,1) 10%, rgba(148,47,81,1) 100%);
-$hover-color: rgb(86, 75, 235);

@@ -1,13 +1,13 @@
 @mixin button {
     padding: 13px 44px;
-    background-color: $buttonColor;
+    background-color: map-get( $page-colors, button );
     color: #fff;
     border: none;
     font-weight: bold;
     font-size: 1rem;
 }
 @mixin gradient {
-    background: $gradient
+    background: map-get( $page-colors, gradient );
 }
 @mixin overlay {
     content: '';
@@ -16,7 +16,7 @@
     position: relative;
 }
 @mixin button-hover {
-  background: map-get( $page-colors, overlay );
+  background: map-get( $page-colors, btn-hover );
   color: rgb(255, 255, 255);
   box-shadow: 0px 1px 3px rgb(252, 252, 252);
 }
@@ -24,7 +24,7 @@ body{
     margin: 0 auto;
     padding: 0;
     max-width: 1920px;      
-    background: $bg-color-main;
+    background: map-get( $page-colors, bg-body );
 }
 header {
     max-width: 1535px;

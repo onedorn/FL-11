@@ -1,19 +1,17 @@
 $page-colors: (
+    gradient: linear-gradient(45deg, rgba(104,152,3,1) 10%, rgba(45,91,217,1) 100%),
     black: #050505,
     white: #fff,
     greyish: #cadae0,
     dark: #21232E,
-    overlay: #14A0C7
+    overlay: #14A0C7,
+    bg-body: #fff,
+    button: #699900,
+    btn-hover: rgb(235, 219, 75)
 );
 $bcg-banner: (
-    theme: url(../img/m-h-day.jpg),
+    theme: url(../img/m-h-day.jpg)
 );
-
 $fontSourcePro: 'Source Sans Pro', sans-serif;
 $fontHind: 'Hind', sans-serif;
 $fontFresca: 'Fresca', sans-serif;
-
-$bg-color-main: #fff;
-$buttonColor: #699900;
-$gradient: linear-gradient(45deg, rgba(104,152,3,1) 10%, rgba(45,91,217,1) 100%);
-$hover-color: rgb(235, 219, 75);
