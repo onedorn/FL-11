@@ -1,20 +1,20 @@
 @mixin button ($font-size, $color){
-    padding: 13px 44px;
-    background-color: map-get( $page-colors, button );
-    color: $color;
-    border: none;
-    font-weight: bold;
-    font-size: $font-size;
-    cursor: pointer;
+  padding: 13px 44px;
+  background-color: map-get( $page-colors, button );
+  color: $color;
+  border: none;
+  font-weight: bold;
+  font-size: $font-size;
+  cursor: pointer;
 }
 @mixin gradient {
-    background: map-get( $page-colors, gradient );
+  background: map-get( $page-colors, gradient );
 }
 @mixin overlay($display, $position) {
-    content: '';
-    display: $display;
-    position: $position;
-    background: map-get( $page-colors, overlay );
+  content: '';
+  display: $display;
+  position: $position;
+  background: map-get( $page-colors, overlay );
 }
 @mixin button-hover($color, $shadow){
   background: map-get( $page-colors, btn-hover );
@@ -23,237 +23,237 @@
   transition: background-color .3s ease-in-out;
 }
 body{
-    margin: 0 auto;
-    padding: 0;
-    max-width: 1920px;      
-    background: map-get( $page-colors, bg-body );
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1920px;      
+  background: map-get( $page-colors, bg-body );
 }
 header {
-    max-width: 1535px;
-    margin: 0 auto;
-    height: 720px;
-    background: map-get( $bcg-banner, theme );
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-bottom-right-radius: 40%;
-    white-space: pre-line;
-    p.header_heading {
-        position: absolute;
-        line-height: 80px;
-        top: -24px;
-        font-family: $fontSourcePro;
-        font-size: 69px;
-        font-weight: bold;
-        width: 540px;
-        z-index: 4;
-        letter-spacing: 2px;
-        color: map-get($page-colors, black );
+  max-width: 1535px;
+  margin: 0 auto;
+  height: 720px;
+  background: map-get( $bcg-banner, theme );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-bottom-right-radius: 40%;
+  white-space: pre-line;
+  p.header_heading {
+    position: absolute;
+    line-height: 80px;
+    top: -24px;
+    font-family: $fontSourcePro;
+    font-size: 69px;
+    font-weight: bold;
+    width: 540px;
+    z-index: 4;
+    letter-spacing: 2px;
+    color: map-get($page-colors, black );
+  }
+  p.header_text {
+    position: absolute;
+    font-size: 16px;
+    font-family: $fontHind;
+    top: 295px;
+    line-height: 24px;
+    color: map-get($page-colors, black );
+    &::before {
+      @include overlay(inline-block, relative);
+      width: 300px;
+      height: 25px;
+      bottom: 60px;
     }
-    p.header_text {
-        position: absolute;
-        font-size: 16px;
+  }
+  button {
+    position: absolute;
+    top: 499px;
+    @include button(1rem, #fff);
+    &:hover {
+      @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
+    }
+  }
+}
+.header-wrap {
+  width: 1225px;
+  margin: 0 auto;
+  .landing-logo {
+    position: relative;
+    img {
+      float: left;
+      position: absolute;
+      bottom: 25px;
+    }
+    p {
+      font-size: 23px;
+      font-family: $fontHind;
+      margin: 0;
+      position: absolute;
+      bottom: 35px;
+      letter-spacing: 3px;
+      left: 60px;
+      font-weight: bold;
+      letter-spacing: -1px;
+      color: map-get($page-colors, black );
+      span {
+        font-size: 12px;
+        letter-spacing: -1px;
+        position: relative;
+        top: 15px;
+        right: 54px;
+      }
+    }
+  }
+}
+main {
+  margin: 0 auto;
+  max-width: 1535px;
+  p.section_text {
+    z-index: 2;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: $fontSourcePro;
+    padding-left: 195px; 
+    color: map-get($page-colors, black );
+    &::after {
+      @include overlay (inline-block, relative);
+      width: 190px;
+      height: 16px;
+      top: 5px;
+      right: 210px;
+      z-index: -1;
+    }
+  }
+  .section_card_wrap {
+    @extend .header-wrap;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    .section_card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-items: center;
+      width: 360px;
+      height: 415px;
+      background: map-get( $page-colors, dark );
+      padding: 17px;
+      border-radius: 7px;
+      font-family: $fontSourcePro;
+      z-index: 1;
+        &:nth-child(2) {
+          margin: 0 15px;
+        }
+        &:last-child .section_card_text {
+          padding-bottom: 20px;
+        }
+      img{
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+      }
+      .section_card_underline {
+        &:nth-child(1) {
+          background: map-get( $page-colors, overlay );
+          display: block;
+          width: 100%;
+          height: 12px;
+          position: relative;
+          bottom: 12px;
+          z-index: -1;
+        }
+      }
+      .section_card_heading{
+        color: #fff;
+        font-size: 23px;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+      .section_card_text {
+        color: map-get( $page-colors, greyish );
+        text-align: center;
+        font-size: 17px;
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+  .section_banner {
+    max-width: 960px;
+    margin: 30px auto 40px;
+    position: relative;
+    top: 110px;
+    @include gradient;
+    z-index: 1;
+    .section_banner_text_wrap{
+      height: 145px;
+      .section_banner_heading{
         font-family: $fontHind;
-        top: 295px;
-        line-height: 24px;
+        font-size: 30px;
+        font-weight: 900;
+        padding: 24px 0 12px 36px;
+        margin-bottom: 0;
         color: map-get($page-colors, black );
         &::before {
-            @include overlay(inline-block, relative);
-            width: 300px;
-            height: 25px;
-            bottom: 60px;
+            @include overlay (inline-block, relative);
+            width: 60px;
+            height: 15px;
+            left: 195px;
+            top: 5px;
+            z-index: -1;
         }
+      }
+      .section_banner_text{
+        color: map-get( $page-colors, greyish );
+        margin: 0;
+        padding: 0 106px;
+        font-family: $fontSourcePro;
+      }
     }
-    button {
-        position: absolute;
-        top: 499px;
+      .section_banner_button {
         @include button(1rem, #fff);
+        text-align: right;
+        position: relative;
+        float: right;
+        bottom: 95px;
+        right: 100px;
         &:hover {
             @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
         }
-    }
-}
-.header-wrap {
-    width: 1225px;
-    margin: 0 auto;
-    .landing-logo {
-        position: relative;
-        img {
-            float: left;
-            position: absolute;
-            bottom: 25px;
-        }
-        p {
-            font-size: 23px;
-            font-family: $fontHind;
-            margin: 0;
-            position: absolute;
-            bottom: 35px;
-            letter-spacing: 3px;
-            left: 60px;
-            font-weight: bold;
-            letter-spacing: -1px;
-            color: map-get($page-colors, black );
-            span {
-                font-size: 12px;
-                letter-spacing: -1px;
-                position: relative;
-                top: 15px;
-                right: 54px;
-            }
-        }
-    }
-}
-main {
-    margin: 0 auto;
-    max-width: 1535px;
-    p.section_text {
-      z-index: 2;
-      text-align: center;
-      font-size: 40px;
-      font-weight: bold;
-      font-family: $fontSourcePro;
-      padding-left: 195px; 
-      color: map-get($page-colors, black );
-      &::after {
-          @include overlay (inline-block, relative);
-          width: 190px;
-          height: 16px;
-          top: 5px;
-          right: 210px;
-          z-index: -1;
-        }
-    }
-    .section_card_wrap {
-      @extend .header-wrap;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-evenly;
-      .section_card {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-items: center;
-          width: 360px;
-          height: 415px;
-          background: map-get( $page-colors, dark );
-          padding: 17px;
-          border-radius: 7px;
-          font-family: $fontSourcePro;
-          z-index: 1;
-          &:nth-child(2) {
-              margin: 0 15px;
-          }
-          &:last-child .section_card_text {
-            padding-bottom: 20px;
-          }
-          img{
-              width: 100%;
-              height: 100%;
-              border-radius: 7px;
-          }
-          .section_card_underline {
-            &:nth-child(1) {
-              background: map-get( $page-colors, overlay );
-              display: block;
-              width: 100%;
-              height: 12px;
-              position: relative;
-              bottom: 12px;
-              z-index: -1;
-            }
-          }
-          .section_card_heading{
-              color: #fff;
-              font-size: 23px;
-              font-weight: bold;
-              margin: 10px 0;
-          }
-          .section_card_text {
-              color: map-get( $page-colors, greyish );
-              text-align: center;
-              font-size: 17px;
-              margin: 0 0 10px 0;
-          }
       }
-    }
-    .section_banner {
-        max-width: 960px;
-        margin: 30px auto 40px;
-        position: relative;
-        top: 110px;
-        @include gradient;
-        z-index: 1;
-        .section_banner_text_wrap{
-            height: 145px;
-            .section_banner_heading{
-                font-family: $fontHind;
-                font-size: 30px;
-                font-weight: 900;
-                padding: 24px 0 12px 36px;
-                margin-bottom: 0;
-                color: map-get($page-colors, black );
-                &::before {
-                    @include overlay (inline-block, relative);
-                    width: 60px;
-                    height: 15px;
-                    left: 195px;
-                    top: 5px;
-                    z-index: -1;
-                }
-            }
-            .section_banner_text{
-                color: map-get( $page-colors, greyish );
-                margin: 0;
-                padding: 0 106px;
-                font-family: $fontSourcePro;
-            }
-        }
-        .section_banner_button {
-            @include button(1rem, #fff);
-            text-align: right;
-            position: relative;
-            float: right;
-            bottom: 95px;
-            right: 100px;
-            &:hover {
-                @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
-            }
-        }
     }
 }
 footer {
-    @extend main;
-    background: map-get( $page-colors, dark );
-    .footer-wrap{
-        @extend .header-wrap;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        height: 300px;
-        .footer_logo{
-            width: 200px;
-            height: 100px;
-            align-items: center;
-            p {
-                font-size: 22px;
-                color: map-get( $page-colors, greyish );
-            }
-        }
-        .footer_text{
-            font-size: 15px;
-            color: map-get( $page-colors, greyish );
-            width: 300px;
-            justify-self: end;
-            padding-right: 70px;
-        }
-        .footer-cr{
-            font-size: 16px;
-            color: map-get( $page-colors, greyish );
-        }
-     }
+  @extend main;
+  background: map-get( $page-colors, dark );
+  .footer-wrap{
+    @extend .header-wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 300px;
+    .footer_logo{
+      width: 200px;
+      height: 100px;
+      align-items: center;
+      p {
+        font-size: 22px;
+        color: map-get( $page-colors, greyish );
+      }
+    }
+    .footer_text{
+      font-size: 15px;
+      color: map-get( $page-colors, greyish );
+      width: 300px;
+      justify-self: end;
+      padding-right: 70px;
+    }
+    .footer-cr{
+      font-size: 16px;
+      color: map-get( $page-colors, greyish );
+    }
+  }
 }
 
 
