@@ -5,20 +5,22 @@
     border: none;
     font-weight: bold;
     font-size: $font-size;
+    cursor: pointer;
 }
 @mixin gradient {
     background: map-get( $page-colors, gradient );
 }
-@mixin overlay {
+@mixin overlay($display, $position) {
     content: '';
-    display: inline-block;
+    display: $display;
+    position: $position;
     background: map-get( $page-colors, overlay );
-    position: relative;
 }
 @mixin button-hover($color, $shadow){
   background: map-get( $page-colors, btn-hover );
   color: $color;
   box-shadow: $shadow;
+  transition: background-color .3s ease-in-out;
 }
 body{
     margin: 0 auto;
@@ -56,7 +58,7 @@ header {
         line-height: 24px;
         color: map-get($page-colors, black );
         &::before {
-            @include overlay;
+            @include overlay(inline-block, relative);
             width: 300px;
             height: 25px;
             bottom: 60px;
@@ -114,7 +116,7 @@ main {
       padding-left: 195px; 
       color: map-get($page-colors, black );
       &::after {
-          @include overlay;
+          @include overlay (inline-block, relative);
           width: 190px;
           height: 16px;
           top: 5px;
@@ -193,7 +195,7 @@ main {
                 margin-bottom: 0;
                 color: map-get($page-colors, black );
                 &::before {
-                    @include overlay;
+                    @include overlay (inline-block, relative);
                     width: 60px;
                     height: 15px;
                     left: 195px;
@@ -210,14 +212,14 @@ main {
         }
         .section_banner_button {
             @include button(1rem, #fff);
-            &:hover {
-                @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
-            }
             text-align: right;
             position: relative;
             float: right;
             bottom: 95px;
             right: 100px;
+            &:hover {
+                @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
+            }
         }
     }
 }
