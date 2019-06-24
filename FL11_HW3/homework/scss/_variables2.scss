@@ -2,7 +2,8 @@ $page-colors: (
     white: #050505,
     black: #fff,
     greyish: #cadae0,
-    dark: #3B3F50
+    dark: #3B3F50,
+    overlay: #FF4E33
 );
 $bcg-banner: (
     theme: url(../img/m-h-night.jpg),
@@ -14,7 +15,5 @@ $fontFresca: 'Fresca', sans-serif;
 
 $bg-color-main: #21232E;
 $buttonColor: #E3AC00;
-$banner: url(../img/m-h-night.jpg);
-$overlay-color: #FF4E33;
 $gradient: linear-gradient(45deg, rgba(218,158,9,1) 10%, rgba(148,47,81,1) 100%);
 $hover-color: rgb(86, 75, 235);

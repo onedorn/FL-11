@@ -50,7 +50,7 @@ header {
     font-weight: bold;
     font-size: 1rem; }
     header button:hover {
-      background: #ebdb4b;
+      background: #14A0C7;
       color: white;
       box-shadow: 0px 1px 3px #fcfcfc; }
 
@@ -189,7 +189,7 @@ main, footer {
       bottom: 95px;
       right: 100px; }
       main .section_banner .section_banner_button:hover, footer .section_banner .section_banner_button:hover {
-        background: #ebdb4b;
+        background: #14A0C7;
         color: white;
         box-shadow: 0px 1px 3px #fcfcfc; }
 
