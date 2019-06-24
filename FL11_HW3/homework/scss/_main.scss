@@ -15,10 +15,10 @@
     background: map-get( $page-colors, overlay );
     position: relative;
 }
-@mixin button-hover($color){
+@mixin button-hover($color, $shadow){
   background: map-get( $page-colors, btn-hover );
   color: $color;
-  box-shadow: 0px 1px 3px rgb(252, 252, 252);
+  box-shadow: $shadow;
 }
 body{
     margin: 0 auto;
@@ -67,7 +67,7 @@ header {
         top: 499px;
         @include button(1rem, #fff);
         &:hover {
-            @include button-hover(rgb(255, 255, 255));
+            @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
         }
     }
 }
@@ -211,7 +211,7 @@ main {
         .section_banner_button {
             @include button(1rem, #fff);
             &:hover {
-                @include button-hover(rgb(255, 255, 255));
+                @include button-hover(rgb(255, 255, 255), 0px 1px 3px rgb(252, 252, 252));
             }
             text-align: right;
             position: relative;
