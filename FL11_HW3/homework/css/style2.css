@@ -31,7 +31,7 @@ header {
     font-family: "Hind", sans-serif;
     top: 295px;
     line-height: 24px;
-    color: white; }
+    color: #fff; }
     header p.header_text::before {
       content: '';
       display: inline-block;
@@ -160,7 +160,7 @@ main, footer {
         font-weight: 900;
         padding: 24px 0 12px 36px;
         margin-bottom: 0;
-        color: white; }
+        color: #fff; }
         main .section_banner .section_banner_text_wrap .section_banner_heading::before, footer .section_banner .section_banner_text_wrap .section_banner_heading::before {
           content: '';
           display: inline-block;

@@ -25,19 +25,17 @@ body{
     padding: 0;
     max-width: 1920px;      
     background: $bg-color-main;
-
 }
 header {
     max-width: 1535px;
     margin: 0 auto;
     height: 720px;
-    background: $banner;
+    background: map-get( $bcg-banner, theme );
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     border-bottom-right-radius: 40%;
     white-space: pre-line;
-
     p.header_heading {
         position: absolute;
         line-height: 80px;
@@ -48,7 +46,7 @@ header {
         width: 540px;
         z-index: 4;
         letter-spacing: 2px;
-        color: $header-heading;
+        color: map-get($page-colors, black );
     }
     p.header_text {
         position: absolute;
@@ -56,7 +54,7 @@ header {
         font-family: $fontHind;
         top: 295px;
         line-height: 24px;
-        color: $header-text;
+        color: map-get($page-colors, black );
         &::before {
             @include overlay;
             width: 300px;
@@ -93,7 +91,7 @@ header {
             left: 60px;
             font-weight: bold;
             letter-spacing: -1px;
-            color: $logo-text;
+            color: map-get($page-colors, black );
             span {
                 font-size: 12px;
                 letter-spacing: -1px;
@@ -114,7 +112,7 @@ main {
       font-weight: bold;
       font-family: $fontSourcePro;
       padding-left: 195px; 
-      color: $main-heading;
+      color: map-get($page-colors, black );
       &::after {
           @include overlay;
           width: 190px;
@@ -137,7 +135,7 @@ main {
           justify-items: center;
           width: 360px;
           height: 415px;
-          background: $cards;
+          background: map-get( $page-colors, dark );
           padding: 17px;
           border-radius: 7px;
           font-family: $fontSourcePro;
@@ -171,7 +169,7 @@ main {
               margin: 10px 0;
           }
           .section_card_text {
-              color: $greyish;
+              color: map-get( $page-colors, greyish );
               text-align: center;
               font-size: 17px;
               margin: 0 0 10px 0;
@@ -193,7 +191,7 @@ main {
                 font-weight: 900;
                 padding: 24px 0 12px 36px;
                 margin-bottom: 0;
-                color: $banner-text;
+                color: map-get($page-colors, black );
                 &::before {
                     @include overlay;
                     width: 60px;
@@ -204,7 +202,7 @@ main {
                 }
             }
             .section_banner_text{
-                color: $greyish;
+                color: map-get( $page-colors, greyish );
                 margin: 0;
                 padding: 0 106px;
                 font-family: $fontSourcePro;
@@ -225,7 +223,7 @@ main {
 }
 footer {
     @extend main;
-    background: $footer;
+    background: map-get( $page-colors, dark );
     .footer-wrap{
         @extend .header-wrap;
         display: flex;
@@ -239,19 +237,19 @@ footer {
             align-items: center;
             p {
                 font-size: 22px;
-                color: $greyish;
+                color: map-get( $page-colors, greyish );
             }
         }
         .footer_text{
             font-size: 15px;
-            color: $greyish;
+            color: map-get( $page-colors, greyish );
             width: 300px;
             justify-self: end;
             padding-right: 70px;
         }
         .footer-cr{
             font-size: 16px;
-            color: $greyish;
+            color: map-get( $page-colors, greyish );
         }
      }
 }

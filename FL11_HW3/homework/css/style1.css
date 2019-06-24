@@ -24,14 +24,14 @@ header {
     width: 540px;
     z-index: 4;
     letter-spacing: 2px;
-    color: black; }
+    color: #050505; }
   header p.header_text {
     position: absolute;
     font-size: 16px;
     font-family: "Hind", sans-serif;
     top: 295px;
     line-height: 24px;
-    color: black; }
+    color: #050505; }
     header p.header_text::before {
       content: '';
       display: inline-block;
@@ -73,7 +73,7 @@ header {
       left: 60px;
       font-weight: bold;
       letter-spacing: -1px;
-      color: black; }
+      color: #050505; }
       .header-wrap .landing-logo p span, main .section_card_wrap .landing-logo p span, footer .section_card_wrap .landing-logo p span, footer .footer-wrap .landing-logo p span {
         font-size: 12px;
         letter-spacing: -1px;
@@ -91,7 +91,7 @@ main, footer {
     font-weight: bold;
     font-family: "Source Sans Pro", sans-serif;
     padding-left: 195px;
-    color: black; }
+    color: #050505; }
     main p.section_text::after, footer p.section_text::after {
       content: '';
       display: inline-block;
@@ -160,7 +160,7 @@ main, footer {
         font-weight: 900;
         padding: 24px 0 12px 36px;
         margin-bottom: 0;
-        color: black; }
+        color: #050505; }
         main .section_banner .section_banner_text_wrap .section_banner_heading::before, footer .section_banner .section_banner_text_wrap .section_banner_heading::before {
           content: '';
           display: inline-block;
