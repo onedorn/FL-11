@@ -266,17 +266,17 @@ main{
   border: 3px solid #F3F3F3;
 }
 
-.explore {
-}
-.explore .explore-wrap {
+.explore {}
+.explore-wrap {
   color: #000000;
-  /* display: flex; */
-  flex: 25% 25% 25% 25%;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  /* align-items: center; */
 
 }
-.explore .explore-wrap .explore-card {}
+.explore-card {
+}
 .explore .explore-wrap .explore-card p {}
 .explore .explore-wrap .explore-card .card-img {}
 .explore .explore-wrap .explore-card span {}
@@ -286,7 +286,11 @@ main{
 .explore .explore-wrap .explore-card a:hover {}
 .explore .explore-wrap .explore-card a:active {}
 .explore .explore-wrap .explore-card a:focus {}
-.explore .loads-news {}
+.explore .loads-news {
+  display: block;
+  text-align: center;
+}
+.explore .loads-news button {}
 .explore .loads-news:hover {}
 .explore .loads-news:active {}
 .explore .loads-news:focus {}
@@ -297,13 +301,42 @@ main{
 
 .subscribe {
   color: #000000;
+  background: #F3F3F3;
+  padding: 3% 2%;
+  font-size: 1.3em; 
+  line-height: 1.7rem;
 }
 .subscribe p {}
-.subscribe form {}
-.subscribe form label {}
-.subscribe form label strong {}
-.subscribe form label #email {}
-.subscribe form button {}
+.subscribe form {
+  text-align: right;
+  margin-top: 3%;
+  
+}
+.subscribe form label {
+  font-size: 1.6em;
+  letter-spacing: 1px;
+  /* padding-right: 1%; */
+}
+.subscribe form label #email {
+  border: 1px solid #000000;
+  color: #000000;
+  width: 12vw;
+  height: 5.8vh;
+  margin-left: 1.2%;
+}
+#email[placeholder]{
+  font-size: 18px;
+  color: #000000; 
+  padding-left: 1%;
+}
+.subscribe form button {
+  border: none;
+  padding: 1% 1%;
+  color: #FFFFFF;
+  background: #097774;
+  font-size: 0.9em;
+  font-weight: bold;
+}
 .subscribe form button:hover {}
 .subscribe form button:active {}
 .subscribe form button:focus {}
