@@ -300,7 +300,7 @@ main{
 
 
 .subscribe {
-  color: #000000;
+  color: #7e7e7e;
   background: #F3F3F3;
   padding: 3% 2%;
   font-size: 1.3em; 
@@ -310,12 +310,11 @@ main{
 .subscribe form {
   text-align: right;
   margin-top: 3%;
-  
 }
 .subscribe form label {
   font-size: 1.6em;
   letter-spacing: 1px;
-  /* padding-right: 1%; */
+  color: #000000;
 }
 .subscribe form label #email {
   border: 1px solid #000000;
@@ -329,6 +328,10 @@ main{
   color: #000000; 
   padding-left: 1%;
 }
+#email[placeholder]:focus{
+  background: #097773a4;
+  color: #FFFFFF;
+}
 .subscribe form button {
   border: none;
   padding: 1% 1%;
@@ -336,12 +339,12 @@ main{
   background: #097774;
   font-size: 0.9em;
   font-weight: bold;
+  cursor: pointer;
 }
-.subscribe form button:hover {}
-.subscribe form button:active {}
-.subscribe form button:focus {}
-
-
+.subscribe form button:hover {
+  background: #30cec9d5;
+  transition:  background .5s ease;
+}
 
 /* End of Main section *//* End of Main section /* End of Main section /* End of Main section /* End of Main section */
 
@@ -358,7 +361,31 @@ footer{
   margin: 0 auto;
   max-width: 1680px;
   height: auto;
+  padding: 2% 0;
+  color: #B3B3B3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+.footer .copyryght {
+}
+.footer .footen-nav {}
+.footer .footen-nav li {
+  display: inline-block;
+}
+.footer .footen-nav li a {
+  text-decoration: none;
+  color: #7e7e7e;
+  padding: 0 0.5em; 
+  font-size: 1.2em;
+}
+.footer .footen-nav li a:hover {
+  color: #000000;
+}
+.footer .footen-nav li a:active {
+}
+.footer .footen-nav li a:focus {}
+
 
 /* End of footer section *//* End of footer section *//* End of footer section *//* End of footer section */
 
