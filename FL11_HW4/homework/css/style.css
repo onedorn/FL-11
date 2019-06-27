@@ -1,0 +1,284 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans Regular', sans-serif;
+} 
+ol, ul {
+  list-style:none;
+}
+
+/* Main settings */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'), url(https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFWJ0bbck.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+body {
+  max-width: 2400px;
+  min-width: 900px;
+  margin: 0 auto;
+  /* background: #ffc728; */
+  color: #FFFFFF;
+}
+
+/* End of body section *//* End of body section *//* End of body section *//* End of body section */
+
+
+
+
+
+/* Header section *//* Header section *//* Header section *//* Header section *//* Header section */
+header{
+  margin: 0 auto;
+  background: url(../img/sample2.jpg) no-repeat center top/cover;
+  max-width: 1680px;
+  max-height: 1030px;
+  height: 1020px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.header-user {
+  display: flex;
+  flex-direction: row;
+  height: 140px;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+.header-logo {
+  text-transform: uppercase;
+  font-size: 20px;
+  letter-spacing: 3px;
+  padding-left: 1.5vw;
+}
+.header-user ul li {
+  display: inline-block;
+  padding: 0 1.5vw 0 3vw; 
+  letter-spacing: 2px;
+}
+.header-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 18px;  
+}
+.header-link:hover {
+  color: #5aec6e;
+}
+.header-user ul li .header-link:active {
+  color: rgb(235, 110, 38);
+}
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 430px;
+  line-height: 45px;
+}
+p.banner-name  {
+  text-transform: uppercase;
+  font-size: 9vh;  
+  letter-spacing: 10px;
+}
+.banner-name span {
+  font-size: 17vh;
+}
+.banner-origin {
+  font-size: 20px;
+  padding-top: 30px;
+}
+.nav {
+  width: 97%;
+  height: 275px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.nav-item {
+  display: inline-block;
+}
+.nav-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  border: 3px solid #FFFFFF;
+  padding: 3vh 15vh;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+.nav-link:hover {
+  background: #b4b3b0a2;
+  transition: background .2s linear;
+}
+.nav-link:active {
+  background: #5a99ecc7;
+}
+
+/* End of Header Section *//* End of Header Section *//* End of Header Section *//* End of Header Section */
+
+
+
+
+
+
+
+/* Main section *//* Main section *//* Main section *//* Main section *//* Main section *//* Main section */
+main{
+  margin: 0 auto;
+  max-width: 1680px;
+  height: auto;
+}
+.slant-section {
+  position: relative;
+  height: 350px;
+  width: 100%;
+}
+.slant-top {
+  position: absolute;
+  background: #000000;
+  height: 310px;
+  clip-path: polygon(0 0, 100% 0, 100% 96%, 100% 100%);
+}
+.slant-top h4 {
+  float: right;
+  font-size: 20px;
+  padding: 10px 30px 10px 0;
+  line-height: 25px;
+  width: 48%;
+}
+.slant-bottom {
+  background: #F3F3F3; 
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 88%, 56% 50%, 25% 23%);
+  height: 350px;
+  color: #000000;
+}
+.slant-heading  {
+  font-size: 35px;
+  font-weight: 100;
+  align-self: center;
+  margin-bottom: 2.5vh;
+}
+.slant-description   {
+  font-size: 28px;
+  width: 40%;
+  padding: 1.4vw;
+  padding-bottom: 10vh;
+}
+.slant-heading span, .slant-description span  {
+  font-weight: bold;
+}
+
+.dashboard {
+  height: auto;
+  color: #000000;
+  background: #F3F3F3;
+  margin: 0 auto;
+  max-width: 1680px;
+}
+.dashboard-wrap-one{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.dashboard-wrap-two{
+  display: flex;  
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+.dashboard-article-one {
+  width: 98%;
+  margin-left: 1.5%;
+  margin-top: 2%;
+}
+.dashboard-article-two {
+  width: 100%;
+  margin-top: 1%;
+  margin: 0 1.5%;
+}
+.article-description-one, .article-description-two {
+  height: 29rem;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  padding: 0 5%;
+}
+.article-description-one p, .article-description-two p {
+  font-size: 22px;
+}
+.dashboard-figure-one {
+  background: url(../img/sample-1.jpg) no-repeat center/cover;
+  height: 55vh;
+}
+.dashboard-figure-two{
+  background: url(../img/sample-2.jpg) no-repeat center/cover;
+  height: 56vh;
+}
+.dashboard-figure-one figcaption, .dashboard-figure-two figcaption  {
+  color: #FFFFFF;
+  position: relative;
+  top: 325px;
+  left: 23px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.dashboard-figure-one p, .dashboard-figure-two p {
+  color: #FFFFFF;
+  position: relative;
+  float: right;
+  right: 4%;
+  top: 6%;
+  display: inline-block;
+  background: rgba(17, 15, 10, 0.685);
+  padding: 1.5% 2.1%;
+  border: 3px solid #F3F3F3;
+}
+
+
+
+/* End of Main section *//* End of Main section /* End of Main section /* End of Main section /* End of Main section */
+
+
+
+
+
+
+
+
+/* Footer section *//* Footer section *//* Footer section *//* Footer section *//* Footer section */
+
+footer{}
+
+/* End of footer section *//* End of footer section *//* End of footer section *//* End of footer section */
+
