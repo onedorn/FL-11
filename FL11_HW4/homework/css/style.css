@@ -247,7 +247,7 @@ main{
 .dashboard-figure-one figcaption, .dashboard-figure-two figcaption  {
   color: #FFFFFF;
   position: relative;
-  top: 325px;
+  top: 365px;
   left: 23px;
   font-size: 1.2rem;
   letter-spacing: 1px;
@@ -255,6 +255,7 @@ main{
 
 .dashboard-figure-one p, .dashboard-figure-two p {
   color: #FFFFFF;
+  font-size: 1.2rem;
   position: relative;
   float: right;
   right: 4%;
@@ -264,6 +265,48 @@ main{
   padding: 1.5% 2.1%;
   border: 3px solid #F3F3F3;
 }
+
+.explore {
+}
+.explore .explore-wrap {
+  color: #000000;
+  /* display: flex; */
+  flex: 25% 25% 25% 25%;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+.explore .explore-wrap .explore-card {}
+.explore .explore-wrap .explore-card p {}
+.explore .explore-wrap .explore-card .card-img {}
+.explore .explore-wrap .explore-card span {}
+.explore .explore-wrap .explore-card .card-img-caption {}
+.explore .explore-wrap .explore-card .card-img-caption p {}
+.explore .explore-wrap .explore-card a {}
+.explore .explore-wrap .explore-card a:hover {}
+.explore .explore-wrap .explore-card a:active {}
+.explore .explore-wrap .explore-card a:focus {}
+.explore .loads-news {}
+.explore .loads-news:hover {}
+.explore .loads-news:active {}
+.explore .loads-news:focus {}
+
+
+
+
+
+.subscribe {
+  color: #000000;
+}
+.subscribe p {}
+.subscribe form {}
+.subscribe form label {}
+.subscribe form label strong {}
+.subscribe form label #email {}
+.subscribe form button {}
+.subscribe form button:hover {}
+.subscribe form button:active {}
+.subscribe form button:focus {}
 
 
 
@@ -278,7 +321,11 @@ main{
 
 /* Footer section *//* Footer section *//* Footer section *//* Footer section *//* Footer section */
 
-footer{}
+footer{
+  margin: 0 auto;
+  max-width: 1680px;
+  height: auto;
+}
 
 /* End of footer section *//* End of footer section *//* End of footer section *//* End of footer section */
 
