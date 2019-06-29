@@ -15,6 +15,7 @@
 
 body {
   background: var(--bg-color--dark);
+
 }
 
 header {
@@ -35,7 +36,8 @@ header {
 }
 .header-nav {
   float: right;
-  margin: 5.4vh 3.6vw;
+  /* margin: 5.4vh 3.6vw 0; */
+  margin: 3.2% 4.5%;
 }
 .nav-list li {
   list-style-type: none;
@@ -51,6 +53,40 @@ header {
 .nav-link:hover {
   color: var(--link--hover);
 }
+
+
+
+.container {}
+.container .event-wrapper {}
+.container .event-wrapper .event {}
+.container .event-wrapper .event .event-photo {}
+.container .event-wrapper .event .event-cover {}
+.container .event-wrapper .event img {}
+.container .event-wrapper .event h1 {}
+.container .event-wrapper .event p {}
+.container .event-wrapper .event p span {}
+.container .event-wrapper .summery {}
+.container .event-wrapper .summery h1 {}
+.container .event-wrapper .summery p {}
+.container .event-wrapper .summery span {}
+
+aside {}
+aside .blog-news {}
+aside .blog-news .first-news {}
+aside .blog-news .first-news div {}
+aside .blog-news .first-news h2 {}
+aside .blog-news .first-news p {}
+aside .blog-news .first-news img {}
+aside .blog-news .second-news {}
+aside .blog-news .second-news div {}
+aside .blog-news .second-news h2 {}
+aside .blog-news .second-news p {}
+aside .blog-news .second-news img {}
+
+.footer {}
+.footer .copyright {}
+.footer .descr {}
+.footer .degisged-by {}
 
 
 
@@ -90,4 +126,3 @@ header {
 	background: #2d95bb;
 } */
 
-/* Your styles go here */
