@@ -1,7 +1,3 @@
-/*
- * Feel free to change name of colors if you need it
- * Feel free to add new colors if you need it
- */
 :root {
   --bg-color--dark: #0b192f;
   --bg-color--header: #162b4d;
@@ -10,10 +6,75 @@
   --bg-footer-color: #162b4d;;
 }
 
-body {
-  font-family: roboto;
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: Roboto;
 }
-.post-1 {
+
+body {
+  background: var(--bg-color--dark);
+}
+
+header {
+  max-width: 78.5%;
+  height: 13.8vh;
+  background: var(--bg-color--header);
+}
+.header-logo{
+  color: #fff;
+  font-size: 2.5em;
+  font-weight: 100;
+  margin: 3.1vh 1.5vw 0.6vh 1.5vw;
+  display: inline-block;
+}
+.header-logo span {
+  color: #B71757;
+  font-weight: 300;
+}
+.header-nav {
+  float: right;
+  margin: 5.4vh 3.6vw;
+}
+.nav-list li {
+  list-style-type: none;
+  display: inline-block;
+}
+.nav-list .nav-link {
+  text-decoration: none;
+  color: var(--link);
+  font-size: 1.2em;
+  font-weight: 300; 
+  padding: 0 1.35vw;
+}
+.nav-link:hover {
+  color: var(--link--hover);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .post-1 {
 	background: #B71757;
 }
 .post-2 {
@@ -27,6 +88,6 @@ body {
 }
 .post-5 {
 	background: #2d95bb;
-}
+} */
 
 /* Your styles go here */
