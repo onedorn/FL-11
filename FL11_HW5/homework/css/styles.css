@@ -71,33 +71,23 @@ header {
   grid-row: 1/3;
   display: flex;
 } 
-.switch:nth-child(even) .event-cover {
-  grid-column: 1;
-  text-align: right;
-} 
+
 .switch:nth-child(odd) .event-cover {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(1vh, auto));
+  grid-template-rows: repeat(2, minmax(1vw, auto));
   grid-column: 2;
   text-align: left;
-} 
-.switch:nth-child(odd) .event-time {
-  text-align: right;
-}
-.switch:nth-child(even) .event-time {
-  text-align: left;
-}
-
-
-.switch:nth-child(odd) .event-cover {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(1vh, auto));
-  grid-template-rows: repeat(2, minmax(1vw, auto));
 }
 .switch:nth-child(even) .event-cover {
   display: grid;
   grid-template-columns: repeat(4, minmax(1vh, auto));
   grid-template-rows: repeat(2, minmax(1vw, auto));
+  grid-column: 1;
+  text-align: right;
 }
 .switch:nth-child(odd) .event-time {
+  text-align: right;
   grid-column: 4/5;
   grid-row: 1/2;
   margin: 0;
@@ -106,6 +96,7 @@ header {
   padding-top: 2vh;
 }
 .switch:nth-child(even) .event-time {
+  text-align: left;
   grid-column: 1/2;
   grid-row: 1/2;
   margin: 0;
@@ -147,8 +138,12 @@ header {
   font-weight: 100;
   font-size: 1.7em;
 }
-
-
+.event-cover:hover,
+.event-photo:hover,
+.summery:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
 
 .event-one {
   background: #B71757;
@@ -171,6 +166,7 @@ header {
   display: grid;
   grid-template-columns: repeat(4, minmax(5.5vw, auto));
   grid-template-rows: repeat(2, minmax(6.2vw, auto));
+  
 }
 .heading {
   grid-column: 1/4;
