@@ -351,4 +351,13 @@ header {
   }
 }
 
-@media only screen and (max-width: 480px) {}
+@media only screen and (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  
+  .blog-news {
+    padding-bottom: 5%;
+  }
+}
