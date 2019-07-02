@@ -239,7 +239,6 @@ header {
   margin: 0;
 }
 
-
 @media screen and (max-width: 768px) {
   .header {
     text-align: center;
@@ -356,7 +355,6 @@ header {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
   }
-  
   .blog-news {
     padding-bottom: 5%;
   }
