@@ -4,17 +4,13 @@ let c = Number(window.prompt('Please, enter triangle side length "c"', '0'));
 
     if ( a + b <= c || a + c <= b || b + c <= a) {
         console.log("Triangle doesn't exist")
-    } else if ( a + b > c || a + c > b|| b + c > a) {
+    } else if ( a === b && b === c ) {
         console.log('Equivalent triangle')
     } else if ( a === b || b === c || a === c ) {
         console.log('Isosceles triangle')
     } else {
         console.log('Normal triangle')
     }
-
-    console.log(typeof a);
-    console.log(typeof b);
-    console.log(typeof c);
     
 
     
