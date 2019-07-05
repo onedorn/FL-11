@@ -13,16 +13,25 @@
     // }
     
 
-const sides = {
-  'a': +prompt('Please, enter triangle side length "a"', ''),
-  'b': +prompt('Please, enter triangle side length "b"', ''),
-  'c': +prompt('Please, enter triangle side length "c"', '')
-}
+// const sides = {
+//   'a': +prompt('Please, enter triangle side length "a"', ''),
+//   'b': +prompt('Please, enter triangle side length "b"', ''),
+//   'c': +prompt('Please, enter triangle side length "c"', '')
+// }
 
- if (isNaN(sides.a) || isNaN(sides.b) || isNaN(sides.c) ) {
-    prompt('Its not a number, bro')
+//  if (isNaN(sides.a) || isNaN(sides.b) || isNaN(sides.c) ) {
+//     prompt('Its not a number, bro')
+//   }
+
+
+const sides = [];
+
+  for ( let i = 0; i < 3; i++) {
+    sides.push(+prompt('Write below a triangle side length', ''));
   }
 
+console.log(sides);
+  
 
   
     

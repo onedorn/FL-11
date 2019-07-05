@@ -10,5 +10,7 @@ const coordinates = {
 let divide = 2;
 let A = (coordinates.a1 + coordinates.b1) / divide;
 let B = (coordinates.a2 + coordinates.b2) / divide;
+let C1 = coordinates.c1;
+let C2 = coordinates.c2;
 
-console.log(coordinates.c1 === A && coordinates.c2 === B ? 'true' : 'false');
+console.log(C1=== A && C2 === B ? 'true' : 'false');
