@@ -1,37 +1,31 @@
-// let a = Number(window.prompt('Please, enter triangle side length "a"', ''));
-// let b = Number(window.prompt('Please, enter triangle side length "b"', ''));
-// let c = Number(window.prompt('Please, enter triangle side length "c"', ''));
-
-    // if ( a + b <= c || a + c <= b || b + c <= a) {
-    //     console.log("Triangle doesn't exist")
-    // } else if ( a === b && b === c ) {
-    //     console.log('Equivalent triangle')
-    // } else if ( a === b || b === c || a === c ) {
-    //     console.log('Isosceles triangle')
-    // } else {
-    //     console.log('Normal triangle')
-    // }
-    
-
-// const sides = {
-//   'a': +prompt('Please, enter triangle side length "a"', ''),
-//   'b': +prompt('Please, enter triangle side length "b"', ''),
-//   'c': +prompt('Please, enter triangle side length "c"', '')
-// }
-
-//  if (isNaN(sides.a) || isNaN(sides.b) || isNaN(sides.c) ) {
-//     prompt('Its not a number, bro')
-//   }
-
-
 const sides = [];
 
-  for ( let i = 0; i < 3; i++) {
-    sides.push(+prompt('Write below a triangle side length', ''));
+for ( let i = 0; i < num; i++) {
+  sides.push(+prompt('Write below a triangle side length', ''));
+}
+
+let a = sides[0];
+let b = sides[1];
+let c = sides[two];
+let two = 2;
+let num = 3;
+
+  if ( isNaN(a) || isNaN(b) || isNaN(c)) {
+    prompt( 'Try again, enter some number!', '10');
+
+  } else if ( a + b <= c || a + c <= b || b + c <= a ) {
+    console.log("Triangle doesn't exist");
+
+  } else if ( a === b && b === c ) {
+    console.log('Equivalent triangle');
+
+  } else if ( a === b || b === c || a === c ) {
+    console.log('Isosceles triangle');
+
+  } else {
+    console.log('Normal triangle');
   }
 
-console.log(sides);
-  
 
   
     
