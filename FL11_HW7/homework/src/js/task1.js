@@ -41,6 +41,7 @@
 
 
 const email = prompt('Please, enter your "email" ', '');
+let password = '';
 
     // Step 1. Check login
     if (email === '' || email === null) {
@@ -50,16 +51,19 @@ const email = prompt('Please, enter your "email" ', '');
         alert("I don't know any emails having name length less than 6 symbols.");
 
     } else if (email === 'user@gmail.com' || email === 'admin@gmail.com') {
-        +prompt('Please, enter your password');
+       console.log( password = prompt('Please, enter your password'));
+       
+        // Step 2. Check password:
+        if (password === '' || password === null) {
+            alert('Canceled!');
+
+        } else if ( password === 'UserPass' || password === 'AdminPass') {
+            confirm('Do you want to change your password?');
+
+        } else {
+            alert('Wrong password');
+        }
 
     } else {
         alert("I don't know you!");
-    }
-
-
-const password = '';
-
-     // Step 2. Check password:
-    if (password === '' || password === null) {
-        alert('Canceled!');
     }
