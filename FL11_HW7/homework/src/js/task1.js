@@ -7,16 +7,33 @@ if (email === null || email === '') {
     alert(' “I don\'t know any emails having name length less than 6 symbols”. ');
 
 } else if (email === 'user@gmail.com' || email === 'admin@gmail.com') {
-    const password = prompt('Enter your password', '');
+    const password = +prompt('Enter your password', '');
 
     if (password === null || password === '') {
         alert('"Canceled"');
     } else if (password === 'UserPass' || password === 'AdminPass') {
-        alert('Logged in!')
-    } else {
-        alert('Wrong password');
-    }
+        let changePass = confirm('Do you want to change your password?', '');
+
+        if (changePass === false) {
+            alert( '“You have failed the change.” ');
+        } else if (changePass === true ) {
+            let oldPass = +prompt('STEP 2: \nWrite you old password.', '');
+            
+            if (oldPass <=5 ) {
+                alert('“It’s too short password. Sorry.”');
+            } else if (oldPass > 5) {
+                let newPass = +prompt('STEP 3: \n Create new password!', '');
+            } else if (newPass === password) {
+                prompt('Enter new password again');
+            } 
+
+        
+
+        } else {
+            alert('Wrong password');
+        }
 
 } else {
-    alert('"I don\'t know you! "');
+alert('"I don\'t know you! "');
+}
 }
