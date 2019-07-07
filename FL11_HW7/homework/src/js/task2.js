@@ -1,61 +1,55 @@
 let theGameStart = confirm( 'Do you want to play a game?' );
-let maxPrizes = 100;
-let integer = 8;
-let randomNumber = Math.floor( Math.random() * 9 );
-console.log(randomNumber);
-let totalPrize = 0;
+let magicNumbers = { 'randomLevelOne': 9, 'randomLevelTwo': 13, 'rangeInteger': 8, 'maxPrizeDivider': 2 };
+let gameSetUp = { 'maxPrize': 100, 'totalPrize': 0, 'maxAttempts': 3, 'maxPrizeReset': 100, 'multiplier': 2 };
 
- if (theGameStart === false) {
-   alert('You did not become a billionaire, but can.');
-  } else {
+if (theGameStart === false) {
+  alert( 'You did not become a billionaire, but can.' );
+} else {
+  
+  do {
+    
+      for ( gameSetUp.maxAttempts = 3; gameSetUp.maxAttempts > 0; gameSetUp.maxAttempts-- ) {
 
-    do {
-
-      for (let attempts = 3; attempts > 0; attempts--) {
-        let userGuess = +prompt(
-          `
-          Enter the number between 0 and ${integer}
-          Attempts left: ${attempts}
-          Total prize:  ${totalPrize}$
-          Possible prize on current attempt: ${maxPrizes}$
+        let randomNumber = Math.floor( Math.random() * magicNumbers.randomLevelOne );
+        let userGuess = +prompt( `
+          Enter the number between 0 and ${ magicNumbers.rangeInteger }
+          Attempts left: ${ gameSetUp.maxAttempts }
+          Total prize:  ${ gameSetUp.totalPrize }$
+          Possible prize on current attempt: ${ gameSetUp.maxPrize }$
           `, '');
 
-          if ( userGuess === randomNumber ) {
-            totalPrize += maxPrizes;  
-            maxPrizes = Math.floor(maxPrizes / 2);
-            theGameStart = 
-            confirm( `Congratulation, you won! Your prize is: ${totalPrize} $. Do you want to continue ?`);
-            
-            if(theGameStart) {
-              randomNumber = Math.floor( Math.random() * 13 );
-              console.log(randomNumber);
-              integer += 4;
-              maxPrizes = 100;
-              maxPrizes *= 2;
-              
-            } else {
-              alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
-              break;
-            }
+        if ( userGuess === randomNumber ) {
+          gameSetUp.totalPrize += gameSetUp.maxPrize;  
+          gameSetUp.maxPrize = Math.floor( gameSetUp.maxPrize / magicNumbers.maxPrizeDivider );
+          theGameStart = 
+          confirm( `Congratulation, you won! Your prize is: ${ gameSetUp.totalPrize } $. Do you want to continue ?`);
 
+          if( theGameStart ) {
+            randomNumber = Math.floor( Math.random() * magicNumbers.randomLevelTwo );
+            magicNumbers.rangeInteger = 8;
+            magicNumbers.rangeInteger += 4;
+            gameSetUp.maxPrize = gameSetUp.maxPrizeReset * gameSetUp.multiplier;
+            gameSetUp.maxAttempts = 4;
           } else {
-            maxPrizes = Math.floor(maxPrizes / 2);
+            alert(`Thank you for your participation. Your prize is: ${ gameSetUp.totalPrize }$`);
+            break;
           }
-
-          if( attempts === 1 ) {
-            alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
-            theGameStart = confirm('Do you want to play again?');
-            if(theGameStart) {
-              integer = 8;
-              totalPrize = 0;
-              maxPrizes = 100;
-            } else {
-              alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
-              theGameStart = false;
-            }
-          }
+        } else {
+          gameSetUp.maxPrize = Math.floor( gameSetUp.maxPrize / magicNumbers.maxPrizeDivider );
         }
 
-    } while (theGameStart);
-
+        if( gameSetUp.maxAttempts === 1 ) {
+          alert(`Thank you for your participation. Your prize is: ${ gameSetUp.totalPrize }$`);
+          theGameStart = confirm('Do you want to play again?');
+          if( theGameStart ) {
+            magicNumbers.rangeInteger = 8;
+            gameSetUp.totalPrize = 0;
+            gameSetUp.maxPrize = 100;
+          } else {
+            alert(`Thank you for your participation. Your prize is: ${ gameSetUp.totalPrize }$`);
+            theGameStart = false;
+          }
+        }
+      }
+    } while ( theGameStart );
   } 
