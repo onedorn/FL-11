@@ -1,42 +1,61 @@
-const game = confirm('Do you want to play a game?');
-let mathRange = 9;
-let maxInteger = 8;
-let rounds = 3;
-let counter = 1;
-let userGuess = '';
+let theGameStart = confirm( 'Do you want to play a game?' );
+let maxPrizes = 100;
+let integer = 8;
+let randomNumber = Math.floor( Math.random() * 9 );
+console.log(randomNumber);
+let totalPrize = 0;
 
+ if (theGameStart === false) {
+   alert('You did not become a billionaire, but can.');
+  } else {
 
-if ( game === false ) {
-  alert('You did not become a billionaire, but can.');
-} else {
-  
-  let randomNumber = Math.floor( Math.random() * mathRange );
-  let possiblePrize = 100;
-  let totalPrize = 0;
-  console.log(randomNumber);
+    do {
 
-  while ( userGuess !== randomNumber ) {
-    userGuess = +prompt(
-      `
-      Enter a number of pocket on which the ball could land 
-      Enter the number between 0 and ${maxInteger}
-      Attempts left: ${rounds}
-      Total prize:  ${totalPrize}$
-      Possible prize on current attempt: ${possiblePrize}$
-      `, '');
-      counter += 1;
-      
+      for (let attempts = 3; attempts > 0; attempts--) {
+        let userGuess = +prompt(
+          `
+          Enter the number between 0 and ${integer}
+          Attempts left: ${attempts}
+          Total prize:  ${totalPrize}$
+          Possible prize on current attempt: ${maxPrizes}$
+          `, '');
 
-      if (counter > rounds ) {
-        alert('You have any tries left.')
-        break;
-      } 
+          if ( userGuess === randomNumber ) {
+            totalPrize += maxPrizes;  
+            maxPrizes = Math.floor(maxPrizes / 2);
+            theGameStart = 
+            confirm( `Congratulation, you won! Your prize is: ${totalPrize} $. Do you want to continue ?`);
+            
+            if(theGameStart) {
+              randomNumber = Math.floor( Math.random() * 13 );
+              console.log(randomNumber);
+              integer += 4;
+              maxPrizes = 100;
+              maxPrizes *= 2;
+              
+            } else {
+              alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
+              break;
+            }
 
-      if (userGuess === randomNumber) {
-        alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
-        confirm('Do you want to play again?');
-      }
-  }
+          } else {
+            maxPrizes = Math.floor(maxPrizes / 2);
+          }
 
+          if( attempts === 1 ) {
+            alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
+            theGameStart = confirm('Do you want to play again?');
+            if(theGameStart) {
+              integer = 8;
+              totalPrize = 0;
+              maxPrizes = 100;
+            } else {
+              alert(`Thank you for your participation. Your prize is: ${totalPrize}$`);
+              theGameStart = false;
+            }
+          }
+        }
 
-}
+    } while (theGameStart);
+
+  } 
