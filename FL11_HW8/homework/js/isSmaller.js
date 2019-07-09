@@ -5,9 +5,8 @@ function isSmaller ( width, height ) {
 isSmaller( 4, 3 );
 isSmaller( 'age', 'name' );
 
-
 // Arrow function with parameters
-const isBiggerThen = ( speed, agility ) => speed < agility;
-isBiggerThen( null, 4 );
-isBiggerThen( 'age', 1 );
+const isSmallerThen = ( speed, agility ) => speed < agility;
+isSmallerThen( null, 4 );
+isSmallerThen( 'age', 1 );
 
