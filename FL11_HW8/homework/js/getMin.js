@@ -16,8 +16,8 @@ function getMin () {
   for (let i = 0; i < arguments.length; i++) {
     if( min > arguments[i]) {
         min = arguments[i];
-        return min;
-      }
+      return min;
     }
+  }
 }
 getMin( 3, -1, 2, 5, 9 );
