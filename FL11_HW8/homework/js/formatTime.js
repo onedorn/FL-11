@@ -1,4 +1,4 @@
-const reverseNumber = (x) => {
+const formatTime = (x) => {
     let d = Math.floor( x / (24 * 60)),
         h = Math.floor((x % (24 * 60)) / 60),
         m = Math.floor(( x % (24 * 60)) % 60);
@@ -7,7 +7,7 @@ const reverseNumber = (x) => {
     return result;
   }
   
-  reverseNumber(44567);
-  reverseNumber(6654);
-  reverseNumber(665);
+  formatTime(44567);
+  formatTime(6654);
+  formatTime(665);
   

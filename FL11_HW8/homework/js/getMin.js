@@ -3,6 +3,7 @@ const arr = [-1, 10, 17, 29, 35, 41, 50];
 const getTheSmallestNumber = () => Math.min( ...arr );
 getTheSmallestNumber();
 
+
 // Math.min with "Apply" method
 const listOfTheNumbers = [0, 10, 20, 30, 40, 50];
 function getMinNumFromArray () {
