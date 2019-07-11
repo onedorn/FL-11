@@ -3,10 +3,10 @@ function isSmaller ( width, height ) {
     return width < height;
 }
 isSmaller ( 4, 3 );
-isSmaller ( 'age', 'name' );
+isSmaller ( 2, 5 );
 
 // Arrow function with parameters
 const isSmallerThen = ( speed, agility ) => speed < agility;
-isSmallerThen ( null, 4 );
-isSmallerThen ( 'age', 1 );
+isSmallerThen ( -1, 4 );
+isSmallerThen ( 3, 1 );
 
