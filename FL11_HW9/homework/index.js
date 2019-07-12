@@ -35,5 +35,63 @@ const data = [
 
 // Your code goes here
 
+// Task 0.
+
+// function getNumbers (string) {
+//   let regExp = /\d+/g;
+//   let result = string.match(regExp);
+//   return result;
+// }
+
+// console.log(getNumbers('string'));
+// console.log(getNumbers('n1um3ber95'));
+
+// Task 1.
+function findTypes () {
+  const storage = [];
+  for(let i = 0; i < arguments.length; i++) {
+    storage.push(typeof arguments[i]);
+  }
+  return storage;
+}
+console.log(findTypes('number'));
+console.log(findTypes(null, 5, 'hello'));
 
 
+// Task 2. 
+
+function executeForeEach(array, func) {
+  for(let i = 0; i < array.length; i++){
+    func(array[i]);
+  }
+  return array;
+}
+console.log(executeForeEach([1, 2, 3], function(el) {
+  return el;
+}));
+
+// Task 3. 
+function mapArray (array, func) {
+  const storage = [];
+  executeForeEach(array, function(el) {
+    storage.push(func(el + 3));
+  })
+  return storage;
+}
+console.log(mapArray([2, 5, 8], function(el) {
+  return el;
+}))
+
+// Task 4.
+function filterArray(array, func) {
+  const filtered = [];
+  executeForeEach(array, function(el) {
+    if (func(el) > 3) {
+      filtered.push(el);
+    }
+  })
+  return filtered;
+}
+console.log(filterArray([2, 5, 8], function(el) {
+  return el;
+}));
