@@ -37,29 +37,30 @@ const data = [
 
 // Task 0.
 
-// function getNumbers (string) {
-//   let regExp = /\d+/g;
-//   let result = string.match(regExp);
-//   return result;
-// }
-
-// console.log(getNumbers('string'));
-// console.log(getNumbers('n1um3ber95'));
+function getNumbers (string) {
+  let arr = [];
+  for(let i = 0; i < string.length; i++){
+    if ( !isNaN(string[i])) {
+      arr.push(parseInt(string[i]));
+    }
+  }
+  return arr;
+}
+console.log(getNumbers('string'));
+console.log(getNumbers('n1um3ber95'));
 
 // Task 1.
 function findTypes () {
-  const storage = [];
+  const storage = {};
   for(let i = 0; i < arguments.length; i++) {
-    storage.push(typeof arguments[i]);
+      storage[i] = typeof arguments[i];
   }
   return storage;
 }
-console.log(findTypes('number'));
-console.log(findTypes(null, 5, 'hello'));
-
+console.log(findTypes('number')); //returns {“string”:1} 
+console.log(findTypes(null, 5, 'hello')); //returns {“object”:1, “number”:1, “string”:1}
 
 // Task 2. 
-
 function executeForeEach(array, func) {
   for(let i = 0; i < array.length; i++){
     func(array[i]);
@@ -74,29 +75,35 @@ console.log(executeForeEach([1, 2, 3], function(el) {
 function mapArray (array, func) {
   const storage = [];
   executeForeEach(array, function(el) {
-    storage.push(func(el + 3));
+    storage.push(func(el));
   })
   return storage;
 }
 console.log(mapArray([2, 5, 8], function(el) {
-  return el;
+  return el + 3;
 }))
 
 // Task 4.
 function filterArray(array, func) {
   const filtered = [];
   executeForeEach(array, function(el) {
-    if (func(el) > 3) {
+    if (func(el)) {
       filtered.push(el);
     }
   })
   return filtered;
 }
 console.log(filterArray([2, 5, 8], function(el) {
-  return el;
+  return el > 3;
 }));
 
 // Task 5.
+function formatedDate(date) {
+  const dt = date.toLocaleDateString('en-us', { month: 'short', day: '2-digit'});
+  return `Date: ${dt} ${date.getFullYear()}`;
+}
+console.log(formatedDate(new Date('2019-01-27T01:10:00'))); // returns ‘Date: Jan 27 2019’
+
 // Task 6.
 // Task 7.
 // Task 8.
