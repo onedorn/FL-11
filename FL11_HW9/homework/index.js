@@ -33,10 +33,7 @@ const data = [
   }
 ]
 
-// Your code goes here
-
-// Task 0.
-
+// Task 0. Write function, which returns array of numbers from string parameter.
 function getNumbers (string) {
   let arr = [];
   for(let i = 0; i < string.length; i++){
@@ -46,10 +43,8 @@ function getNumbers (string) {
   }
   return arr;
 }
-console.log(getNumbers('string'));
-console.log(getNumbers('n1um3ber95'));
 
-// Task 1.
+// Task 1. Write a function that could receive different amount of parameters and returns an object.
 function findTypes () {
   const storage = {};
   for(let i = 0; i < arguments.length; i++) {
@@ -60,18 +55,15 @@ function findTypes () {
 console.log(findTypes('number')); //returns {“string”:1} 
 console.log(findTypes(null, 5, 'hello')); //returns {“object”:1, “number”:1, “string”:1}
 
-// Task 2. 
+// Task 2. Write function, which iterates over array and executes function on each element.
 function executeForeEach(array, func) {
   for(let i = 0; i < array.length; i++){
     func(array[i]);
   }
   return array;
 }
-console.log(executeForeEach([1, 2, 3], function(el) {
-  return el;
-}));
 
-// Task 3. 
+// Task 3. Write function, which returns transformed array based on function, which passed as a parameter
 function mapArray (array, func) {
   const storage = [];
   executeForeEach(array, function(el) {
@@ -79,11 +71,8 @@ function mapArray (array, func) {
   })
   return storage;
 }
-console.log(mapArray([2, 5, 8], function(el) {
-  return el + 3;
-}))
 
-// Task 4.
+// Task 4. Write function, which returns filtered array based on function, which passed as a parameter. 
 function filterArray(array, func) {
   const filtered = [];
   executeForeEach(array, function(el) {
@@ -93,22 +82,40 @@ function filterArray(array, func) {
   })
   return filtered;
 }
-console.log(filterArray([2, 5, 8], function(el) {
-  return el > 3;
-}));
 
-// Task 5.
+// Task 5. Write function, which returns formatted date.
 function formatedDate(date) {
   const dt = date.toLocaleDateString('en-us', { month: 'short', day: '2-digit'});
   return `Date: ${dt} ${date.getFullYear()}`;
 }
-console.log(formatedDate(new Date('2019-01-27T01:10:00'))); // returns ‘Date: Jan 27 2019’
 
-// Task 6.
-// Task 7.
-// Task 8.
+// Task 6. Write function, which returns Boolean value, is received string parameter can be converted to valid date.
+function canConvertedToDate(date) {
+  const input = new Date(date);
+  return !isNaN(input);
+}
 
-// Task 9.
+// Task 7. Write function, which returns difference between two dates in days
+function daysBetween (dateOne, dateTwo) {
+  const ms = 1000,
+        sec = 60,
+        min = 60,
+        hrs = 24;
+  const start = new Date(dateOne),
+        end = new Date(dateTwo),
+        diff = end - start;
+  return Math.ceil(diff / (ms * sec * min * hrs));
+}
+
+// Task 8. Write function, which returns amount of people, who are over 18.
+function getAmountOfAdultPeople(data) {
+  let adults = 6570;  
+  return filterArray(data, 
+    people => daysBetween( new Date(), new Date(people.birthday)) > adults).length;
+}
+console.log(getAmountOfAdultPeople(data)); //return 3
+
+// Task 9. Write function, which returns array of keys of an object.
 function keys(object) {
   const keys = [];
   for( let prop in object) {
@@ -118,9 +125,8 @@ function keys(object) {
   }
   return keys;
 }
- console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
  
-// Task 10.
+// Task 10. Write function, which returns array of values of an object.
 function values(object) {
   let values = [];
   for( let val in object) {
@@ -130,4 +136,3 @@ function values(object) {
   }
   return values;
 }
- console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
