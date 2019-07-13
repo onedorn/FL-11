@@ -10,9 +10,3 @@ function getMin () {
 }
 
 getMin(0, -10, 2, -5, 10); // -10
-
-
-
-
-
-
