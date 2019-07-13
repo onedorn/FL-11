@@ -47,13 +47,17 @@ function getNumbers (string) {
 // Task 1. Write a function that could receive different amount of parameters and returns an object.
 function findTypes () {
   const storage = {};
+  let val;
   for(let i = 0; i < arguments.length; i++) {
-      storage[i] = typeof arguments[i];
+      val = typeof arguments[i];
+      if (storage.hasOwnProperty(val)) {
+        storage[val] += 1;
+      } else {
+        storage[val] = 1;
+      }
   }
   return storage;
 }
-console.log(findTypes('number')); //returns {“string”:1} 
-console.log(findTypes(null, 5, 'hello')); //returns {“object”:1, “number”:1, “string”:1}
 
 // Task 2. Write function, which iterates over array and executes function on each element.
 function executeForeEach(array, func) {
@@ -89,7 +93,7 @@ function formatedDate(date) {
   return `Date: ${dt} ${date.getFullYear()}`;
 }
 
-// Task 6. Write function, which returns Boolean value, is received string parameter can be converted to valid date.
+// Task 6. Write function, which returns Boolean value.
 function canConvertedToDate(date) {
   const input = new Date(date);
   return !isNaN(input);
@@ -109,11 +113,10 @@ function daysBetween (dateOne, dateTwo) {
 
 // Task 8. Write function, which returns amount of people, who are over 18.
 function getAmountOfAdultPeople(data) {
-  let adults = 6570;  
+  let years = 18, days = 365, adults = years * days;  
   return filterArray(data, 
-    people => daysBetween( new Date(), new Date(people.birthday)) > adults).length;
+    elem => daysBetween( new Date(elem.birthday), new Date()) > adults ).length;
 }
-console.log(getAmountOfAdultPeople(data)); //return 3
 
 // Task 9. Write function, which returns array of keys of an object.
 function keys(object) {
