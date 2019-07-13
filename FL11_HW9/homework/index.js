@@ -95,3 +95,32 @@ function filterArray(array, func) {
 console.log(filterArray([2, 5, 8], function(el) {
   return el;
 }));
+
+// Task 5.
+// Task 6.
+// Task 7.
+// Task 8.
+
+// Task 9.
+function keys(object) {
+  const keys = [];
+  for( let prop in object) {
+    if(Object.prototype.hasOwnProperty.call(object, prop)) {
+      keys.push(prop);
+    }
+  }
+  return keys;
+}
+ console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
+ 
+// Task 10.
+function values(object) {
+  let values = [];
+  for( let val in object) {
+    if (Object.prototype.hasOwnProperty.call(object, val)) {
+      values.push(object[val]);
+    }
+  }
+  return values;
+}
+ console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
