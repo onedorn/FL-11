@@ -1,2 +1,68 @@
 /* Your styles goes here */
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    margin: 0 auto;
+    max-width: 40%;
+}
+header {
+    text-align: center;
+    margin-top: 10%;
+}
+header h1 {
+    color: #34B0FE;
+    margin: 5% 0 3% 0;
+}
+header h1 span {
+    text-transform: uppercase;
+}
+header .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+header .search input {
+    width: 88%;
+    border: 1px solid #C8D0D8;
+    border-radius: 5px;;
+}
+input[placeholder] {
+    padding: 2%;
+    font-size: 12px;
+}
+.material-icons.add_box {
+    color: #C8D0D8;
+    margin-right: 3%;
+    font-size: 40px;
+}
+header hr {
+    border: 2px solid #E3F2FF;
+    border-radius: 10px;
+    margin: 3% 0;
+}
+main ul {
+    list-style-type: none;
+}
+main ul li > * {
+    display: inline-block;
+}
+main ul li #checkbox {
+    font-size: 20px;
+}
+main ul li span {
+    color: #589cc7;
+}
+main ul li .material-icons.edit {
+    color: #89C4F4;
+    font-size: 22px;
+}
+main ul li .material-icons.delete {
+    color: #89C4F4;
+    float: right;
+    margin-right: 2%;
+    font-size: 24px;
+}
