@@ -50,19 +50,40 @@ main ul {
 main ul li > * {
     display: inline-block;
 }
-main ul li #checkbox {
-    font-size: 20px;
+input[type="checkbox"] {
+    display: none;
 }
-main ul li span {
+main ul li label {
+    font-size: 1em;
     color: #589cc7;
 }
-main ul li .material-icons.edit {
-    color: #89C4F4;
-    font-size: 22px;
+label::before {
+    content: '';
+    display: inline-block;
+    vertical-align: top;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    border: 1px solid #C8D0D8;
+    transition: 0.2s;
 }
-main ul li .material-icons.delete {
+input[type="checkbox"]:checked + label::before {
+    background-color: #fa4545;
+    content: "\292C";
+    text-align: center;
+    color: #eee;
+    font-weight: 900;
+}
+.material-icons.edit {
+    color: #89C4F4;
+    font-size: 25px;
+    position: relative;
+    top: 7px;
+}
+.material-icons.delete {
     color: #89C4F4;
     float: right;
     margin-right: 2%;
     font-size: 24px;
+    cursor: pointer;
 }

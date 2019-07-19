@@ -8,7 +8,6 @@
 </head>
 <body>
   <div id="root">
-
     <header>
       <h1><span>Todo</span> Cat List</h1>
       <form class="search">
@@ -17,31 +16,28 @@
       </form>
       <hr>
     </header>
-    
     <main>
-      <ul>
+      <ul class="todos-list">
         <li>
-          <input type="checkbox" name="checkbox" id="checkbox">
-          <span>Find the cat</span>
+          <input type="checkbox" name="todo_list" id="checkbox-one">
+          <label for="checkbox-one">Find the cat</label>
           <i class="material-icons edit">edit</i>
           <i class="material-icons delete">delete</i>
         </li>
         <li>
-          <input type="checkbox" name="checkbox" id="checkbox">
-          <span>Prepare cat's carry</span>
+          <input type="checkbox" name="todo_list" id="checkbox-two">
+          <label for="checkbox-two">Prepare cat's carry</label>
           <i class="material-icons edit">edit</i>
           <i class="material-icons delete">delete</i>
         </li>
         <li>
-          <input type="checkbox" name="checkbox" id="checkbox">
-          <span>Bathe a cat</span>
+          <input type="checkbox" name="todo_list" id="checkbox-three">
+          <label for="checkbox-three">Bathe a cat</label>
           <i class="material-icons edit">edit</i>
           <i class="material-icons delete">delete</i>
         </li>
       </ul>
     </main>
-
-
   </div>
 
   <script src="./src/app.js"></script>
