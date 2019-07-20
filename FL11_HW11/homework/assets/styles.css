@@ -1,4 +1,3 @@
-/* Your styles goes here */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -41,16 +40,18 @@ input[placeholder] {
     padding: 2%;
     font-size: 12px;
 }
-.material-icons.add_box.disable {
-    color: #C8D0D8;
-    margin-right: 2%;
-    font-size: 40px;
-}
-.material-icons.add_box.active {
-    color: #5eb1f5;
-    margin-right: 2%;
-    font-size: 45px;
-
+button {
+    width: 35px;
+    height: 35px;
+    border-radius: 20%;
+    color: #fff;
+    outline: none;
+    background-color: #5eb1f5;
+    margin-right: 3%;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    /* border-style: none; */
 }
 header hr {
     border: 2px solid #E3F2FF;
@@ -94,6 +95,7 @@ input[type="checkbox"]:checked + label::before {
     font-size: 25px;
     position: relative;
     top: 7px;
+    cursor: pointer;
 }
 .material-icons.delete {
     color: #89C4F4;
@@ -102,3 +104,31 @@ input[type="checkbox"]:checked + label::before {
     font-size: 24px;
     cursor: pointer;
 }
+.material-icons.delete:hover {
+    color: #fc1111;
+    transition: 0.3s;
+    transform-origin: top center;
+    animation: swing 1s;
+}
+
+@keyframes swing {
+    20% {
+      transform: rotate3d(0, 0, 1, 15deg);
+    }
+  
+    40% {
+      transform: rotate3d(0, 0, 1, -10deg);
+    }
+  
+    60% {
+      transform: rotate3d(0, 0, 1, 5deg);
+    }
+  
+    80% {
+      transform: rotate3d(0, 0, 1, -5deg);
+    }
+  
+    to {
+      transform: rotate3d(0, 0, 1, 0deg);
+    }
+  }

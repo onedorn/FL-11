@@ -3,6 +3,9 @@ const todosList = document.querySelector('.todos-list');
 const addForm = document.querySelector('.search');
 const listItems = document.getElementsByTagName('li');
 const addTodo = document.querySelector('.add_box');
+const fieldInput = document.querySelector('.field');
+const notification = document.querySelector('.notification');
+const restriction = 9;
 
 // Add todos
 addTodo.addEventListener('click', e => {
@@ -12,8 +15,23 @@ addTodo.addEventListener('click', e => {
     generateTemplate(todo);
     addForm.reset();
   }
+  // Disabled button and notification
+  if (listItems.length >= restriction) {
+    fieldInput.setAttribute('disabled', 'true');
+    addTodo.setAttribute('disabled', '');
+    addTodo.style.backgroundColor = '#C8D0D8';
+    notification.style.opacity = '1';
+  }
 });
 
+// Delete todos
+todosList.addEventListener('click', e => {
+  if(e.target.classList.contains('delete')){
+    e.target.parentElement.remove();
+  }
+});
+
+// Generate todos
 const generateTemplate = todo => {
   const html = `
   <li>
@@ -24,16 +42,14 @@ const generateTemplate = todo => {
   </li>
   `;
   todosList.innerHTML += html;
-
-  // Create notification & disable button (if list full)
-  const notification = document.querySelector('.notification');
-  listItems.length > 9 ? notification.style.opacity = '1' : notification.style.opacity = '0';
 };
 
-// Delete todos
-todosList.addEventListener('click', e => {
-  if(e.target.classList.contains('delete')){
-    e.target.parentElement.remove();
-  }
-});
+
+// 
+// fieldInput.addEventListener('focus', function () {
+// })
+
+// fieldInput.addEventListener('blur', function () {
+// })
+
 
