@@ -8,14 +8,16 @@ const notification = document.querySelector('.notification');
 const restriction = 9;
 
 // Add todos
-addTodo.addEventListener('click', e => {
+addForm.addEventListener('submit', e => {
   e.preventDefault();
   const todo = addForm.search.value.trim();
   if(todo.length) {
+    addTodo.setAttribute('disabled', '');
+    addTodo.style.backgroundColor = '#C8D0D8';
     generateTemplate(todo);
     addForm.reset();
   }
-  // Disabled button and notification
+  // Full list and notification
   if (listItems.length >= restriction) {
     fieldInput.setAttribute('disabled', 'true');
     addTodo.setAttribute('disabled', '');
@@ -34,7 +36,7 @@ todosList.addEventListener('click', e => {
 // Generate todos
 const generateTemplate = todo => {
   const html = `
-  <li>
+  <li draggable="true">
     <input type="checkbox" name="todo_list" id="checkbox">
     <label for="checkbox">${todo}</label>
     <i class="material-icons edit">edit</i>
@@ -45,11 +47,11 @@ const generateTemplate = todo => {
 };
 
 
-// 
-// fieldInput.addEventListener('focus', function () {
-// })
+// Disabled button and opposite
+fieldInput.addEventListener('focus', function () {
+  addTodo.removeAttribute('disabled', '');
+  addTodo.style.backgroundColor = '#5eb1f5';
+})
 
-// fieldInput.addEventListener('blur', function () {
-// })
 
 
