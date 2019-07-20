@@ -14,7 +14,14 @@ header {
 }
 header h1 {
     color: #34B0FE;
-    margin: 5% 0 3% 0;
+    margin: 5% 0 1% 0;
+}
+.notification{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 10px;
+    background-color: #ff1c1cc4;
+    color: #fff;
+    opacity: 0;
 }
 header h1 span {
     text-transform: uppercase;
@@ -34,10 +41,16 @@ input[placeholder] {
     padding: 2%;
     font-size: 12px;
 }
-.material-icons.add_box {
+.material-icons.add_box.disable {
     color: #C8D0D8;
-    margin-right: 3%;
+    margin-right: 2%;
     font-size: 40px;
+}
+.material-icons.add_box.active {
+    color: #5eb1f5;
+    margin-right: 2%;
+    font-size: 45px;
+
 }
 header hr {
     border: 2px solid #E3F2FF;
@@ -52,10 +65,12 @@ main ul li > * {
 }
 input[type="checkbox"] {
     display: none;
+    zoom: 1.4;
+
 }
 main ul li label {
     font-size: 1em;
-    color: #589cc7;
+    color: #589cc7; 
 }
 label::before {
     content: '';
