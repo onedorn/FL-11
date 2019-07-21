@@ -51,7 +51,6 @@ button {
     font-size: 30px;
     font-weight: 500;
     cursor: pointer;
-    /* border-style: none; */
 }
 header hr {
     border: 2px solid #E3F2FF;
@@ -63,6 +62,14 @@ main ul {
 }
 main ul li > * {
     display: inline-block;
+}
+main ul li {
+    /* background-color: #e0e9f0;  */
+    /* margin-bottom: 5px;  */
+    cursor: grab;
+}
+main ul li:active {
+    cursor: grabbing;
 }
 input[type="checkbox"] {
     display: none;
@@ -133,3 +140,7 @@ input[type="checkbox"]:checked + label::before {
       transform: rotate3d(0, 0, 1, 0deg);
     }
   }
+.hovered {
+    background: #34B0FE;
+
+}

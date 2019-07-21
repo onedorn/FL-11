@@ -5,7 +5,7 @@ const listItems = document.getElementsByTagName('li');
 const addTodo = document.querySelector('.add_box');
 const fieldInput = document.querySelector('.field');
 const notification = document.querySelector('.notification');
-const restriction = 5;
+const restriction = 9;
 
 // Add todos
 addForm.addEventListener('submit', e => {
@@ -24,7 +24,6 @@ addForm.addEventListener('submit', e => {
     addTodo.style.backgroundColor = '#C8D0D8';
     notification.style.opacity = '1';
   } 
-  
 });
 
 // Delete todos
@@ -42,16 +41,15 @@ todosList.addEventListener('click', e => {
 // Generate todos
 const generateTemplate = todo => {
   const html = `
-  <li draggable="true">
-    <input type="checkbox" name="todo_list" id="checkbox">
-    <label for="checkbox">${todo}</label>
-    <i class="material-icons edit">edit</i>
-    <i class="material-icons delete">delete</i>
-  </li>
+    <li draggable="true" class="list-item">  
+      <input type="checkbox" name="todo_list" id="checkbox">
+      <label for="checkbox">${todo}</label>
+      <i class="material-icons edit">edit</i>
+      <i class="material-icons delete">delete</i>
+    </li>
   `;
   todosList.innerHTML += html;
 };
-
 
 // Disabled button and opposite
 fieldInput.addEventListener('focus', function () {
@@ -59,12 +57,28 @@ fieldInput.addEventListener('focus', function () {
   addTodo.style.backgroundColor = '#5eb1f5';
 })
 
-//Mark action as done. Marked action can’t be unchecked. 
-const checkbox = document.querySelectorAll('.checkbox');
+// Drag and drop todos
+let dragItem = null;
 
-function check() {
-  if (checkbox.checked === true) {
-    checkbox.setAttribute('checked', '');
+todosList.addEventListener('dragstart', function (e) {
+    dragItem = e.target;
+});
+
+todosList.addEventListener('dragleave', function (e) {
+  e.target.style.transform = '';
+});
+
+todosList.addEventListener('dragover', function (e) {
+  if(e.target.className === 'list-item'){
+    e.target.style.transform = 'translateX(10px)';
+    e.preventDefault();
   }
-}
-check();
+});
+
+todosList.addEventListener('drop', function (e) {
+  if(e.target.className === 'list-item'){
+    e.preventDefault();
+    todosList.insertBefore(dragItem, e.target);
+    e.target.style.transform = '';
+  }
+});
