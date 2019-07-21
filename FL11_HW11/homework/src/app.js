@@ -5,7 +5,7 @@ const listItems = document.getElementsByTagName('li');
 const addTodo = document.querySelector('.add_box');
 const fieldInput = document.querySelector('.field');
 const notification = document.querySelector('.notification');
-const restriction = 9;
+const restriction = 5;
 
 // Add todos
 addForm.addEventListener('submit', e => {
@@ -17,19 +17,25 @@ addForm.addEventListener('submit', e => {
     generateTemplate(todo);
     addForm.reset();
   }
-  // Full list and notification
+  // Disable input field if list equal 10 and show notification
   if (listItems.length >= restriction) {
     fieldInput.setAttribute('disabled', 'true');
     addTodo.setAttribute('disabled', '');
     addTodo.style.backgroundColor = '#C8D0D8';
     notification.style.opacity = '1';
-  }
+  } 
+  
 });
 
 // Delete todos
 todosList.addEventListener('click', e => {
   if(e.target.classList.contains('delete')){
     e.target.parentElement.remove();
+  }
+  // Enable input field if list less then 10 and hide notification
+  if (listItems.length < restriction){
+    fieldInput.removeAttribute('disabled', '');
+    notification.style.opacity = '0';
   }
 });
 
@@ -53,5 +59,12 @@ fieldInput.addEventListener('focus', function () {
   addTodo.style.backgroundColor = '#5eb1f5';
 })
 
+//Mark action as done. Marked action can’t be unchecked. 
+const checkbox = document.querySelectorAll('.checkbox');
 
-
+function check() {
+  if (checkbox.checked === true) {
+    checkbox.setAttribute('checked', '');
+  }
+}
+check();

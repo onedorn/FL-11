@@ -72,6 +72,7 @@ input[type="checkbox"] {
 main ul li label {
     font-size: 1em;
     color: #589cc7; 
+    cursor: pointer;
 }
 label::before {
     content: '';
