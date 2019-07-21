@@ -23,7 +23,11 @@ addForm.addEventListener('submit', e => {
     addTodo.setAttribute('disabled', '');
     addTodo.style.backgroundColor = '#C8D0D8';
     notification.style.opacity = '1';
+    notification.innerHTML = 'Maximum item per list are created ';
   } 
+  if(listItems.length < restriction) {
+    notification.style.opacity = '0';
+  }
 });
 
 // Delete todos
@@ -35,6 +39,10 @@ todosList.addEventListener('click', e => {
   if (listItems.length < restriction){
     fieldInput.removeAttribute('disabled', '');
     notification.style.opacity = '0';
+  } 
+  if (listItems.length === 0) {
+    notification.innerHTML = 'You have no left any of the todos in the list!';
+    notification.style.opacity = '1';
   }
 });
 
@@ -62,23 +70,23 @@ let dragItem = null;
 
 todosList.addEventListener('dragstart', function (e) {
     dragItem = e.target;
-});
-
-todosList.addEventListener('dragleave', function (e) {
-  e.target.style.transform = '';
-});
-
-todosList.addEventListener('dragover', function (e) {
-  if(e.target.className === 'list-item'){
-    e.target.style.transform = 'translateX(10px)';
-    e.preventDefault();
-  }
-});
-
-todosList.addEventListener('drop', function (e) {
-  if(e.target.className === 'list-item'){
-    e.preventDefault();
-    todosList.insertBefore(dragItem, e.target);
+  });
+  
+  todosList.addEventListener('dragleave', function (e) {
     e.target.style.transform = '';
+  });
+  
+  todosList.addEventListener('dragover', function (e) {
+    if(e.target.className === 'list-item'){
+      e.target.style.transform = 'translateX(10px)';
+      e.preventDefault();
+    }
+  });
+  
+  todosList.addEventListener('drop', function (e) {
+    if(e.target.className === 'list-item'){
+      e.preventDefault();
+      todosList.insertBefore(dragItem, e.target);
+      e.target.style.transform = '';
   }
 });

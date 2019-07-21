@@ -140,7 +140,3 @@ input[type="checkbox"]:checked + label::before {
       transform: rotate3d(0, 0, 1, 0deg);
     }
   }
-.hovered {
-    background: #34B0FE;
-
-}
