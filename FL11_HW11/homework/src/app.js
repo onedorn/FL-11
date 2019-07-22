@@ -63,6 +63,7 @@ const generateTemplate = todo => {
     </li>
   `;
   todosList.innerHTML += html;
+  keepCheckboxChecked();
 };
 
 // Disabled button and opposite
@@ -97,17 +98,6 @@ todosList.addEventListener('drop', function (e) {
     e.target.style.transform = '';
   }
 });
-
-// Checkbox can not be unchecked
-const box = document.querySelectorAll('.checked');
-for (let i = 0; i < box.length; i++) {
-  box[i].addEventListener('change', (e) => {
-    e.preventDefault();
-      if (box[i].checked) {
-          box[i].disabled = true;
-      }
-  })
-}
 
 // Edit action.
 todosList.addEventListener('click', e => {
@@ -144,3 +134,23 @@ todosList.addEventListener('click', e => {
     e.target.parentElement.innerHTML = html;
   }
 })
+
+// Checkbox can not be unchecked
+const keepCheckboxChecked = () => {
+const box = document.querySelectorAll('.checked');
+  for (let i = 0; i < box.length; i++) {
+    box[i].addEventListener('change', (e) => {
+      e.preventDefault();
+        if (box[i].checked) {
+            box[i].disabled = true;
+        }
+    })
+  }
+}
+keepCheckboxChecked();
+
+// Save todos to localStorage
+console.log(localStorage.setItem('todos', 'test'));
+
+// Get todos from localStorage
+console.log(localStorage)
