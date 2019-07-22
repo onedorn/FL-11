@@ -162,9 +162,3 @@ input[type="checkbox"]:checked + label::before {
     cursor: pointer;
     float: left;
 }
-
-.test {
-    display: flex;
-    align-items: center;
-    justify-items: flex-start;
-}

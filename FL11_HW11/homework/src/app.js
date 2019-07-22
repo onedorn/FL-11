@@ -111,12 +111,17 @@ for (let i = 0; i < box.length; i++) {
 
 // Edit action.
 todosList.addEventListener('click', e => {
-  const html = `
-    <input type="text" value="${0}" class="edit-todo">
-    <i class="material-icons save">save</i>
-  `;
   if(e.target.className === 'material-icons edit'){
+    const nonDrag = e.target.parentElement.parentElement;
+    nonDrag.removeAttribute('draggable', false);
+    const oldTodo = e.target.parentElement.children[1].textContent;
+    const html = `
+      <input type="text" value="${oldTodo}" class="edit-todo">
+      <i class="material-icons save">save</i>
+    `;
     e.target.parentNode.parentElement.innerHTML = html;
+    const save = document.querySelector('.save');
+    save.style.marginRight = '420px';
   }  
 })
 
@@ -124,10 +129,14 @@ todosList.addEventListener('click', e => {
 todosList.addEventListener('click', e => {
   if(e.target.className === 'material-icons save'){
     const editedTodo = document.querySelector('.edit-todo').value;
+    const uniqueID = e.target.parentNode.parentElement.children.length;
+    const dragAgain = e.target.parentElement;
+    dragAgain.setAttribute('draggable', true);
+    
     const html = `
       <div class="flex-wrap">
-        <input type="checkbox" name="todo_list" id="checkbox${0}" class="checked">
-        <label for="checkbox${0}">${editedTodo}</label>
+        <input type="checkbox" name="todo_list" id="new-checkbox${uniqueID}" class="checked">
+        <label for="new-checkbox${uniqueID}">${editedTodo}</label>
         <i class="material-icons edit">edit</i>
       </div>
       <i class="material-icons delete">delete</i>
