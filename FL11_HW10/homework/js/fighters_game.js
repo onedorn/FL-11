@@ -75,6 +75,7 @@ const battle = ( warriorOne, warriorTwo ) => {
   }
   warriorOne._health > 0 ? warriorOne.addWin() : warriorOne.addLoss();
   warriorTwo._health > 0 ? warriorTwo.addWin() : warriorTwo.addLoss();
+  
   console.log(mario);
   console.log(luigi);
   console.log('Mario current health level is ' + mario.getHealth());
