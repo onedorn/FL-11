@@ -111,7 +111,27 @@ for (let i = 0; i < box.length; i++) {
 
 // Edit action.
 todosList.addEventListener('click', e => {
-  console.log(e);
+  const html = `
+    <input type="text" value="${0}" class="edit-todo">
+    <i class="material-icons save">save</i>
+  `;
   if(e.target.className === 'material-icons edit'){
+    e.target.parentNode.parentElement.innerHTML = html;
   }  
+})
+
+// Save edited action
+todosList.addEventListener('click', e => {
+  if(e.target.className === 'material-icons save'){
+    const editedTodo = document.querySelector('.edit-todo').value;
+    const html = `
+      <div class="flex-wrap">
+        <input type="checkbox" name="todo_list" id="checkbox${0}" class="checked">
+        <label for="checkbox${0}">${editedTodo}</label>
+        <i class="material-icons edit">edit</i>
+      </div>
+      <i class="material-icons delete">delete</i>
+    `;
+    e.target.parentElement.innerHTML = html;
+  }
 })

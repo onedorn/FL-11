@@ -98,6 +98,7 @@ label::before {
     margin-right: 10px;
     border: 1px solid #C8D0D8;
     transition: 0.2s;
+    border-radius: 3px;
 }
 input[type="checkbox"]:checked + label::before {
     background-color: #fa4545;
@@ -105,6 +106,7 @@ input[type="checkbox"]:checked + label::before {
     text-align: center;
     color: #eee;
     font-weight: 900;
+    border-radius: 3px;
 }
 .material-icons.edit {
     color: #89C4F4;
@@ -147,3 +149,22 @@ input[type="checkbox"]:checked + label::before {
       transform: rotate3d(0, 0, 1, 0deg);
     }
   }
+.edit-todo {
+    border-style: none;
+    border: 1px solid #C8D0D8;
+    padding: 5px 10px;
+    margin-right: 7px;
+    border-radius: 5px;
+}
+
+.material-icons.save {
+    color: #5eb1f5;
+    cursor: pointer;
+    float: left;
+}
+
+.test {
+    display: flex;
+    align-items: center;
+    justify-items: flex-start;
+}
