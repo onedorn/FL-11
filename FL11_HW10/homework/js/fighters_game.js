@@ -1,23 +1,29 @@
+console.log(`
+ATTENTION!!! 
+My name Mario nad I'm real Italian savage,
+I dare you to fight with me, pathetic?
+`);
+
 const Fighter = class Fighter {
   constructor ({name, damage, health, agility}) {
-    this.name = name;
-    this.damage = damage;
-    this.health = health;
-    this.agility = agility;
-    this.wins = 0;
-    this.loses = 0;
+    this._name = name;
+    this._damage = damage;
+    this._health = health;
+    this._agility = agility;
+    this._wins = 0;
+    this._loses = 0;
   }
   getName() {
-    return this.name;
+    return this._name;
   }
   getDamage() {
-    return this.damage;
+    return this._damage;
   }
   getHealth() {
-    return this.health;
+    return this._health;
   }
   getAgility() {
-    return this.agility;
+    return this._agility;
   }
   attack ( defender ) {
     let totalSuccessOfAttack = 100;
@@ -25,31 +31,31 @@ const Fighter = class Fighter {
     let probabilityOfSuccess = Math.floor( Math.random() * totalSuccessOfAttack);
     if( probabilityOfSuccess <= successOfAttack ) {
       defender.dealDamage(this.getDamage());
-      console.log(`${this.name} make ${this.damage} damage to ${defender.name}`);
+      console.log(`${this._name} make ${this._damage} damage to ${defender._name}`);
     } else {
-      console.log(`${this.name} attack missed`);
+      console.log(`${this._name} attack missed`);
     }
   }
   dealDamage( damage ) {
-    this.health = this.health - damage;
-    this.health < 0 ? this.health = 0 : this.health - damage;
+    this._health = this._health - damage;
+    this._health < 0 ? this._health = 0 : this._health - damage;
   }
   logCombatHistory() {
-    let message = `Name: ${this.name}, Wins: ${this.wins}, Losses: ${this.loses}`;
+    let message = `Name: ${this._name}, Wins: ${this._wins}, Losses: ${this._loses}`;
     return console.log(message);
   }
   heal( healPoints ) {
     let totalHP = 100;
-    let currentHP = this.health;
+    let currentHP = this._health;
     let results = healPoints + currentHP;
-    results <= totalHP ? this.health += healPoints : console.log(`You can get only ${this.health = totalHP}`);
+    results <= totalHP ? this._health += healPoints : console.log(`You can get only ${this._health = totalHP}`);
   }
   addWin() {
-    let score = this.wins += 1;
+    let score = this._wins += 1;
     return score;
   }
   addLoss() {
-    let score = this.loses += 1;
+    let score = this._loses += 1;
     return score;
   }
 }
@@ -59,14 +65,20 @@ const luigi = new Fighter({name: 'Luigi', damage: 20, health: 100, agility: 50})
 
 const battle = ( warriorOne, warriorTwo ) => {
 
-  while (warriorOne.health > 0 && warriorTwo.health > 0) {
+  while (warriorOne._health > 0 && warriorTwo._health > 0) {
 
-    warriorOne.health > 0 || warriorTwo.health > 0 ? warriorOne.attack( warriorTwo ) : '';
-    warriorOne.health > 0 || warriorTwo.health > 0 ? warriorTwo.attack( warriorOne ) : '';
+    warriorOne._health > 0 || warriorTwo._health > 0 ? warriorOne.attack( warriorTwo ) : '';
+    warriorOne._health > 0 || warriorTwo._health > 0 ? warriorTwo.attack( warriorOne ) : '';
 
-    warriorOne.health === 0 ? console.log(`${warriorOne.name} is dead and can't fight!`) : '';
-    warriorTwo.health === 0 ? console.log(`${warriorTwo.name} is dead and can't fight!`) : '';
+    warriorOne._health === 0 ? console.log(`${warriorOne._name} is dead and can't fight!`) : '';
+    warriorTwo._health === 0 ? console.log(`${warriorTwo._name} is dead and can't fight!`) : '';
   }
-  warriorOne.health > 0 ? warriorOne.addWin() : warriorOne.addLoss();
-  warriorTwo.health > 0 ? warriorTwo.addWin() : warriorTwo.addLoss();
+  warriorOne._health > 0 ? warriorOne.addWin() : warriorOne.addLoss();
+  warriorTwo._health > 0 ? warriorTwo.addWin() : warriorTwo.addLoss();
+  console.log(mario);
+  console.log(luigi);
+  console.log('Mario current health level is ' + mario.getHealth());
+  console.log('Luigi current health level is ' + luigi.getHealth());
+  console.log(mario.logCombatHistory());
+  console.log(luigi.logCombatHistory());
 }
