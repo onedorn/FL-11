@@ -7,7 +7,6 @@ const fieldInput = document.querySelector('.field');
 const notification = document.querySelector('.notification');
 const edit = document.querySelectorAll('.edit');
 const restriction = 9;
-console.log(localStorage);
 
 // Add todos
 addForm.addEventListener('submit', e => {
@@ -52,11 +51,12 @@ todosList.addEventListener('click', e => {
 
 // Generate todos
 const generateTemplate = todo => {
+  const positionInTheList = document.querySelector('.todos-list').children.length;
   const html = `
     <li draggable="true" class="list-item">  
       <div class="flex-wrap">
-        <input type="checkbox" name="todo_list" id="checkbox">
-        <label for="checkbox">${todo}</label>
+        <input type="checkbox" name="todo_list" id="checkbox${positionInTheList}" class="checked">
+        <label for="checkbox${positionInTheList}">${todo}</label>
         <i class="material-icons edit">edit</i>
       </div>
       <i class="material-icons delete">delete</i>
@@ -76,19 +76,20 @@ let dragItem;
 
 todosList.addEventListener('dragstart', function (e) {
   dragItem = e.target;
-});
   
+});
+
 todosList.addEventListener('dragleave', function (e) {
   e.target.style.transform = '';
 });
-  
+
 todosList.addEventListener('dragover', function (e) {
   if(e.target.className === 'list-item'){
     e.target.style.transform = 'translateX(10px)';
     e.preventDefault();
   }
 });
-  
+
 todosList.addEventListener('drop', function (e) {
   if(e.target.className === 'list-item'){
     e.preventDefault();
@@ -97,12 +98,20 @@ todosList.addEventListener('drop', function (e) {
   }
 });
 
+// Checkbox can not be unchecked
+const box = document.querySelectorAll('.checked');
+for (let i = 0; i < box.length; i++) {
+  box[i].addEventListener('change', (e) => {
+    e.preventDefault();
+      if (box[i].checked) {
+          box[i].disabled = true;
+      }
+  })
+}
 
 // Edit action.
-
 todosList.addEventListener('click', e => {
+  console.log(e);
   if(e.target.className === 'material-icons edit'){
-    console.log(e.target);
-    
   }  
 })

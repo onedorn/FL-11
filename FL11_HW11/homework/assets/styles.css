@@ -66,8 +66,6 @@ main ul li > * {
     display: inline-block;
 }
 main ul li {
-    /* background-color: #e0e9f0;  */
-    /* margin-bottom: 5px;  */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -83,7 +81,7 @@ main ul li:active {
     cursor: grabbing;
 }
 input[type="checkbox"] {
-    /* display: none; */
+    display: none;
     zoom: 1.4;
 }
 main ul li label {
@@ -113,10 +111,10 @@ input[type="checkbox"]:checked + label::before {
     font-size: 25px;
     position: relative;
     cursor: pointer;
+    margin-left: 5px;
 }
 .material-icons.delete {
     color: #89C4F4;
-    /* float: right; */
     margin-right: 2%;
     font-size: 24px;
     cursor: pointer;
