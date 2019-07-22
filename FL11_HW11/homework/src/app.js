@@ -5,7 +5,9 @@ const listItems = document.getElementsByTagName('li');
 const addTodo = document.querySelector('.add_box');
 const fieldInput = document.querySelector('.field');
 const notification = document.querySelector('.notification');
+const edit = document.querySelectorAll('.edit');
 const restriction = 9;
+console.log(localStorage);
 
 // Add todos
 addForm.addEventListener('submit', e => {
@@ -23,6 +25,7 @@ addForm.addEventListener('submit', e => {
     addTodo.setAttribute('disabled', '');
     addTodo.style.backgroundColor = '#C8D0D8';
     notification.style.opacity = '1';
+    notification.style.transition = '0.5s';
     notification.innerHTML = 'Maximum item per list are created ';
   } 
   if(listItems.length < restriction) {
@@ -43,6 +46,7 @@ todosList.addEventListener('click', e => {
   if (listItems.length === 0) {
     notification.innerHTML = 'You have no left any of the todos in the list!';
     notification.style.opacity = '1';
+    notification.style.transition = '0.5s';
   }
 });
 
@@ -50,9 +54,11 @@ todosList.addEventListener('click', e => {
 const generateTemplate = todo => {
   const html = `
     <li draggable="true" class="list-item">  
-      <input type="checkbox" name="todo_list" id="checkbox">
-      <label for="checkbox">${todo}</label>
-      <i class="material-icons edit">edit</i>
+      <div class="flex-wrap">
+        <input type="checkbox" name="todo_list" id="checkbox">
+        <label for="checkbox">${todo}</label>
+        <i class="material-icons edit">edit</i>
+      </div>
       <i class="material-icons delete">delete</i>
     </li>
   `;
@@ -66,27 +72,37 @@ fieldInput.addEventListener('focus', function () {
 })
 
 // Drag and drop todos
-let dragItem = null;
+let dragItem;
 
 todosList.addEventListener('dragstart', function (e) {
-    dragItem = e.target;
-  });
+  dragItem = e.target;
+});
   
-  todosList.addEventListener('dragleave', function (e) {
-    e.target.style.transform = '';
-  });
+todosList.addEventListener('dragleave', function (e) {
+  e.target.style.transform = '';
+});
   
-  todosList.addEventListener('dragover', function (e) {
-    if(e.target.className === 'list-item'){
-      e.target.style.transform = 'translateX(10px)';
-      e.preventDefault();
-    }
-  });
-  
-  todosList.addEventListener('drop', function (e) {
-    if(e.target.className === 'list-item'){
-      e.preventDefault();
-      todosList.insertBefore(dragItem, e.target);
-      e.target.style.transform = '';
+todosList.addEventListener('dragover', function (e) {
+  if(e.target.className === 'list-item'){
+    e.target.style.transform = 'translateX(10px)';
+    e.preventDefault();
   }
 });
+  
+todosList.addEventListener('drop', function (e) {
+  if(e.target.className === 'list-item'){
+    e.preventDefault();
+    todosList.insertBefore(dragItem, e.target);
+    e.target.style.transform = '';
+  }
+});
+
+
+// Edit action.
+
+todosList.addEventListener('click', e => {
+  if(e.target.className === 'material-icons edit'){
+    console.log(e.target);
+    
+  }  
+})

@@ -18,8 +18,10 @@ header h1 {
 .notification{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-bottom: 10px;
-    background-color: #ff1c1cc4;
-    color: #fff;
+    padding: 5px 0;
+    background-color: #dd1313c0;
+    color: #fffbfb;
+    letter-spacing: 2px;
     opacity: 0;
 }
 header h1 span {
@@ -66,15 +68,23 @@ main ul li > * {
 main ul li {
     /* background-color: #e0e9f0;  */
     /* margin-bottom: 5px;  */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: grab;
+}
+main ul li .flex-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     cursor: grab;
 }
 main ul li:active {
     cursor: grabbing;
 }
 input[type="checkbox"] {
-    display: none;
+    /* display: none; */
     zoom: 1.4;
-
 }
 main ul li label {
     font-size: 1em;
@@ -102,12 +112,11 @@ input[type="checkbox"]:checked + label::before {
     color: #89C4F4;
     font-size: 25px;
     position: relative;
-    top: 7px;
     cursor: pointer;
 }
 .material-icons.delete {
     color: #89C4F4;
-    float: right;
+    /* float: right; */
     margin-right: 2%;
     font-size: 24px;
     cursor: pointer;
