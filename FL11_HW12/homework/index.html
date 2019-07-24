@@ -12,6 +12,25 @@
       <h1 class="add-new-task-heading">Simple <span>todo</span> application</h1>
       <button type="submit">Add new task</button>
       <h2 class="add-new-task-notification"><span>todo</span> is empty</h2>
+      <div class="container-of-todo">
+        <ul class="list-of-todo">
+          <li class="todo"> 
+            <input type="checkbox" name="todo-check" id="todo-check0">
+            <label for="todo-check0">Undefined</label>
+            <img class="delete" src="assets/img/remove-s.jpg" alt="delete-todo-icon">
+          </li>
+          <li class="todo"> 
+            <input type="checkbox" name="todo-check" id="todo-check1">
+            <label for="todo-check1">Boolean</label>
+            <img class="delete" src="assets/img/remove-s.jpg" alt="delete-todo-icon">
+          </li>
+          <li class="todo"> 
+            <input type="checkbox" name="todo-check" id="todo-check2">
+            <label for="todo-check2">Null</label>
+            <img class="delete" src="assets/img/remove-s.jpg" alt="delete-todo-icon">
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div class="add-task-form">
@@ -20,7 +39,7 @@
         <input type="text" name="create-task" id="create-task">
         <div class="button-wrap">
           <button>Cancel</button>
-          <button type="submit">Save changes</button>
+          <button class="save-changes">Save changes</button>
         </div>
       </form>
     </div>
