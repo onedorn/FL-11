@@ -74,10 +74,8 @@ fieldInput.addEventListener('focus', function () {
 
 // Drag and drop todos
 let dragItem;
-
 todosList.addEventListener('dragstart', function (e) {
   dragItem = e.target;
-  
 });
 
 todosList.addEventListener('dragleave', function (e) {
@@ -103,7 +101,7 @@ todosList.addEventListener('drop', function (e) {
 todosList.addEventListener('click', e => {
   if(e.target.className === 'material-icons edit'){
     const nonDrag = e.target.parentElement.parentElement;
-    nonDrag.removeAttribute('draggable', false);
+          nonDrag.removeAttribute('draggable', false);
     const oldTodo = e.target.parentElement.children[1].textContent;
     const html = `
       <input type="text" value="${oldTodo}" class="edit-todo">
@@ -118,10 +116,10 @@ todosList.addEventListener('click', e => {
 // Save edited action
 todosList.addEventListener('click', e => {
   if(e.target.className === 'material-icons save'){
-    const editedTodo = document.querySelector('.edit-todo').value;
-    const uniqueID = e.target.parentNode.parentElement.children.length;
-    const dragAgain = e.target.parentElement;
-    dragAgain.setAttribute('draggable', true);
+    const editedTodo = document.querySelector('.edit-todo').value,
+          uniqueID = e.target.parentNode.parentElement.children.length,
+          dragAgain = e.target.parentElement;
+          dragAgain.setAttribute('draggable', true);
     
     const html = `
       <div class="flex-wrap">
@@ -131,26 +129,30 @@ todosList.addEventListener('click', e => {
       </div>
       <i class="material-icons delete">delete</i>
     `;
-    e.target.parentElement.innerHTML = html;
+        e.target.parentElement.innerHTML = html;
+        keepCheckboxChecked();
   }
 })
 
 // Checkbox can not be unchecked
-const keepCheckboxChecked = () => {
 const box = document.querySelectorAll('.checked');
+const keepCheckboxChecked = () => {
+  const box = document.querySelectorAll('.checked');
   for (let i = 0; i < box.length; i++) {
     box[i].addEventListener('change', (e) => {
       e.preventDefault();
         if (box[i].checked) {
             box[i].disabled = true;
         }
-    })
+        // Save checkbox state to localStorage
+        if(box[i].checked) {
+          localStorage.setItem('isChecked', 'true')
+        }
+         // Get checkbox state from local Storage
+         if(localStorage.getItem('isChecked') === 'true') {
+          box[i].checked = 'true';
+        }
+      })
+    }
   }
-}
-keepCheckboxChecked();
-
-// Save todos to localStorage
-console.log(localStorage.setItem('todos', 'test'));
-
-// Get todos from localStorage
-console.log(localStorage)
+  keepCheckboxChecked();
