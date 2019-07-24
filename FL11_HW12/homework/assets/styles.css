@@ -14,7 +14,8 @@ body {
     /* display: none; */
 }
 .add-new-task-heading,
-.task-form-heading {
+.task-form-heading,
+.modify-todo-heading {
     font-size: 2.2em;
     margin: 5vh 0;
 }
@@ -41,14 +42,16 @@ body {
     text-transform: uppercase;
     font-size: 1.3em;
 }
-.add-task-form {
+.add-task-form,
+.modify-todo {
     display: flex;
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.add-task-form .create {
+.add-task-form .create,
+.modify-todo .create{
     width: 46.5%;
 }
 .button-wrap {
@@ -57,7 +60,8 @@ body {
     justify-content: space-between;
     width: 100%;
 }
-.add-task-form .create #create-task {
+.add-task-form .create #create-task,
+.modify-todo .create #create-task {
     padding: 2% 4%;
     width: 270px;
     border-radius: 10px;
