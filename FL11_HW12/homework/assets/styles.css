@@ -53,7 +53,7 @@ body {
     margin: 0 75px;
 }
 .add-task-form .create #create-task,
-.modify-todo .create #create-task {
+.modify-todo .create #create-task-new {
     padding: 2% 4%;
     width: 270px;
     border-radius: 10px;
