@@ -1,117 +1,123 @@
-const rootNode = document.getElementById('root');
-const todoItems = [
-  {isDone: false, id: 12345, description: 'Todo 1'}
-];
+const rootNode = document.querySelector('#root');
 
-// Add_new_task page 
-const add_new_task = document.querySelector('.add-new-task');
-const add_task_button = document.querySelector('button[type="submit"]');
-const list_of_todo = document.querySelector('.list-of-todo');
-const todo = document.querySelectorAll('.todo');
-const todo_text = document.querySelectorAll('.todo-text');
-const remove_todo = document.querySelectorAll('.delete');
-const notification = document.querySelector('.add-new-task-notification');
-const checkbox = document.querySelectorAll('.done');
+// Your code goes here
+const hash_for_main_page = location.hash = '';
+const add_new_item_hash = location.hash = '#/add';
+const modify_item_hash = location.hash = '#/modify/:item_id';
 
-// Add_task_form page
-const add_task_form = document.querySelector('.add-task-form');
-const create_form = document.querySelector('.create');
-const create_task = document.querySelector('#create-task');
-const save_changes = document.querySelector('.save-changes');
-const cancel = document.querySelector('.cancel');
+const if_hash_changed = () => {
+    if(location.hash === hash_for_main_page) {
+        create_main_page()
+    }
+    if(location.hash === add_new_item_hash) {
+        create_new_item_page()
+    }
+    if(location.hash === modify_item_hash) {
+        create_modify_item_page()
+    }
+}
 
-// Modify_todo page
-const modify_todo = document.querySelector('.modify-todo');
-const cancel_modify = document.querySelector('.cancel-modify');
-const save_modify = document.querySelector('.save-modify');
-let create_task_new = document.querySelector('#create-task-new');
+window.addEventListener('load', if_hash_changed);
+window.addEventListener('hashchange', if_hash_changed);
 
+const create_main_page = function() {
+    rootNode.innerHTML = '';
 
+    const header = create_element('h1', 'main-page-header', 'Simple TODO application');
+    const add_button = create_element('button', 'add-button', 'Add new task');
+    const empty_block = create_element('h2', 'empty-block', 'TODO is empty');
+    const danger = create_element('div', 'danger');
+    const danger_h3 = create_element('h3', 'danger-h3', 'Danger!');
+    const danger_p = create_element('p', 'danger-p', 'You can\'t add already exist item');
+    
+    danger.appendChild(danger_h3);
+    danger.appendChild(danger_p);
+    rootNode.appendChild(danger);
+    rootNode.appendChild(header);
+    rootNode.appendChild(add_button);
+    rootNode.appendChild(empty_block);
 
-// If list is empty check
-const empty_or_not = () => {
+}
 
-  if(list_of_todo.children.length) {
-    notification.style.display = 'none';
-  } else {
-    notification.style.display = 'block';
-  }
-}; empty_or_not()
+const create_new_item_page = function() {
+    rootNode.innerHTML = '';
 
-// Add task button
-add_task_button.addEventListener('click', () => {
-  if(add_task_button) {
-    add_new_task.style.display = 'none';
-    add_task_form.style.display = 'block';
-    create_form[0].setAttribute('autofocus', '');
-  }
-});
+    const header = create_element('h1', 'add-task-header', 'Add task');
+    const form = create_element('form', 'add-todos-form');
+    const input = create_element('input', 'add-task-input', '');
+    const container = create_element('div', 'btn-wrap');
+    const btn_cancel = create_element('button', 'cancel', 'Cancel');
+    const btn_save_changes = create_element('button', 'save-changes', 'Save changes');
 
-// Adding todos to the list or cancel operation
-save_changes.addEventListener('click', e => {
-  const user_input_value = create_task.value.trim();
-  e.preventDefault();
-  // Save changes button
-  if(user_input_value.length) {
-    generate_todo_template(user_input_value);
-    add_new_task.style.display = 'block';
-    add_task_form.style.display = 'none';
-    create_form.reset();
-    empty_or_not();
-  } 
-  // Cancel button
-  cancel.addEventListener('click', e => {
-    e.preventDefault();
-    add_new_task.style.display = 'block';
-    add_task_form.style.display = 'none';
-    create_form.reset();
-  });
-});
+    container.appendChild(btn_cancel);
+    container.appendChild(btn_save_changes);
+    form.appendChild(input);
+    form.appendChild(container);
+    rootNode.appendChild(header);
+    rootNode.appendChild(form);
 
-// Remove todo from the list
-list_of_todo.addEventListener('click', e => {
-  if(e.target.className === 'delete'){
-    e.target.parentElement.remove();
-    empty_or_not();
-  }
-});
+}
 
-// Generate html for todo item
-const generate_todo_template = (user_input_value) => {
-  const html = `
-    <li class="todo"> 
-      <input type="checkbox" name="todo-check" class="done">
-      <label class="todo-text">${user_input_value}</label>
-      <img class="delete" src="assets/img/remove-s.jpg">
-    </li>
-    `;
-  list_of_todo.innerHTML += html;
-};
+const create_modify_item_page = function() {
+    rootNode.innerHTML = '';
+
+    const header = create_element('h1', 'modify-item-header', 'Modify item');
+    const form = create_element('form', 'modify-todos-form');
+    const input = create_element('input', 'modify-item-input', '');
+    const container = create_element('div', 'btn-wrap');
+    const btn_cancel = create_element('button', 'cancel', 'Cancel');
+    const btn_save_changes = create_element('button', 'save-changes', 'Save changes');
+    const danger = create_element('div', 'danger');
+    const danger_h3 = create_element('h3', 'danger-h3', 'Danger!');
+    const danger_p = create_element('p', 'danger-p', 'You can\'t edit already done item');
+
+    danger.appendChild(danger_h3)
+    danger.appendChild(danger_p);
+    container.appendChild(btn_cancel);
+    container.appendChild(btn_save_changes);
+    form.appendChild(input);
+    form.appendChild(container);
+    rootNode.appendChild(danger);
+    rootNode.appendChild(header);
+    rootNode.appendChild(form);
+
+}
 
 
-// Modify todo page
-add_new_task.addEventListener('click', e => {
-  if (e.target.className === 'todo-text') {
-    add_new_task.style.display = 'none';
-    modify_todo.style.display = 'block';
-    const old_value = e.target.parentElement.children[1].textContent;
-    create_task_new.value = old_value;
-  }
-})
 
-modify_todo.addEventListener('click', e => {
-  e.preventDefault();
-  // Save changes
-  if (e.target.className === 'save-modify') {
-    add_new_task.style.display = 'block';
-    modify_todo.style.display = 'none';
-    const new_value = create_task_new.value.trim();
-    generate_todo_template(new_value);
-  } 
-  // Cancel changes
-  if (e.target.className === 'cancel-modify') {
-    add_new_task.style.display = 'block';
-    modify_todo.style.display = 'none';
-  }
-})
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const create_element = (tag, class_name, capture) => {
+    let element = document.createElement(tag);
+    if (class_name) {
+        element.className = class_name;
+    }
+    if (capture) {
+        element.innerHTML = capture;
+    }
+    return element;
+}

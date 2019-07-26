@@ -1,100 +1,56 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-body {
-    max-width: 100%;
+/* Your styles go here */
+#root {
+    margin: 0 auto;
     text-align: center;
 }
-#root {
-    max-width: 40%;
-    margin: 0 auto;
+/* Danger notification styling */
+.danger {
+    background-color:#FF5332;
+    color: #ffffff;
+    display: inline-block;
+    padding: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
-.modify-todo {
-    display: none;
+.danger-h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
 }
-.add-task-form {
-    display: none;
-}
-.add-new-task-heading,
-.task-form-heading,
-.modify-todo-heading {
-    font-size: 2.2em;
-    margin: 5vh 0;
-}
-.add-new-task span {
-    text-transform: uppercase;
-}
-.add-new-task button {
-    padding: 0.5% 3%;
-    border-radius: 10px;
-    outline: none;
-    font-size: 1.3em;
+.danger-h3::after { 
+    content: "\00D7";
+    font-size: 25px;
+    margin-left: 130px;
     cursor: pointer;
 }
-.add-new-task button:hover,
-.create button:hover {
-    background-color: rgb(85, 165, 240);
-    color: #fff;
+
+/* Main page */
+.add-button {
+    font-size: 20px;
+    padding: 3px 20px;
+    border-radius: 10px;
+    outline: none;
 }
-.add-new-task-notification {
-    margin: 3vh 0; 
+.empty-block {
     font-weight: 500;
-    display: none;
 }
-.add-new-task-notification span {
-    text-transform: uppercase;
-    font-size: 1.3em;
-}
-.button-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin: 0 75px;
-}
-.add-task-form .create #create-task,
-.modify-todo .create #create-task-new {
-    padding: 2% 4%;
-    width: 270px;
+
+/* Add new task page */
+.add-task-input,
+.modify-item-input {
+    width: 250px;
+    height: 30px;
     border-radius: 10px;
     outline: none;
-    margin-bottom: 15px; 
+    padding: 0 10px;
+    margin-bottom: 20px;
 }
-.create button {
-    font-size: 1.4em;
-    padding: 2px 6px;
+.cancel,
+.save-changes {
+    font-size: 20px; 
     border-radius: 10px;
-    outline: none;
 }
-.container-of-todo {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 3vh;   
-}
-.list-of-todo {
-    display: flex;
-    list-style-type: none;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.todo {
-    display: flex;
-    justify-content: space-between;
-    font-size: 25px;
-    align-items: center;
-    margin: 5px 0; 
-}
-input[type='checkbox'] {
-    content: url(img/todo-s.png);
-    zoom: 1.5;
-}
-input[type='checkbox']:checked {
-    content: url(img/done-s.png);
-    background-color: #aeaeae;
-} 
-.todo img {
-    width: 26px;
-}
-label {
-    padding: 0 60px;
+.save-changes {
+    margin-left: 53px;
 }
