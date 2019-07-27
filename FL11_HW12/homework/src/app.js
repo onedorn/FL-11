@@ -1,6 +1,7 @@
 const rootNode = document.querySelector('#root');
 
-// Your code goes here
+/************************* HASHING URL *****************************/
+
 const modify_item_hash = location.hash = '#/modify/:item_id';
 const add_new_item_hash = location.hash = '#/add';
 const hash_for_main_page = location.hash = '';
@@ -35,32 +36,87 @@ const if_hash_changed = () => {
 window.addEventListener('load', if_hash_changed);
 window.addEventListener('hashchange', if_hash_changed);
 
+/*************************LOCAL STORAGE *****************************/
+
+const ls_key_todo = 'todo_list'; 
+const ls_key_done = 'done_kist';
+
+const json_todo = localStorage.getItem(ls_key_todo);
+const json_done = localStorage.getItem(ls_key_done);
+
+const todo_item = JSON.parse(json_todo) || [];
+const done_item = JSON.parse(json_done) || [];
+ 
+function set_item_to_ls (arr, ls_key) {
+  localStorage.setItem(ls_key, JSON.stringify(arr));
+}
+
+/************************* RENDER MAIN PAGE *****************************/
+
 const create_main_page = function() {
   rootNode.innerHTML = '';
 
   const header = create_element('h1', 'main-page-header', 'Simple TODO application');
   const add_button = create_element('button', 'add-button', 'Add new task');
-  const empty_block = create_element('h2', 'empty-block', 'TODO is empty');
   const danger = create_element('div', 'danger');
   const danger_h3 = create_element('h3', 'danger-h3', 'Danger!');
   const danger_p = create_element('p', 'danger-p', 'You can\'t add already exist item');
   
   rootNode.appendChild(header);
   rootNode.appendChild(add_button);
-  rootNode.appendChild(empty_block);
   danger.appendChild(danger_h3);
   danger.appendChild(danger_p);
   rootNode.appendChild(danger);
+  
+  const render_todos = todo_item.concat(done_item);
+  
+  if (render_todos.length) {
+    const todo_list = create_element('ul');
+    rootNode.appendChild(todo_list);
+
+    render_todos.forEach( item => {
+      const todo_item = create_element('li', 'list-item');
+      todo_item.setAttribute('id', item.id);
+      todo_list.appendChild(todo_item);
+
+      const checkbox = create_element('img', 'checkbox');
+      todo_item.appendChild(checkbox);
+      
+      const todo_action = create_element('a', 'action-description', item.description);
+      todo_item.appendChild(todo_action);
+      todo_action.setAttribute('href', `${modify_item_hash}${item.id}`);
+
+      if(!item.isDone) {
+        checkbox.setAttribute('src', './assets/img/todo-s.png');
+      } else {
+        checkbox.setAttribute('src', './assets/img/done-s.png');
+        todo_action.style.backgroundColor = 'grey';
+      }
+      
+      checkbox.addEventListener('click', checked_or_not);
+
+      const remove = create_element('img', 'remove-todo');
+      remove.setAttribute('src', './assets/img/remove-s.jpg');
+      todo_item.appendChild(remove);
+      remove.addEventListener('click', remove_todos);
+
+    });
+  } else {
+    const empty_block = create_element('h2', 'empty-block', 'TODO is empty');
+    rootNode.appendChild(empty_block);
+  }
 
   add_button.addEventListener('click', set_hash_for_new_item_page);
 }
+
+/*********************** RENDER ADD NEW TASK PAGE ************************/
 
 const create_new_item_page = function() {
   rootNode.innerHTML = '';
 
   const header = create_element('h1', 'add-task-header', 'Add task');
   const form = create_element('form', 'add-todos-form');
-  const input = create_element('input', 'add-task-input', '');
+  const input = create_element('input', 'add-task-input');
   const container = create_element('div', 'btn-wrap');
   const btn_cancel = create_element('button', 'cancel', 'Cancel');
   const btn_save_changes = create_element('button', 'save-changes', 'Save changes');
@@ -72,7 +128,11 @@ const create_new_item_page = function() {
   rootNode.appendChild(header);
   rootNode.appendChild(form);
 
+  btn_cancel.addEventListener('click', set_hash_for_main_page);
+  btn_save_changes.addEventListener('click', render_new_todo);
 }
+
+/********************** RENDER MODIFY ITEM PAGE **************************/
 
 const create_modify_item_page = function() {
   rootNode.innerHTML = '';
@@ -96,10 +156,11 @@ const create_modify_item_page = function() {
   rootNode.appendChild(danger);
   rootNode.appendChild(header);
   rootNode.appendChild(form);
-
 }
+ 
+/*********************** GENERATE ELEMENTS ************************/
 
-const create_element = (tag, class_name, capture, id) => {
+const create_element = (tag, class_name, capture) => {
   let element = document.createElement(tag);
   if (class_name) {
     element.className = class_name;
@@ -107,8 +168,25 @@ const create_element = (tag, class_name, capture, id) => {
   if (capture) {
     element.innerHTML = capture;
   }
-  if (id) {
-    element.setAttribute('id', id);
-  }
   return element;
 }
+
+/*********************** ADD / REMOVE TODOS **********************/
+
+const render_new_todo = () => {
+  const user_input = document.querySelector('.add-task-input').value.trim();
+  if(user_input.length) {
+    todo_item.push( {isDone: false, id: generate_id(), description: user_input} );
+    set_item_to_ls(todo_item, ls_key_todo);
+    set_hash_for_main_page();
+  }
+}
+
+const generate_id = function () {
+  const ids = todo_item.concat(done_item).map((item) => item.id);
+  return ids.length ? 1 + Math.max(...ids) : 1;
+}
+const remove_todos = function () {}
+
+/************************* CHECKBOX *****************************/
+const checked_or_not = function () {}

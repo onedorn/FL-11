@@ -3,7 +3,6 @@
     margin: 0 auto;
     text-align: center;
 }
-/* Danger notification styling */
 .danger {
     background-color:#FF5332;
     color: #ffffff;
@@ -24,8 +23,6 @@
     margin-left: 130px;
     cursor: pointer;
 }
-
-/* Main page */
 .add-button {
     font-size: 20px;
     padding: 3px 20px;
@@ -34,8 +31,11 @@
 .empty-block {
     font-weight: 500;
 }
-
-/* Add new task page */
+.main-page-header,
+.add-task-header,
+.modify-item-header {
+    font-size: 2.4em;
+}
 .add-task-input,
 .modify-item-input {
     width: 250px;
@@ -52,4 +52,25 @@
 }
 .save-changes {
     margin-left: 53px;
+}
+ul {
+    list-style-type: none;
+    margin: 0 620px;
+    padding: 0;
+}
+.action-description {
+    text-decoration: none;
+    height: 20px;
+    padding: 5px 0;    
+    font-size: 25px;
+}
+.list-item {
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox, 
+.remove-todo {
+    width: 25px;
+    height: 25px;
 }
