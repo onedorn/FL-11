@@ -124,11 +124,21 @@ const create_new_item_page = function() {
 
 /********************** RENDER MODIFY ITEM PAGE **************************/
 const create_modify_item_page = function() {
+
+  const id = parseInt(location.hash.split('/').pop());
+  const todo_modify = todo_item.find(item => item.id === id);
+  if(!todo_modify) {
+      window.location.hash = hash_for_main_page;
+      return;
+  }
   rootNode.innerHTML = '';
 
   const header = create_element('h1', 'modify-item-header', 'Modify item');
   const form = create_element('form', 'modify-todos-form');
-  const input = create_element('input', 'modify-item-input', '');
+  const input = create_element('input', 'modify-item-input');
+  input.defaultValue = todo_modify.description;
+  console.log(input);
+  
   const container = create_element('div', 'btn-wrap');
   const btn_cancel = create_element('button', 'cancel', 'Cancel');
   const btn_save_changes = create_element('button', 'save-changes', 'Save changes');
