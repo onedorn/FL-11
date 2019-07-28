@@ -1,11 +1,10 @@
 const rootNode = document.querySelector('#root');
 const not_exist = -1;
-/************************* HASHING URL *****************************/
 
+/************************* HASHING URL *****************************/
 const modify_item_hash = location.hash = '#/modify/';
 const add_new_item_hash = location.hash = '#/add';
 const hash_for_main_page = location.hash = '';
-
 
 const set_hash_for_main_page = () => {
   window.location.hash = hash_for_main_page;
@@ -31,7 +30,6 @@ window.addEventListener('load', if_hash_changed);
 window.addEventListener('hashchange', if_hash_changed);
 
 /*************************LOCAL STORAGE *****************************/
-
 const ls_key_todo = 'todo_list'; 
 const ls_key_done = 'done_kist';
 
@@ -46,7 +44,6 @@ function set_item_to_ls (arr, ls_key) {
 }
 
 /************************* RENDER MAIN PAGE *****************************/
-
 const create_main_page = function() {
   rootNode.innerHTML = '';
 
@@ -78,7 +75,7 @@ const create_main_page = function() {
       
       let todo_action = create_element('a', 'action-description', item.description);
       todo_item.appendChild(todo_action);
-      todo_action.setAttribute('href', `${modify_item_hash}`);
+      todo_action.setAttribute('href', `${modify_item_hash}${item.id}`);
 
       if(!item.isDone) {
         checkbox.setAttribute('src', './assets/img/todo-s.png');
@@ -104,7 +101,6 @@ const create_main_page = function() {
 }
 
 /*********************** RENDER ADD NEW TASK PAGE ************************/
-
 const create_new_item_page = function() {
   rootNode.innerHTML = '';
 
@@ -127,7 +123,6 @@ const create_new_item_page = function() {
 }
 
 /********************** RENDER MODIFY ITEM PAGE **************************/
-
 const create_modify_item_page = function() {
   rootNode.innerHTML = '';
 
@@ -167,7 +162,6 @@ const save_modify_todo = () => {
 }
  
 /*********************** GENERATE ELEMENTS ************************/
-
 const create_element = (tag, class_name, capture) => {
   let element = document.createElement(tag);
   if (class_name) {
@@ -180,7 +174,6 @@ const create_element = (tag, class_name, capture) => {
 }
 
 /*********************** ADD / REMOVE TODOS **********************/
-
 const render_new_todo = () => {
   const user_input = document.querySelector('.add-task-input').value.trim();
   if(user_input.length) {
