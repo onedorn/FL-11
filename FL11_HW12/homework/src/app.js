@@ -1,24 +1,18 @@
 const rootNode = document.querySelector('#root');
-
+const not_exist = -1;
 /************************* HASHING URL *****************************/
 
-const modify_item_hash = location.hash = '#/modify/:item_id';
+const modify_item_hash = location.hash = '#/modify/';
 const add_new_item_hash = location.hash = '#/add';
 const hash_for_main_page = location.hash = '';
 
-const set_hash_for_main_page = (e) => {
+
+const set_hash_for_main_page = () => {
   window.location.hash = hash_for_main_page;
-  e.preventDefault();
 }
 
-const set_hash_for_new_item_page = (e) => {
+const set_hash_for_new_item_page = () => {
   window.location.hash = add_new_item_hash;
-  e.preventDefault();
-}
-
-const set_hash_for_modify_item_page = (e) => {
-  window.location.hash = modify_item_hash;
-  e.preventDefault();
 }
 
 const if_hash_changed = () => {
@@ -82,9 +76,9 @@ const create_main_page = function() {
       const checkbox = create_element('img', 'checkbox');
       todo_item.appendChild(checkbox);
       
-      const todo_action = create_element('a', 'action-description', item.description);
+      let todo_action = create_element('a', 'action-description', item.description);
       todo_item.appendChild(todo_action);
-      todo_action.setAttribute('href', `${modify_item_hash}${item.id}`);
+      todo_action.setAttribute('href', `${modify_item_hash}`);
 
       if(!item.isDone) {
         checkbox.setAttribute('src', './assets/img/todo-s.png');
@@ -156,6 +150,20 @@ const create_modify_item_page = function() {
   rootNode.appendChild(danger);
   rootNode.appendChild(header);
   rootNode.appendChild(form);
+
+  btn_cancel.addEventListener('click', set_hash_for_main_page);
+  btn_save_changes.addEventListener('click', save_modify_todo);
+
+}
+
+const save_modify_todo = () => {
+  const user_input = document.querySelector('.modify-item-input').value;
+  if(user_input.length) {
+    const id = parseInt(location.hash.split('/').pop());
+    todo_item.find(item => item.id === id).description = user_input;
+    set_item_to_ls(todo_item, ls_key_todo);
+    set_hash_for_main_page();
+  }
 }
  
 /*********************** GENERATE ELEMENTS ************************/
@@ -186,7 +194,42 @@ const generate_id = function () {
   const ids = todo_item.concat(done_item).map((item) => item.id);
   return ids.length ? 1 + Math.max(...ids) : 1;
 }
-const remove_todos = function () {}
+
+const remove_todos = function (e) {
+  const id = parseInt(e.target.parentNode.id);
+
+  const remove_from_todo = todo_item.findIndex(item => item.id === id);
+  if(remove_from_todo !== not_exist) {
+    todo_item.splice(remove_from_todo, 1);
+  }
+
+  const remove_from_done = done_item.findIndex(item => item.id === id);
+  if(remove_from_done !== not_exist) {
+    done_item.splice(remove_from_done, 1);
+  }
+
+  set_item_to_ls(todo_item, ls_key_todo);
+  set_item_to_ls(done_item, ls_key_done);
+
+  create_main_page();
+}
 
 /************************* CHECKBOX *****************************/
-const checked_or_not = function () {}
+const checked_or_not = function (e) {
+  const id = parseInt(e.target.parentNode.id);
+  const element_to_remove = todo_item.findIndex(item => item.id === id);
+
+  if (element_to_remove === not_exist) {
+    return;
+  }
+
+  const current_todo = todo_item[element_to_remove];
+  current_todo.isDone = true;
+  todo_item.splice(element_to_remove, 1);
+  done_item.push(current_todo);
+
+  set_item_to_ls(todo_item, ls_key_todo);
+  set_item_to_ls(done_item, ls_key_done);
+
+  create_main_page();
+}

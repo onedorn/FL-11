@@ -26,10 +26,12 @@
 .add-button {
     font-size: 20px;
     padding: 3px 20px;
+    margin-bottom: 20px; 
     border-radius: 10px;
 }
 .empty-block {
     font-weight: 500;
+    margin: 0;
 }
 .main-page-header,
 .add-task-header,
@@ -61,7 +63,8 @@ ul {
 .action-description {
     text-decoration: none;
     height: 20px;
-    padding: 5px 0;    
+    padding: 2px 0;    
+    width: 290px;
     font-size: 25px;
 }
 .list-item {
