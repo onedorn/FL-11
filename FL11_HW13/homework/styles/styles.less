@@ -1,23 +1,16 @@
 @import 'variables';
 @import 'mixin';
+@import 'navigation';
 
-
-#main-nav.collapse.navbar-collapse {
-  .navbar-nav.nav-fill {
-    .nav-item.active {
-      background-color: @blue;
-      .nav-link {
-        color: @white;
-      }
-    }
-    .nav-item {
-      .nav-link {
-        color: @nav-link;
-        &:hover {
-          background-color: @grey;
-          color: @white;
-        }
-      }
-    }
-  }
+.danger {
+ .fitness-class(@red);
+}
+.primary {
+ .fitness-class(@blue);
+}
+.success {
+ .fitness-class(@green);
+}
+.warning {
+  .fitness-class(@orange);
 }
