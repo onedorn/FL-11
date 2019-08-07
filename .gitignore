@@ -3,3 +3,4 @@ task/
 examples/
 node_modules/
 *.vscode
+.DS_Store
