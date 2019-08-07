@@ -1,2 +1,23 @@
 @import 'variables';
-@import 'mixins';
+@import 'mixin';
+
+
+#main-nav.collapse.navbar-collapse {
+  .navbar-nav.nav-fill {
+    .nav-item.active {
+      background-color: @blue;
+      .nav-link {
+        color: @white;
+      }
+    }
+    .nav-item {
+      .nav-link {
+        color: @nav-link;
+        &:hover {
+          background-color: @grey;
+          color: @white;
+        }
+      }
+    }
+  }
+}
