@@ -28,7 +28,7 @@
   <script src="js/bootstrap.min.js" defer></script>
   <script src="js/smoothscroll.js" defer></script>
   <script src="js/jquery.parallax.js" defer></script>
-  <script src="js/lazyload.min.js" async></script>
+  <script src="js/lazyload.min.js" defer></script>
   <!-- Custom Scripts -->
   <script src="js/custom.js" defer></script>
 
@@ -96,7 +96,11 @@
           <div class="blog-post-thumb">
             <div class="blog-post-image">
               <a href="#">
-                <img class="img-responsive" src="img/blog-image1.jpg" alt="Blog Image">
+                <picture>
+                  <source media="(max-width: 768px)" srcset="img/blog-image1-md.jpg">
+                  <source media="(max-width: 992px)" srcset="img/blog-image1-lg.jpg">
+                  <img class="img-responsive" src="img/blog-image1-xl.jpg" alt="Blog Image">
+                </picture>
               </a>
             </div>
             <div class="blog-post-title">
@@ -121,7 +125,11 @@
           <div class="blog-post-thumb">
             <div class="blog-post-image">
               <a href="#">
-                <img class="img-responsive" src="img/blog-image2.jpg" alt="Blog Image">
+                <picture>
+                  <source media="(max-width: 768px)" srcset="img/blog-image2-md.jpg">
+                  <source media="(max-width: 992px)" srcset="img/blog-image2-lg.jpg">
+                  <img class="img-responsive" src="img/blog-image2-xl.jpg" alt="Blog Image">
+                </picture>
               </a>
             </div>
             <div class="blog-post-title">
@@ -146,7 +154,11 @@
           <div class="blog-post-thumb">
             <div class="blog-post-image">
               <a href="#">
-                <img class="img-responsive" src="img/blog-image3.jpg" alt="Blog Image">
+                <picture>
+                  <source media="(max-width: 768px)" srcset="img/blog-image3-md.jpg">
+                  <source media="(max-width: 992px)" srcset="img/blog-image3-lg.jpg">
+                  <img class="img-responsive" src="img/blog-image3-xl.jpg" alt="Blog Image">
+                </picture>
               </a>
             </div>
             <div class="blog-post-title">
@@ -171,7 +183,11 @@
           <div class="blog-post-thumb">
             <div class="blog-post-image">
               <a href="#">
-                <img class="img-responsive" src="img/blog-image4.jpg" alt="Blog Image">
+                <picture>
+                  <source media="(max-width: 768px)" srcset="img/blog-image4-md.jpg">
+                  <source media="(max-width: 992px)" srcset="img/blog-image4-lg.jpg">
+                  <img class="img-responsive" src="img/blog-image4-xl.jpg" alt="Blog Image">
+                </picture>
               </a>
             </div>
             <div class="blog-post-title">
@@ -196,7 +212,11 @@
           <div class="blog-post-thumb">
             <div class="blog-post-image">
               <a href="#">
-                <img class="img-responsive" src="img/blog-image5.jpg" alt="Blog Image">
+                <picture>
+                  <source media="(max-width: 768px)" srcset="img/blog-image5-md.jpg">
+                  <source media="(max-width: 992px)" srcset="img/blog-image5-lg.jpg">
+                  <img class="img-responsive" src="img/blog-image5-xl.jpg" alt="Blog Image">
+                </picture>
               </a>
             </div>
             <div class="blog-post-title">
