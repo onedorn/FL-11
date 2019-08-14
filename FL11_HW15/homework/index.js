@@ -1,7 +1,10 @@
 // Create function constructor with props
 function Hamburger(type, calories) {
   let execute = false;
-  let tomato = 0;
+  let secret = [];
+  let tomato = [];
+
+  // Hidden property from developers
   let _calories = calories;
   this.type = type
 
@@ -26,14 +29,28 @@ function Hamburger(type, calories) {
 
   // Implement method addTomato.
   this.addTomato = function () {
-    if(tomato < 2) {
-      tomato++;
-      return this.setCalories(20);
-    } else {
+    if(tomato.length < 2) {
+      tomato.push(`${this.setCalories(20)} calories`);
+      return this.getCalories();
+    } 
+    if(tomato.length >= 2) {
       console.log('Sorry, you can add tomato only twice!');
+    }
+  }
+
+  // Implement method addSecretIngredient.
+  this.addSecretIngredient = function () {
+    if (execute === false && tomato.length === 0) {
+      if(!secret.length) {
+        return secret.push(this.setCalories(100));
+      }
+      if (secret.length) {
+        console.log('Sorry, you can add secret ingredient only once');
+      } 
     }
   }
 }
 
 const myHamburger = new Hamburger('classic', 600);
 console.log(myHamburger);
+
