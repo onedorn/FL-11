@@ -1,13 +1,14 @@
 // Create function constructor with props
-function Hamburger(type, calories, special ) {
-  let execute = false;
+function Hamburger(type, calories, special_ingredient ) {
+  let cheese = [];
   let secret = [];
   let tomato = [];
+  let stomach = [];
 
   // Hidden property from developers
   let _calories = calories;
   this.type = type, 
-  this.special = special
+  this.special_ingredient = special_ingredient
 
   // Create two methods to work with props
   this.getCalories = function() {
@@ -19,55 +20,74 @@ function Hamburger(type, calories, special ) {
   
   // Implement method addCheese.
   this.addCheese = function () {
-    if(execute === false) {
-      execute = true;
-      return this.setCalories(120);
-    } 
-    if(execute === true) {
-     return 'Sorry, you can add cheese only once!';
+    if (!stomach.length) {
+
+      if(!cheese.length) {
+        cheese.push(this.setCalories(120));
+        return this.getCalories();
+      } 
+      if(cheese.length) {
+       return 'Sorry, you can add cheese only once!';
+      }
+
+    } else {
+      return `It's a bit late for extra cheese!`;
     }
   }
 
   // Implement method addTomato.
   this.addTomato = function () {
-    if(tomato.length < 2) {
-      tomato.push(this.setCalories(20));
-      return this.getCalories();
-    } 
-    if(tomato.length >= 2) {
-      return 'Sorry, you can add tomato only twice!';
+    if (!stomach.length) {
+      
+      if(tomato.length < 2) {
+        tomato.push(this.setCalories(20));
+        return this.getCalories();
+      } 
+      if(tomato.length >= 2) {
+        return 'Sorry, you can add tomato only twice!';
+      }
+
+    } else {
+      return `It's a bit late for extra tomato!`;
     }
   }
 
   // Implement method addSecretIngredient.
   this.addSecretIngredient = function () {
-
-    if (execute === false && tomato.length === 0) {
-      if(!secret.length) {
-        secret.push(this.setCalories(100));
-        return this.getCalories();
+    if(!stomach.length) {
+      
+      if (!cheese.length && tomato.length === 0) {
+        if(!secret.length) {
+          secret.push(this.setCalories(100));
+          return this.getCalories();
+        }
+        if (secret.length) {
+          return 'Sorry, you can add secret ingredient only once';
+        };
       }
-      if (secret.length) {
-        return 'Sorry, you can add secret ingredient only once';
-      };
+      if (cheese.length || tomato.length) {
+        return `
+          Secret ingredient always goes first!
+          If you want to add some "special ingredient" - 
+          you have to add "special" before all other "ingredients"!           
+        `;
+      }
+      
+    } else {
+      return `It's a bit late for secret ingredient!`;
     }
-
-    console.error(`
-    Secret ingredient always goes first!
-    If you want to try something "special" - 
-    you have to add "special" before all other ingredients!           
-    `);
   }
 
-  // Automatically add secret ingredient with third argument
-  if (special) {
+  // Automatically add secret ingredient via third argument
+  if (special_ingredient) {
     secret.push(this.setCalories(100));
-    special = false;
+    special_ingredient = false;
   }
 
   // Implement method bite.
   this.bite = function () {
-    
+    stomach.push(this.getCalories());
+    return `You have bitten ${stomach.length} times!`
   }
 
   // Implement method info.
