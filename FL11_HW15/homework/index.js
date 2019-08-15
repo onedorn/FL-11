@@ -67,12 +67,13 @@ function Hamburger(type, calories, special_ingredient ) {
       }
       if (cheese.length || tomato.length) {
         return `
-          Secret ingredient always goes first!
-          If you want to add some "special ingredient" - 
-          you have to add "special" before all other "ingredients"!           
-        `;
+      Secret ingredient always goes first!
+      If you want to add some "special ingredient" - 
+      you have to add "special" before all other "ingredients"!  
+
+`;
       }
-      
+
     } else {
       return `It's a bit late for secret ingredient!`;
     }
@@ -92,10 +93,16 @@ function Hamburger(type, calories, special_ingredient ) {
 
   // Implement method info.
   this.info = function() {
+    const report = `
+      Classic hamburger: ${secret.length ? 'with secret ingredient' : 'without secret ingredient'}, 
+      ${cheese.length ? 'with cheese' : 'without cheese'}, with ${tomato.length} tomato, 
+      is bit ${stomach.length} times. Total calories ${_calories};
 
+`;  
+    return report;
   }
 }
 
-const myHamburger = new Hamburger('classic', 600);
+const myHamburger = new Hamburger('classic', 600, true);
 console.log(myHamburger);
 
