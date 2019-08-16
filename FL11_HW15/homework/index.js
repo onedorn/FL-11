@@ -1,5 +1,5 @@
 // Create function constructor with props
-function Hamburger(type, calories, special_ingredient ) {
+function Hamburger(type, calories, special_ingredient = false) {
   let cheese = [];
   let secret = [];
   let tomato = [];
@@ -95,7 +95,7 @@ function Hamburger(type, calories, special_ingredient ) {
   // Implement method info.
   this.info = function() {
     const report = `
-      Classic hamburger: ${secret.length ? 'with secret ingredient' : 'without secret ingredient'}, 
+      ${type} hamburger: ${secret.length ? 'with secret ingredient' : 'without secret ingredient'}, 
       ${cheese.length ? 'with cheese' : 'without cheese'}, with ${tomato.length} tomato, 
       is bit ${stomach.length} times. Total calories ${_calories};
 
@@ -106,7 +106,7 @@ function Hamburger(type, calories, special_ingredient ) {
 
 
 // Task 1
-const myHamburger = new Hamburger('classic', 600);
+const myHamburger = new Hamburger('Vegetarian', 600);
 console.log(myHamburger); 
 
 /*
