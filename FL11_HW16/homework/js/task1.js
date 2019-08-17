@@ -1,5 +1,4 @@
 // 	Create your own assign method which mimics Object.assign.
-
 const course = {
   name: 'Front-End JavaScript',
   score: 57
@@ -9,7 +8,7 @@ const grade = {
   score: 90
 };
 
-const assign = function(wrapper, ...merging_args) {
+function assign(wrapper, ...merging_args) {
   let main_wrapper = Object(wrapper);
   for (let i = 0; i < merging_args.length; i++) {
     const element = merging_args[i];
@@ -22,4 +21,4 @@ const assign = function(wrapper, ...merging_args) {
   return main_wrapper;
 }
 
-console.log(assign({}, course, grade, {teacher: 'Oleg Kustov'}));
+console.log(assign({}, course, grade, {teacher: 'Oleg Kustov'})); 
