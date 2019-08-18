@@ -10,8 +10,10 @@ const grade = {
 
 function assign(wrapper, ...merging_args) {
   let main_wrapper = Object(wrapper);
+
   for (let i = 0; i < merging_args.length; i++) {
     const element = merging_args[i];
+    
     for (let key in element) {
       if (Object.prototype.hasOwnProperty.call(element, key)) {
         main_wrapper[key] = element[key];

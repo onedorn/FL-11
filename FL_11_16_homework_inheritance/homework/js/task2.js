@@ -1,7 +1,7 @@
 // Create your own Object.create method which mimics Object.create.
 const create = function(original, defineNewProps) {
   const Copy = function() {
-    //There is a copy of original object
+    //There is a copy of original object.
   }
   Copy.prototype = original;
 
