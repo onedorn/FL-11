@@ -1,8 +1,9 @@
-function Blueprint (name, type, specie, wings = false) {
+function Blueprint (name, type, specie, Next_pokemon, wings = false) {
     this.name = name;
     this.type = type;
     this.specie = specie;
     this.wings = wings;
+    this.Next_pokemon = Next_pokemon;
 }
 
 Blueprint.prototype.getType = function () {
@@ -22,50 +23,42 @@ Blueprint.prototype.getSpecie = function () {
 }
 
 Blueprint.prototype.evolve = function () {
-    return 'Hello from this page'
+    if(this instanceof this.Next_pokemon) {
+        return this;
+    }
+    return new this.Next_pokemon();
 }
 
 const Charmander = function () {
-    return Blueprint.call(this, 'Charmander', 'Fire', 'Lizard Pokemon');
+    return Blueprint.call(this, 'Charmander', 'Fire', 'Lizard Pokemon', Charmeleon);
 }
-
-Charmander.prototype = Blueprint.prototype;
-Charmander.prototype.constructor = Charmander;
 
 const Charmeleon = function () {
-    return Blueprint.call(this, 'Charmeleon', 'Fire', 'Flame Pokémon');
+    return Blueprint.call(this, 'Charmeleon', 'Fire', 'Flame Pokémon', Charizard);
 }
-
-Charmeleon.prototype = Charmander.prototype;
-Charmeleon.prototype.constructor = Charmeleon;
 
 const Charizard = function () {
-    return Blueprint.call(this, 'Charizard', 'Fire', 'Flame Pokémon', true);
+    return Blueprint.call(this, 'Charizard', 'Fire', 'Flame Pokémon', Charizard, true);
 }
-
-Charizard.prototype = Charmeleon.prototype;
-Charizard.prototype.constructor = Charizard;
 
 const Pichu = function () {
-    return Object.assign(this, new Blueprint('Pichu', 'Electric', 'Mouse Pokémon'));
+    return Blueprint.call(this, 'Pichu', 'Electric', 'Mouse Pokémon', Pikachu);
 }
-
-Pichu.prototype = Charizard.prototype;
-Pichu.prototype.constructor = Pichu;
 
 const Pikachu = function () {
-    return Object.assign(this, new Blueprint('Pikachu', 'Electric', 'Mouse Pokémon'));
+    return Blueprint.call(this, 'Pikachu', 'Electric', 'Mouse Pokémon', Raichu);
 }
-
-Pikachu.prototype = Pichu.prototype;
-Pikachu.prototype.constructor = Pikachu;
 
 const Raichu = function () {
-    return Object.assign(this, new Blueprint('Raichu', 'Electric', 'Mouse Pokémon'));
+    return Blueprint.call(this, 'Raichu', 'Electric', 'Mouse Pokémon', Raichu);
 }
 
-Raichu.prototype = Pikachu.prototype;
-Raichu.prototype.constructor = Raichu;
+Object.assign(Charmander.prototype, Blueprint.prototype);
+Object.assign(Charmeleon.prototype, Blueprint.prototype);
+Object.assign(Charizard.prototype, Blueprint.prototype);
+Object.assign(Pichu.prototype, Blueprint.prototype);
+Object.assign(Pikachu.prototype, Blueprint.prototype);
+Object.assign(Raichu.prototype, Blueprint.prototype);
 
 const charmander = new Charmander();
 const charmeleon = new Charmeleon();
