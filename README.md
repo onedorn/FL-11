@@ -1,9 +1,9 @@
-**[EPAM Univeristy Programm]** [FE Kyiv]
+**[EPAM University Program]** [FE Kyiv]
 > #### This repository exists for technical communication with teachers and mentors.
 ### Assume this is a place for further:
 - [x] Start...
-- [ ] Homeworks
-- [ ] Individual tasks
-- [ ] Group tasks
+- [x] Homeworks
+- [x] Individual tasks
+- [x] Group tasks
 - [ ] Project
-### `Loking forward to joing this party!`
+### `Looking forward to join this party!`
