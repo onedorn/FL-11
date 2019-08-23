@@ -1,0 +1,39 @@
+html {
+    max-width: 80%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} 
+
+h1 {
+    display: inline-block;
+}
+
+input {
+    height: 35px;
+    padding: 0 2%;
+    border-radius: 5px;
+    border-style: hidden;
+    background: #85247d;
+    color: #fff;
+    outline: none;
+    margin: 0 0 2% 0;
+}
+
+.users-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.user-list {
+    list-style-type: none;
+}
+
+.user-list li {
+    margin: 2px;
+}
