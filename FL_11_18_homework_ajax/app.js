@@ -6,58 +6,61 @@ window.onload = async function() {
     users_list.innerHTML = '';
     for (let i = 0; i < users.length; i++) {
 
-        let div = document.createElement('div');
-        div.classList.add('card', 'mb-2', 'user');
-        div.id = `user_${users[i].id}`;
+      let div = document.createElement('div');
+      div.classList.add('card', 'mb-2', 'user');
+      div.id = `user_${users[i].id}`;
 
-        let html = `
-          <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="#" class="user-photo card-img fluid-img" alt="users-users">
+      let html = `
+        <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="#" class="user-photo card-img fluid-img" alt="users-users">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <button type="button" class="btn btn-light user-name mb-2">${users[i].name}</button>
+            <p class="card-text">${users[i].address.city}, ${users[i].address.street}</p>
+            <p class="card-text">${users[i].company.name}</p>
+            <p class="card-text"><small class="text-muted">${users[i].email }</small></p>
+            <button type="button" class="delete btn btn-secondary float-right mr-2">Delete user</button>
+            <button type="button" class="edit btn btn-light float-right mr-4 mb-4">Edit user</button>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title user-name">${users[i].name}</h5>
-              <p class="card-text">${users[i].address.city}, ${users[i].address.street}</p>
-              <p class="card-text">${users[i].company.name}</p>
-              <p class="card-text"><small class="text-muted">${users[i].email }</small></p>
-              <button type="button" class="delete btn btn-secondary float-right">Delete user</button>
-              <button type="button" class="edit btn btn-light float-right mr-4">Edit user</button>
-            </div>
-          </div>
-          </div>
-          <ul class="posts-list list-group"></ul>
-        `;
-        div.innerHTML += html;
+        </div>
+        </div>
+        <ul class="posts-list list-group"></ul>
+      `;
+      div.innerHTML += html;
 
-        let name = div.querySelector('.user-name');
-        users_list.appendChild(div);
-        
-        let edit_btn = document.querySelector('.edit');
-        let delete_btn = document.querySelector('.delete');
-        
-        name.addEventListener('click', () => getPosts(users[i].id, div.querySelector('.posts-list')));
+      let name = div.querySelector('.user-name');
+      users_list.appendChild(div);
+      
+      let edit_btn = div.querySelector('.edit');
+      let delete_btn = div.querySelector('.delete');
+      
+      name.addEventListener('click', () => getPosts(users[i].id, div.querySelector('.posts-list')));
 
-        edit_btn.addEventListener('click', () => {
-          users[i].name = prompt('Enter username:', users[i].name);
-          sendXMLHttpRequest('PUT', `https://jsonplaceholder.typicode.com/users/${i + 1}`, (response) => {
-            response.name = users[i].name;
-            console.warn(`Username ${users[i].name} changed for ${response.name}`);
+      edit_btn.addEventListener('click', () => {
+        users[i].name = prompt('Enter username:', users[i].name);
+        sendXMLHttpRequest('PUT', `https://jsonplaceholder.typicode.com/users/${i + 1}`, (response) => {
+          response.name = users[i].name;
+          console.warn(`Username changed for ${response.name}`);
+        })
+      })
+      
+      delete_btn.addEventListener('click', () => {
+        if (confirm('Delete user?')) {
+          sendXMLHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/users/${i}`, () => {
+            div.remove();
+            console.warn(`Sent request to delete user ${users[i].name}`);
           })
-        })
-        
-        delete_btn.addEventListener('click', () => {
-          if (confirm('Delete user?')) {
-            sendXMLHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/users/${i}`, () => {
-              div.remove();
-              console.warn(`Sent request to delete user ${users[i].name}`);
-            })
-          }
-        })
+        }
+      })
+
     }
   })
   
-  await sendXMLHttpRequest('GET', `https://jsonplaceholder.typicode.com/photos`, (photos) => {
+  await sendXMLHttpRequest('GET', `https://pixabay.com/api/?key=13422914-877ff221955c093050bf5fd0f&q=cats&image_type=photo`, (photos) => {
+    let gallery = photos.hits;
+    
     let users = document.querySelectorAll('.user');
     for (let i = 0; i < users.length && users.length <= photos.length; i++) {
       let users_photo = users[i].querySelector('.user-photo');
@@ -68,15 +71,20 @@ window.onload = async function() {
 }
 
 function getPosts(userId, container) {
+  
   sendXMLHttpRequest('GET', `https://jsonplaceholder.typicode.com/posts?userId=${userId}`, (posts) => {
     for (let i = 0; i < posts.length; i++) {
+        
       let li = document.createElement('li');
       li.classList.add('list-group-item', 'list-group-item-primary', 'mt-2');
       li.textContent =`Post # ${posts[i].id} ${posts[i].title}`;
       container.appendChild(li);
-      let comment = document.createElement('div');
+
+      let comment = document.createElement('ul');
+      comment.classList.add('comments', 'list-group');
       container.appendChild(comment);
       getComments(posts[i].id, comment)
+        
     }
   })
 } 
