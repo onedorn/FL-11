@@ -1,12 +1,10 @@
 const users_list = document.querySelector(".wrapper");
 
 window.onload = async function() {
-
   await sendXMLHttpRequest("GET", "https://jsonplaceholder.typicode.com/users", users => {
-    
     users_list.innerHTML = '';
+    
     for (let i = 0; i < users.length; i++) {
-
       let div = document.createElement('div');
       div.classList.add('card', 'mb-2', 'user');
       div.id = `user_${users[i].id}`;
@@ -30,27 +28,22 @@ window.onload = async function() {
         <ul class="posts-list list-group"></ul>
       `;
       div.innerHTML += html;
-
       let name = div.querySelector('.user-name');
       users_list.appendChild(div);
-      
       let edit_btn = div.querySelector('.edit');
       let delete_btn = div.querySelector('.delete');
       let post_list = div.querySelector('.posts-list');
       post_list.style.display = 'none';
       
       name.addEventListener('click', () => {
-        
         if(post_list.querySelectorAll('.post').length === 0) {
           getPosts(users[i].id, post_list);
         }
-        
         if(post_list.style.display === 'none') {
           post_list.style.display = 'block';
         } else {
           post_list.style.display = 'none';
         }
-
       });
 
       edit_btn.addEventListener('click', () => {
@@ -69,7 +62,6 @@ window.onload = async function() {
           })
         }
       })
-      
     }
 
     sendXMLHttpRequest('GET', `https://pixabay.com/api/?key=13422914-877ff221955c093050bf5fd0f&q=dogs&image_type=photo`, (photos) => {
@@ -82,11 +74,9 @@ window.onload = async function() {
     })
 
   })
-
 }
 
 function getPosts(userId, container) {
-  
   sendXMLHttpRequest('GET', `https://jsonplaceholder.typicode.com/posts?userId=${userId}`, (posts) => {
     for (let i = 0; i < posts.length; i++) {
         
@@ -113,7 +103,6 @@ function getComments(postId, container) {
     }
   })
 }
-
 
 function sendXMLHttpRequest(type, url, callback) {
   let spinner = document.querySelector('.spinner-grow');
