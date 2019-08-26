@@ -3,6 +3,7 @@ const users_list = document.querySelector(".wrapper");
 window.onload = async function() {
 
   await sendXMLHttpRequest("GET", "https://jsonplaceholder.typicode.com/users", users => {
+    
     users_list.innerHTML = '';
     for (let i = 0; i < users.length; i++) {
 
@@ -13,7 +14,7 @@ window.onload = async function() {
       let html = `
         <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="#" class="user-photo card-img fluid-img" alt="users-users">
+          <img src="#" class="user-photo card-img h-100" alt="users-users">
         </div>
         <div class="col-md-8">
           <div class="card-body">
@@ -22,7 +23,7 @@ window.onload = async function() {
             <p class="card-text">${users[i].company.name}</p>
             <p class="card-text"><small class="text-muted">${users[i].email }</small></p>
             <button type="button" class="delete btn btn-secondary float-right mr-2">Delete user</button>
-            <button type="button" class="edit btn btn-light float-right mr-4 mb-4">Edit user</button>
+            <button type="button" class="edit btn btn-primary float-right mr-4 mb-4">Edit user</button>
           </div>
         </div>
         </div>
@@ -35,8 +36,22 @@ window.onload = async function() {
       
       let edit_btn = div.querySelector('.edit');
       let delete_btn = div.querySelector('.delete');
+      let post_list = div.querySelector('.posts-list');
+      post_list.style.display = 'none';
       
-      name.addEventListener('click', () => getPosts(users[i].id, div.querySelector('.posts-list')));
+      name.addEventListener('click', () => {
+        
+        if(post_list.querySelectorAll('.post').length === 0) {
+          getPosts(users[i].id, post_list);
+        }
+        
+        if(post_list.style.display === 'none') {
+          post_list.style.display = 'block';
+        } else {
+          post_list.style.display = 'none';
+        }
+
+      });
 
       edit_btn.addEventListener('click', () => {
         users[i].name = prompt('Enter username:', users[i].name);
@@ -54,18 +69,18 @@ window.onload = async function() {
           })
         }
       })
+      
+    }
 
-    }
-  })
-  
-  await sendXMLHttpRequest('GET', `https://pixabay.com/api/?key=13422914-877ff221955c093050bf5fd0f&q=cats&image_type=photo`, (photos) => {
-    let gallery = photos.hits;
-    
-    let users = document.querySelectorAll('.user');
-    for (let i = 0; i < users.length && users.length <= photos.length; i++) {
-      let users_photo = users[i].querySelector('.user-photo');
-      users_photo.setAttribute('src', photos[i].url);
-    }
+    sendXMLHttpRequest('GET', `https://pixabay.com/api/?key=13422914-877ff221955c093050bf5fd0f&q=dogs&image_type=photo`, (photos) => {
+      let gallery = photos.hits;
+      let users = document.querySelectorAll('.user');
+      for (let i = 0; i < users.length && users.length <= gallery.length; i++) {
+        let users_photo = users[i].querySelector('.user-photo');
+        users_photo.setAttribute('src', gallery[i].largeImageURL);
+      }
+    })
+
   })
 
 }
@@ -76,7 +91,7 @@ function getPosts(userId, container) {
     for (let i = 0; i < posts.length; i++) {
         
       let li = document.createElement('li');
-      li.classList.add('list-group-item', 'list-group-item-primary', 'mt-2');
+      li.classList.add('list-group-item', 'list-group-item-primary', 'mt-2', 'post');
       li.textContent =`Post # ${posts[i].id} ${posts[i].title}`;
       container.appendChild(li);
 
@@ -84,7 +99,6 @@ function getPosts(userId, container) {
       comment.classList.add('comments', 'list-group');
       container.appendChild(comment);
       getComments(posts[i].id, comment)
-        
     }
   })
 } 
@@ -116,3 +130,5 @@ function sendXMLHttpRequest(type, url, callback) {
     }
   }
 }
+
+
