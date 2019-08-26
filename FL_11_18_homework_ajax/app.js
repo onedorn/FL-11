@@ -21,8 +21,8 @@ window.onload = async function() {
               <p class="card-text">${users[i].address.city}, ${users[i].address.street}</p>
               <p class="card-text">${users[i].company.name}</p>
               <p class="card-text"><small class="text-muted">${users[i].email }</small></p>
-              <button type="button" class="btn btn-secondary float-right">Delete user</button>
-              <button type="button" class="btn btn-light float-right mr-4">Edit user</button>
+              <button type="button" class="delete btn btn-secondary float-right">Delete user</button>
+              <button type="button" class="edit btn btn-light float-right mr-4">Edit user</button>
             </div>
           </div>
           </div>
@@ -33,8 +33,28 @@ window.onload = async function() {
         let name = div.querySelector('.user-name');
         users_list.appendChild(div);
         
+        let edit_btn = document.querySelector('.edit');
+        let delete_btn = document.querySelector('.delete');
+        
         name.addEventListener('click', () => getPosts(users[i].id, div.querySelector('.posts-list')));
-      }
+
+        edit_btn.addEventListener('click', () => {
+          users[i].name = prompt('Enter username:', users[i].name);
+          sendXMLHttpRequest('PUT', `https://jsonplaceholder.typicode.com/users/${i + 1}`, (response) => {
+            response.name = users[i].name;
+            console.warn(`Username ${users[i].name} changed for ${response.name}`);
+          })
+        })
+        
+        delete_btn.addEventListener('click', () => {
+          if (confirm('Delete user?')) {
+            sendXMLHttpRequest('DELETE', `https://jsonplaceholder.typicode.com/users/${i}`, () => {
+              div.remove();
+              console.warn(`Sent request to delete user ${users[i].name}`);
+            })
+          }
+        })
+    }
   })
   
   await sendXMLHttpRequest('GET', `https://jsonplaceholder.typicode.com/photos`, (photos) => {
