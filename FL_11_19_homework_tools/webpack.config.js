@@ -1,6 +1,7 @@
-  const path = require('path');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-  module.exports = {
+module.exports = {
   mode: 'development',
   entry: './src/javascript/index.js',
 
@@ -9,6 +10,7 @@
     filename: 'bundle.js',
     publicPath: "/dist/"
   },
+
   module: {
     rules: [
       {
@@ -20,9 +22,14 @@
             presets: ['babel-preset-env']
           }
         }
+      },
+      {
+        test: /\.scss$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       }
     ]
   },
+
   devServer: {
     contentBase: path.join(__dirname, './dist'),
     publicPath: '/dist/',

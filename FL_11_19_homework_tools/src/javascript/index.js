@@ -1,5 +1,6 @@
 import {style, DOM} from "./module.js";
+import '../scss/main.scss';
 
-style('purple')
+// style('purple')
 DOM('Vlad')
 
