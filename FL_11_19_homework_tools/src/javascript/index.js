@@ -3,4 +3,6 @@ import '../scss/main.scss';
 
 // style('purple')
 DOM('Vlad')
+DOM('Vlad')
+DOM('Vlad')
 

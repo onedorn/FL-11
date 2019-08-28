@@ -1,5 +1,6 @@
 ## restricted (no need to submit)
 task/
+dist/
 examples/
 node_modules/
 *.vscode
