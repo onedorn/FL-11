@@ -8,7 +8,7 @@ module.exports = {
 
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js',
+    filename: 'bundle.js',
     publicPath: "/dist/"
   },
 
@@ -48,7 +48,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: "./src/index.html",
     }),
     new MiniCssExtractPlugin({
       filename: 'css/style.css'
