@@ -1,2 +1,82 @@
 @import './variables.scss';
 @import './mixins.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    margin: 0 auto;
+    background-color: map-get($page-colors, secondary);
+    text-align: center;
+}
+
+header {
+    background-color: map-get($page-colors, light);
+    h1, h3 {
+        padding: 20px 0;
+    }
+    .rock-rule {
+        background-color: map-get($page-colors, primary );
+        @include rule;
+    }
+    .paper-rule {
+        background-color: map-get($page-colors, warning );
+        @include rule;
+    }
+    .sciss-rule {
+        background-color: map-get($page-colors, danger );
+        @include rule;
+    }
+}
+
+main {
+    color: map-get($page-colors, light );
+    .score-board {
+        border: 3px solid map-get($page-colors, light );
+        width: 200px;
+        margin: 20px auto;
+        font-size: 40px;
+        border-radius: 4px;
+        text-align: center;
+        padding: 15px 20px;
+        position: relative;
+        #user-label.badge {
+            @include badge;
+            top: 25px;
+            left: -20px;
+        }
+        #comp-label.badge {
+            @include badge;
+            right: -23px;
+            top: 25px;
+        }
+    }
+
+    .result > h1{
+        font-size: 2.2em;
+        padding: 0 0 20px 0;
+    }
+}
+
+  .choices {
+      display: inline-flex;
+    #paper.choice {
+        @include choice;
+    }
+    #rock.choice {
+        @include choice;
+    }
+    #sciss.choice {
+        @include choice;
+    }
+  }
+
+  footer > p {
+    color: map-get($page-colors, light );
+    padding: 15px;  
+    font-size: 18px;
+  }
