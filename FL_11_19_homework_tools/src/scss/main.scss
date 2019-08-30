@@ -80,3 +80,14 @@ main {
     padding: 15px;  
     font-size: 18px;
   }
+
+button {
+    border-radius: 9px;
+    padding: 10px;
+    background-color: map-get($page-colors, info );
+    color: map-get($page-colors, light);
+    font-size: 16px;
+    outline: none;
+    display: none;
+    margin: 20px auto;
+}

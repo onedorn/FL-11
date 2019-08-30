@@ -28,6 +28,7 @@
     margin: 0 15px;
     border-radius: 50%;
     padding: 10px;
+    transition: all 0.3s;
     &:hover {
         background-color: map-get($page-colors, success );
         cursor: pointer;
