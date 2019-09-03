@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Dashboard from "./components/Dashboard";
 import Shop from "./components/Shop";
-import "./App.css";
 
 class App extends Component {
   state = {
