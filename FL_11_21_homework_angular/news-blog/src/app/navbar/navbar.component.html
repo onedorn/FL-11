@@ -17,10 +17,10 @@
   </nav>
 </header>
 
-<div class="card w-50 mx-auto my-4" *ngFor="let def of default">  
+<div class="w-50 mx-auto my-4" *ngFor="let def of default">  
   <div class="row no-gutters ">
     <div class="col-md-4">
-      <img src={{def.url}} class="card-img img-fluid img-thumbnail h-100" alt="food">
+      <img src={{def.url}} class="card-img img-fluid img-thumbnail h-100 rounded-circle" alt="food">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -35,7 +35,7 @@
   </div>
 </div>
 
-<div class="card w-50 mx-auto my-4 " *ngFor="let new of news">  
+<div class="w-50 mx-auto my-4 " *ngFor="let new of news">  
   <div class="row no-gutters ">
     <div class="col-md-4">
       <img src={{new.url}} class="card-img img-fluid img-thumbnail h-100" alt="food">

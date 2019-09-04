@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavbarComponent implements OnInit {
 
-  blog_title = 'Food Blog';
-  
   constructor() { }
+  
+  blog_title = 'Food Blog';
 
   news = [];
 

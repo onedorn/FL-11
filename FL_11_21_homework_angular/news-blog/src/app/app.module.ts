@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CreateNewsComponent } from './create-news/create-news.component';
-import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { ArticleComponent } from './article/article.component';
 
 @NgModule({
@@ -13,7 +12,6 @@ import { ArticleComponent } from './article/article.component';
     AppComponent,
     NavbarComponent,
     CreateNewsComponent,
-    NewsFeedComponent,
     ArticleComponent
   ],
   imports: [
