@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="card-body bg-danger mb-5">
+    <h2 class="text-center text-light">{{ blog_news }}</h2>
+  </div>
+  <form class="w-75 mx-auto border p-5">
+    <div class="row font-weight-bold">
+      <div class="col-6">
+        <label for="heading" class="pt-2">Heading</label>
+        <input type="text" class="form-control" id="heading" #heading/>
+
+        <label for="desc" class="pt-2">Short Description</label>
+        <input type="text" class="form-control" id="desc" #description />
+        
+        <label for="news-content" class="pt-2">Content</label>
+        <textarea name="news-content" id="news-content" cols="42" rows="7" #content></textarea>
+      </div>
+
+      <div class="col-6">
+        <label for="date" class="pt-2">Date</label>
+        <input type="text" class="form-control" id="date" #date/>
+
+        <label for="author" class="pt-2">Author</label>
+        <input type="text" class="form-control" id="author" #author/>
+
+        <label for="url" class="pt-2">Source URL</label>
+        <input type="text" class="form-control" id="url" #url/>
+
+        <div class="d-flex justify-content-between font-weight-bold pt-5">
+          <input type="button" (click)="createNews( heading, description, content, date, author, url )" value="Save" class="btn btn-primary text-light border px-5 mt-5">
+          <input type="button" value="Cancel" class="btn btn-primary text-light border px-5 mt-5">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

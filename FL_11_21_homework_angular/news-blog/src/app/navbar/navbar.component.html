@@ -1,28 +1,55 @@
-<header>
-  <section class="blog-name">
-    <h1>Music awards</h1>
-  </section>
-
-  <section class="source-panel">
-    <form>
-      <select name="blog-source" id="blog-source">
-        <option value="all-sources">All sources</option>
-        <option value="music">Music awards</option>
-        <option value="sports">Sports news</option>
-        <option value="travel">Travel news</option>
-      </select>
-
-      <div class="filter-field">
-        <input
-          type="text"
-          name="article-search"
-          id="article-search"
-          placeholder="Type your text..."
-        />
-        <input type="button" value="Filter" class="filter-button"/>
-      </div>
-
-      <input type="button" value="Add article" class="add-article" />
+<header class="container card p-0">
+  <div class="card-body bg-danger">
+    <h2 class="text-center text-light">{{ blog_title }}</h2>
+  </div>
+  <nav class="navbar navbar-light bg-light p-3">
+    <select name="categories" id="categories" class="btn bg-white border">
+      <option value="all">All categories</option>
+      <option value="food">Food news</option>
+      <option value="recipes">Recipes </option>
+      <option value="cooking">Cooking </option>
+    </select>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Type your text..." aria-label="Search"/>
+      <button class="btn btn-outline-success my-2 my-sm-0 px-4" type="submit"> Filter </button>
     </form>
-  </section>
+    <input type="button" value="Add article" class="btn btn-primary" routerLink = "create-news">
+  </nav>
 </header>
+
+<div class="card w-50 mx-auto my-4" *ngFor="let def of default">  
+  <div class="row no-gutters ">
+    <div class="col-md-4">
+      <img src={{def.url}} class="card-img img-fluid img-thumbnail h-100" alt="food">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> {{def.heading}}</h5>
+        <p class="card-text" > <small class="text-muted">{{def.description}}</small></p>
+        <p class="card-text" > {{def.content}} </p>
+        <p class="card-text"><small class="text-muted">{{def.author}} {{def.date}} </small></p>
+        <a href="#" class="link">Read more...</a>
+        <i class="material-icons float-right" (click) = "removeDefaultNews(def)">delete</i>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card w-50 mx-auto my-4 " *ngFor="let new of news">  
+  <div class="row no-gutters ">
+    <div class="col-md-4">
+      <img src={{new.url}} class="card-img img-fluid img-thumbnail h-100" alt="food">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"> {{new.heading}} </h5>
+        <p class="card-text" > {{new.description}} </p>
+        <p class="card-text" > {{new.content}} </p>
+        <p class="card-text"><small class="text-muted"> {{new.author}} {{new.date}} </small></p>
+        <a href="#" class="link">Read more...</a>
+        <i class="material-icons float-right" (click) = "removeDynamicNews(new)">delete</i>
+      </div>
+    </div>
+  </div>
+</div>
+

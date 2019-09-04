@@ -1,46 +1,7 @@
-header {
-  .blog-name {
-    background-color: #dc3546;
-    color: #fff;
-    text-align: center;
-    h1 {
-      padding: 20px;
-      text-transform: uppercase;
-      font-style: italic;
-    }
-  }
-  .source-panel {
-    border: 1px solid #dc3546;
-    form {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 20px;
-      .filter-field {
-        #article-search {
-          padding: 5px;
-          margin-right: 20px; 
-          border-radius: 5px;
-          outline: none;
-        }
-        .filter-button {
-          border-radius: 5px;
-          font-size: 18px;
-          padding: 2px 15px;
-          outline: none;
-        }
-      }
-      .add-article {
-        border-radius: 5px;
-        font-size: 18px;
-        padding: 0 15px;
-        outline: none;
-      }
-
-      #blog-source {
-        border-radius: 5px;
-        font-size: 0.9em;
-      }
-    }
-  }
+.material-icons {
+  cursor: pointer;
+  color: #4A8AF4;
+}
+.material-icons:hover {
+  color: #DC3545;
 }
