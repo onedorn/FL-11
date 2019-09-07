@@ -1,1 +1,28 @@
-<p>article works!</p>
+<div class="container">
+  <div class="card-body bg-danger mb-5">
+    <h2 class="text-center text-light">{{ article_title }}</h2>
+  </div>
+
+  <div class="w-75 mx-auto my-4">
+    <div class="row no-gutters ">
+      <div class="col-md-4">
+        <img [src]="article.url" class="card-img img-fluid img-thumbnail h-100 rounded-circle" alt="food"/>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.heading }}</h5>
+          <p class="card-text">
+            <small class="text-muted">{{ article.description }}</small>
+          </p>
+          <p class="card-text">{{ article.content }}</p>
+          <p class="card-text">
+            <small class="text-muted">{{ article.date }}</small>
+          </p>
+          <p class="card-text">
+            <small class="text-muted"> {{ article.author }} </small>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

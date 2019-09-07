@@ -1,51 +1,57 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { NewsService } from "../news.service";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: "app-navbar",
+  templateUrl: "./navbar.component.html",
+  styleUrls: ["./navbar.component.scss"]
 })
-
 export class NavbarComponent implements OnInit {
+  constructor(private newsService: NewsService) {}
 
-  constructor() { }
-  
-  blog_title = 'Food Blog';
+  blog_title = "All categories";
 
-  news = [];
-
-  default = [
+  dropdown_menu = [
     {
-      "heading": "Family food",
-      "description": "Our jam-packed family food hub",
-      "content": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat commodi accusantium deserunt? Quasi porro nam quae autem, quaerat sed! Fuga id soluta esse modi est, obcaecati dolor dolorum placeat?',
-      "date": "14 of March 2019",
-      "author": "Jamie Olivier",
-      "url": "https://img.etimg.com/thumb/msid-68680996,width-643,imgsize-1492594,resizemode-4/pizza.jpg"
+      value: "all",
+      title: "All categories"
     },
     {
-      "heading": "Vegetarian food",
-      "description": "How to stay always health",
-      "content": 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quaerat commodi accusantium deserunt? Quasi porro nam quae autem, quaerat sed! Fuga id soluta esse modi est, obcaecati dolor dolorum placeat?',
-      "date": "14 of March 2019",
-      "author": "Salvador Dali",
-      "url": "https://cdn-prod.medicalnewstoday.com/content/images/articles/318/318601/avocado-sliced.jpg"
+      value: "sport",
+      title: "Sport news"
+    },
+    {
+      value: "food",
+      title: "Food recipes"
+    },
+    {
+      value: "travel",
+      title: "Travel stories"
     }
   ];
 
+  filteredNews = [];
+  news = [];
+
   ngOnInit() {
-    this.news = JSON.parse(localStorage.getItem("news"));
+    this.news = this.newsService.getNews();
+    this.filteredNews = this.news;
   }
 
-  removeDefaultNews (news) {
-    let index = this.default.indexOf(news);
-    this.default.splice(index, 1);
-  }
-  
-  removeDynamicNews(def) {
-    let index = this.news.indexOf(def);
-    this.news.splice(index, 1);
-    localStorage.setItem("news", JSON.stringify(this.news))
+  removeDynamicNews(id) {
+    this.newsService.deleteById(id);
   }
 
+  changeTitle(value) {
+    const currentMenu = this.dropdown_menu.find(item => item.value === value);
+    this.blog_title = currentMenu.title;
+    this.filteredNews = value === "all" ? this.news : this.news.filter(item => item.category === value);
+  }
+
+  searchByTitle(value) {
+    this.filteredNews = this.news.filter(item => {
+      const little = item.heading.toLowerCase();
+      return little.indexOf(value) !== -1;
+    });
+  }
 }

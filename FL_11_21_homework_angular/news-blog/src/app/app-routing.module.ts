@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CreateNewsComponent
   },
   {
-    path: 'article',
+    path: 'article/:id',
     component: ArticleComponent
   }
 ];
