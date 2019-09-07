@@ -1,0 +1,34 @@
+<p>create-news works!</p>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Add news</span>
+    <form (ngSubmit) = 'onSubmit()' class="col-6">
+      <div class="row">
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add title" [(ngModel)] = "title" name = "title" >
+            <label for="title">Title</label>
+          </div>
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add Description" [(ngModel)] = "description" name = "description" >
+            <label for="description">Description</label>
+          </div>
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add content" [(ngModel)] = "content" name = "content" >
+            <label for="content">Content</label>
+          </div>
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add author" [(ngModel)] = "author" name = "author" >
+            <label for="author">Author</label>
+          </div>
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add date" [(ngModel)] = "date" name = "date" >
+            <label for="date">Date</label>
+          </div>
+          <div class="input-field col-6">
+            <input type="text" placeholder="Add url" [(ngModel)] = "url" name = "url" >
+            <label for="url">url</label>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
