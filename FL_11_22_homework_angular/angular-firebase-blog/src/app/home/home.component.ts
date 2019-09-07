@@ -10,6 +10,27 @@ import { News } from "../modules/news";
 export class HomeComponent implements OnInit {
 
   news: News[];
+  filteredNews = [];
+  blog_title = "All categories";
+
+  dropdown_menu = [
+    {
+      value: "all",
+      title: "All categories"
+    },
+    {
+      value: "sport",
+      title: "Sport news"
+    },
+    {
+      value: "food",
+      title: "Food recipes"
+    },
+    {
+      value: "travel",
+      title: "Travel stories"
+    }
+  ];
 
   constructor(private newsService: NewsService) { }
 
@@ -19,4 +40,13 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  changeTitle(value) {
+    const currentMenu = this.dropdown_menu.find(item => item.value === value);
+    this.blog_title = currentMenu.title;
+    this.filteredNews = value === "all" ? this.news : this.news.filter(item => item.category === value);
+  }
+
+  deleteItem(event, item) {
+    this.newsService.deleteItem(item);
+  }
 }

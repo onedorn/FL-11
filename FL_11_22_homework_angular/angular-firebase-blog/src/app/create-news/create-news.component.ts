@@ -9,8 +9,11 @@ import { News } from '../modules/news';
 })
 export class CreateNewsComponent implements OnInit {
 
+  blog_title = 'Create article';  
+
   news: News = {
     title: '',
+    category: '',
     description: '',
     content: '',
     author: '',
@@ -23,4 +26,21 @@ export class CreateNewsComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit() {
+    
+    if(this.news.title !== '' || this.news.description !== '') {
+      if(this.news.date !== null || this.news.content !== '') {
+        if(this.news.url !== '' || this.news.author !== '') {
+          this.newsService.addItem(this.news);
+
+          this.news.title = '';
+          this.news.description = '';
+          this.news.content = '';
+          this.news.date = null;
+          this.news.author = '';
+          this.news.url = '';
+        }
+      }
+    }
+  }
 }

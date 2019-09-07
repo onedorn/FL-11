@@ -1,34 +1,38 @@
-<p>create-news works!</p>
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">Add news</span>
-    <form (ngSubmit) = 'onSubmit()' class="col-6">
-      <div class="row">
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add title" [(ngModel)] = "title" name = "title" >
-            <label for="title">Title</label>
-          </div>
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add Description" [(ngModel)] = "description" name = "description" >
-            <label for="description">Description</label>
-          </div>
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add content" [(ngModel)] = "content" name = "content" >
-            <label for="content">Content</label>
-          </div>
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add author" [(ngModel)] = "author" name = "author" >
-            <label for="author">Author</label>
-          </div>
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add date" [(ngModel)] = "date" name = "date" >
-            <label for="date">Date</label>
-          </div>
-          <div class="input-field col-6">
-            <input type="text" placeholder="Add url" [(ngModel)] = "url" name = "url" >
-            <label for="url">url</label>
-          </div>
-      </div>
-    </form>
+<div class="container">
+  <div class="card-body bg-danger mb-5">
+    <h2 class="text-center text-light">{{ blog_title }}</h2>
   </div>
+  <form  class="w-75 mx-auto border p-5" >
+    <div class="row font-weight-bold">
+      <div class="col-6">
+        <label for="heading" class="pt-2">Heading</label>
+        <input type="text" class="form-control" id="heading" [(ngModel)] = 'news.title' name="title"/>
+
+        <label for="desc" class="pt-2">Short Description</label>
+        <input type="text" class="form-control" id="desc" [(ngModel)] = 'news.description' name="description"/>
+        
+        <label for="desc" class="pt-2">Category</label>
+        <input type="text" class="form-control" id="category" [(ngModel)] = 'news.category' name="category"/>
+        
+        <label for="news-content" class="pt-2">Content</label>
+        <textarea name="news-content" id="news-content" cols="47" rows="4" [(ngModel)] = 'news.content' name="content"></textarea>
+      </div>
+
+      <div class="col-6">
+        <label for="date" class="pt-2">Date</label>
+        <input type="text" class="form-control" id="date" [(ngModel)] = 'news.date' name="date"/>
+
+        <label for="author" class="pt-2">Author</label>
+        <input type="text" class="form-control" id="author" [(ngModel)] = 'news.author' name="author"/>
+
+        <label for="url" class="pt-2">Source URL</label>
+        <input type="text" class="form-control" id="url" [(ngModel)] = 'news.url' name="url"/>
+
+        <div class="d-flex justify-content-between font-weight-bold pt-5">
+          <input type="submit" (click)="onSubmit()" routerLink = '' value="Save" class="btn btn-primary text-light border px-5 mt-5">
+          <input type="button" routerLink = '' value="Cancel" class="btn btn-primary text-light border px-5 mt-5">
+        </div>
+      </div>
+    </div>
+  </form>
 </div>

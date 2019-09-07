@@ -19,10 +19,7 @@ import { CreateNewsComponent } from "./create-news/create-news.component";
     AppRoutingModule,
     FormsModule,
     NgbModule,
-    AngularFireModule.initializeApp(
-      environment.firebase,
-      "angular-firebase-blog"
-    ),
+    AngularFireModule.initializeApp( environment.firebase, "angular-firebase-blog" ),
     AngularFirestoreModule
   ],
   providers: [NewsService],

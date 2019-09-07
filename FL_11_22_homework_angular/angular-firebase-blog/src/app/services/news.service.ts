@@ -11,10 +11,10 @@ export class NewsService {
 
   newsCollection: AngularFirestoreCollection<News>;
   news:Observable<News[]>;
+  newsDoc: AngularFirestoreDocument<News>;
 
   constructor(public afs: AngularFirestore) {
-    // this.news = this.afs.collection('news').valueChanges();
-    this.newsCollection = afs.collection<News>('news');
+    this.newsCollection = afs.collection<News>('news', ref => ref.orderBy('title', 'asc'));
     this.news = this.newsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as News;
@@ -26,6 +26,15 @@ export class NewsService {
 
   getNews() {
     return this.news;
+  }
+
+  addItem(news: News) {
+    this.newsCollection.add(news);
+  }
+
+  deleteItem( news: News) {
+    this.newsDoc = this.afs.doc(`news/${news.id}`);
+    this.newsDoc.delete()
   }
 }
 

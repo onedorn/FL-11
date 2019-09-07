@@ -1,5 +1,6 @@
 export interface News {
     id?:string,
+    category:string,
     title?:string,
     description?:string,
     content?:string,
