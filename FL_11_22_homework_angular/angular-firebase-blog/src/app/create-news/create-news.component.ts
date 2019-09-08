@@ -28,19 +28,15 @@ export class CreateNewsComponent implements OnInit {
 
   onSubmit() {
     
-    if(this.news.title !== '' && this.news.description !== '') {
-      if(this.news.date !== null && this.news.content !== '') {
-        if(this.news.url !== '' && this.news.author !== '') {
-          this.newsService.addItem(this.news);
+    if(this.news.title !== '' || this.news.description !== '') {
+      this.newsService.addItem(this.news);
 
-          this.news.title = '';
-          this.news.description = '';
-          this.news.content = '';
-          this.news.date = null;
-          this.news.author = '';
-          this.news.url = '';
-        }
-      }
+      this.news.title = '';
+      this.news.description = '';
+      this.news.content = '';
+      this.news.date = null;
+      this.news.author = '';
+      this.news.url = '';
     }
   }
 }

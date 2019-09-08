@@ -45,9 +45,6 @@ export class HomeComponent implements OnInit {
     const currentMenu = this.dropdown_menu.find(item => item.value === value);
     this.blog_title = currentMenu.title;
     this.filteredNews = value === "all" ? this.news : this.news.filter(item => item.category === value);
-
-    console.log(this.filteredNews);
-    
   }
 
   deleteItem(event, item) {
@@ -55,11 +52,13 @@ export class HomeComponent implements OnInit {
   }
 
   searchByTitle(value) {
-    console.log(value);
-
     this.filteredNews = this.news.filter(item => {
       const little = item.title.toLowerCase();
       return little.indexOf(value) !== -1;
     });
+  }
+
+  findById(id) {
+    return this.news.find(item => item.id === id);
   }
 }

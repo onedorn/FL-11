@@ -37,9 +37,7 @@ export class NewsService {
     this.newsDoc.delete()
   }
 
-  findById(id) {
-    // return this.news.find(item => item.id === Number(id));
-  }
+  
 
 }
 

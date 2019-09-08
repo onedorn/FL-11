@@ -16,7 +16,11 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
-    // this.article = this.newService.findById(id);
+    this.newService.getNews().subscribe(news => {
+      this.article = news.find(item => item.id === id);
+      console.log(this.article);
+    })
+    
   }
 
 }

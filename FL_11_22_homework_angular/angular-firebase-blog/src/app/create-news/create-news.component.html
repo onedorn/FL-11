@@ -6,13 +6,13 @@
     <div class="row font-weight-bold">
       <div class="col-6">
         <label for="heading" class="pt-2">Heading</label>
-        <input type="text" class="form-control" id="heading" [(ngModel)] = 'news.title' name="title"/>
+        <input type="text" class="form-control" id="heading" placeholder="article title" [(ngModel)] = 'news.title' name="title"/>
 
         <label for="desc" class="pt-2">Short Description</label>
         <input type="text" class="form-control" id="desc" [(ngModel)] = 'news.description' name="description"/>
         
         <label for="desc" class="pt-2">Category</label>
-        <input type="text" class="form-control" id="category" [(ngModel)] = 'news.category' name="category"/>
+        <input type="text" class="form-control" id="category" placeholder="travel/sport/food" [(ngModel)] = 'news.category' name="category"/>
         
         <label for="news-content" class="pt-2">Content</label>
         <textarea name="news-content" id="news-content" cols="47" rows="4" [(ngModel)] = 'news.content' name="content"></textarea>
@@ -20,7 +20,7 @@
 
       <div class="col-6">
         <label for="date" class="pt-2">Date</label>
-        <input type="text" class="form-control" id="date" [(ngModel)] = 'news.date' name="date"/>
+        <input type="text" class="form-control" id="date" placeholder="25/06/2015" [(ngModel)] = 'news.date' name="date"/>
 
         <label for="author" class="pt-2">Author</label>
         <input type="text" class="form-control" id="author" [(ngModel)] = 'news.author' name="author"/>
