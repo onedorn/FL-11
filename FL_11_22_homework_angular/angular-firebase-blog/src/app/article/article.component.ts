@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ArticleComponent implements OnInit {
 
   article_title = "Source news";
-  article = {};
+  article;
   
   constructor(private newService: NewsService, private route: ActivatedRoute) { }
 
@@ -18,7 +18,6 @@ export class ArticleComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get("id");
     this.newService.getNews().subscribe(news => {
       this.article = news.find(item => item.id === id);
-      console.log(this.article);
     })
     
   }

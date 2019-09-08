@@ -23,9 +23,6 @@
         <h5 class="card-title"><b>{{ prop.title }}</b></h5>
         <p class="card-text">{{ prop.description }}</p>
         <p class="card-text">{{ prop.content }}</p>
-        <p class="card-text">
-          <small class="text-muted"> {{ prop.author }} {{prop.date}} </small>
-        </p>
         <a [routerLink]="['article', prop.id]">Read more...</a>
         <i (click)="deleteItem($event, prop)" class="material-icons float-right">delete</i>
       </div>
