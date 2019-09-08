@@ -10,7 +10,7 @@ import { News } from "../modules/news";
 export class HomeComponent implements OnInit {
 
   news: News[];
-  filteredNews = [];
+  filteredNews: News[] = [];
   blog_title = "All categories";
 
   dropdown_menu = [
@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.newsService.getNews().subscribe(news => {
       this.news = news;
+      this.filteredNews = this.news;
     })
   }
 
@@ -44,9 +45,21 @@ export class HomeComponent implements OnInit {
     const currentMenu = this.dropdown_menu.find(item => item.value === value);
     this.blog_title = currentMenu.title;
     this.filteredNews = value === "all" ? this.news : this.news.filter(item => item.category === value);
+
+    console.log(this.filteredNews);
+    
   }
 
   deleteItem(event, item) {
     this.newsService.deleteItem(item);
+  }
+
+  searchByTitle(value) {
+    console.log(value);
+
+    this.filteredNews = this.news.filter(item => {
+      const little = item.title.toLowerCase();
+      return little.indexOf(value) !== -1;
+    });
   }
 }

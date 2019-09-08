@@ -36,5 +36,10 @@ export class NewsService {
     this.newsDoc = this.afs.doc(`news/${news.id}`);
     this.newsDoc.delete()
   }
+
+  findById(id) {
+    // return this.news.find(item => item.id === Number(id));
+  }
+
 }
 

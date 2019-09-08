@@ -7,7 +7,7 @@
       <option *ngFor="let type of dropdown_menu" [value]="type.value">{{type.title}}</option>
     </select>
     <form class="form-inline">
-      <input class="form-control mr-sm-2"type="search" placeholder="Search by the title..." aria-label="Search" (keyup)="searchByTitle($event.target.value)"/>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search by the title..." aria-label="Search" (keyup)="searchByTitle($event.target.value)"/>
     </form>
     <input type="button" value="Add article" class="btn btn-primary" routerLink="create-article"/>
   </nav>
@@ -24,10 +24,10 @@
         <p class="card-text">{{ prop.description }}</p>
         <p class="card-text">{{ prop.content }}</p>
         <p class="card-text">
-          <small class="text-muted"> {{ prop.author }} {{ prop.date }} </small>
+          <small class="text-muted"> {{ prop.author }} {{prop.date.toDate()}} </small>
         </p>
         <a [routerLink]="['article', prop.id]">Read more...</a>
-        <i (click)="deleteItem($event, prop)" class="material-icons float-right" >delete</i>
+        <i (click)="deleteItem($event, prop)" class="material-icons float-right">delete</i>
       </div>
     </div>
   </div>
