@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Tools</title>
+</head>
+<body>
+
+    <header>
+        <h1>Rock Paper or Scissors</h1>
+        <span class="paper-rule">Scissors beats a paper</span>
+        <span class="rock-rule">Paper beats rock</span>
+        <span class="sciss-rule">Rock beats scissors</span>
+        <h3>And we play up to three wins!</h3>
+    </header>
+
+    <main>
+        <div class="score-board">
+            <div id="user-label" class="badge">user</div>
+            <div id="comp-label" class="badge">comp</div>
+            <span id="user-score">0</span>:<span id="comp-score">0</span>
+        </div>
+
+        <div class="result">
+            <h1>Paper beats rock. You Win!</h1>
+        </div>
+
+        <div class="choices">
+            <div class="choice" id="paper">
+                <img src="images/icons8-hand-96.png" alt="paper">
+            </div>
+            <div class="choice" id="rock">
+                <img src="images/icons8-hand-rock-96.png" alt="rock">
+            </div>
+            <div class="choice" id="sciss">
+                <img src="images/icons8-hand-scissors-96.png" alt="scissors">
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Make your choice</p>
+        <button type="button">Reset game?</button>
+    </footer>
+    
+    <script src="../dist/bundle.js"></script>
+</body>
+</html>
