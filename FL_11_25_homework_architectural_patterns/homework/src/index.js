@@ -1,3 +1,2 @@
-import "./style.scss";
-import  { store } from './store'
-
+import './style.scss';
+import store from './store/store';
