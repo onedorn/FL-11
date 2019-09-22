@@ -56,6 +56,9 @@ Table.prototype.createTable = function() {
             ${this.show_more.renderLoadMore(this.limit, this.users.length)}
         </footer>
     `;
+    if (!this.users.length) {
+        document.querySelector('footer').style.display = 'none';
+    }
 };
 
 Table.prototype.filterUsers = function() {
