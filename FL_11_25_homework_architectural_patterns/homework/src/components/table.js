@@ -9,10 +9,7 @@ function Table(state, load_to) {
     this.user = new User();
     this.show_more = new ShowMore();
     this.filtered = this.users.slice(0, this.limit);
-};
-
-Table.prototype.notFound = function() {
-    return `
+    this.alert = `
         <tr class="text-center">
             <td colspan="7">
                 <span>
@@ -41,31 +38,40 @@ Table.prototype.tableHead = function() {
 
 Table.prototype.createTable = function() {
     this.root.innerHTML = `
+        <header class="text-center container">
+            <form >
+                <label for="search" class="m-0 mr-3">Search by name: </label>
+                <input type="text" name="search" id="search" placeholder="Enter user name...">
+            </form> 
+        </header>
         <main class="container">
             <table class="table table-striped">
                 ${this.tableHead()}
                 <tbody>
-                    ${this.limit > 0 ? this.user.createUser(this.filtered) : this.notFound}
+                    ${this.limit > 0 ? this.user.createUser(this.filtered) : this.alert}
                 </tbody>
             </table>
         </main>
-        ${this.show_more.renderLoadMore(this.limit, this.users.length)}
+        <footer class="container">
+            ${this.show_more.renderLoadMore(this.limit, this.users.length)}
+        </footer>
     `;
 };
 
 Table.prototype.filterUsers = function() {
     const table = document.querySelector('.table');
     const search = document.querySelector('#search');
-    const filteredUsers = this.users.filter((user) =>
+    const filteredUsers = this.filtered.filter((user) =>
         user.name.toLowerCase().includes(search.value.toLowerCase())
     );
     document.querySelector('.load-more__paragraph').innerHTML =
         `Displayed ${filteredUsers.length} users out of ${this.users.length}`;
 
     if (filteredUsers.length <= 0) {
-        table.innerHTML = this.notFound;
+        table.innerHTML = this.alert;
     } else {
         let output = '';
+        output += this.tableHead();
         for (let user of filteredUsers) {
             output += this.user.createUser([user]);
         }
