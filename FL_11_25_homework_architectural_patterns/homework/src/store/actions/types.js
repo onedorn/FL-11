@@ -1,3 +1,3 @@
-export const GET_USERS = 'GET_USERS';
-export const SET_LOADING = 'SET_LOADING';
-export const LOGS_ERROR = 'LOGS_ERROR';
+export const REMOVE_USER = 'REMOVE_USER';
+export const SHOW_MORE = 'SHOW_MORE';
+export const FILTER = 'FILTER';
