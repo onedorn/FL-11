@@ -51,3 +51,15 @@ form label {
     width: 50px;
     height: 50px;
 } 
+.show {
+    margin-top: 10%; 
+    .load-more__paragraph {
+        font-weight: 600;
+        font-size: 0.9em;
+    }
+    .load_more {
+        outline: none;
+        border-radius: 10px;
+        width: 40%;
+    }
+}

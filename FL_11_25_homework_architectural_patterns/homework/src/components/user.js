@@ -6,7 +6,7 @@ function User() {
             output += `
                 <tr>
                     <th scope="row">
-                        <img src="${picture}" class="img-thumbnail img"/>
+                        <img src="${picture}" class="img"/>
                     </th>
                     <td>${name}</td>
                     <td>${location}</td>
