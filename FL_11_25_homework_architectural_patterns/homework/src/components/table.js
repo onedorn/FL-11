@@ -9,6 +9,7 @@ function Table(state, load_to) {
     this.user = new User();
     this.show_more = new ShowMore();
     this.filtered = this.users.slice(0, this.limit);
+    console.log(this.state);
 };
 
 Table.prototype.notFound = function() {
@@ -47,7 +48,7 @@ Table.prototype.createTable = function() {
                 ${this.limit > 0 ? this.user.createUser(this.filtered) : this.notFound}
             </tbody>
         </table>
-        ${this.show_more.renderLoadMore(this.limit)}
+        ${this.show_more.renderLoadMore(this.limit, this.users.length)}
     `;
 };
 

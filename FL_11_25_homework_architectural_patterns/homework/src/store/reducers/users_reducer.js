@@ -12,7 +12,7 @@ export default (state = initial_state, action) => {
         return {
             ...state,
             limit: state.limit - 1,
-            users: state.users.filter(((user) => user.id !== action.id))
+            users: state.users.filter(((user) => user.id !== action.id)),
         };
     case SHOW_MORE:
         return {
