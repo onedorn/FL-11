@@ -11,7 +11,6 @@ const actions = ((function () {
     e.preventDefault();
     let text_content = $($input).val();
     storage.setTodoToLocalStorage(text_content);
-
     if(text_content.length) {
       let li = $('<li class="item"></li>');
       let span = $(`<span class="item-text">${text_content}</span>`);
@@ -26,35 +25,47 @@ const actions = ((function () {
   }
 
   const delete_todo = function () {
-    let target_li = $(this).parent();
-    target_li.fadeOut(function () {
-      target_li.remove();
-    })
+    if($(event.target).hasClass('item-remove')) {
+      storage.deleteTodoFromLocalStorage($(event.target).parent().attr('id'))
+      let target_li = $(this).parent();
+      target_li.fadeOut(function () {
+        target_li.remove();
+      })
+    }
   }
 
-  const compleated_todo = function () {
+  const completed_todo = function () {
     $(this).addClass('done');
   }
 
   return {
     paint_todo,
     delete_todo,
-    compleated_todo
+    completed_todo
   }
 
 })())
 
 const storage = ((function () {
+  let todos = [];
+
   return {
     setTodoToLocalStorage: function (todo) {
-      let todos = [];
       todos.push(todo);
       localStorage.setItem('todos', JSON.stringify(todos));
     },
     getTodoFromLocalStorage: function () {
-      let todos;
       todos = JSON.parse(localStorage.getItem('todos'));
       return todos;
+    },
+    deleteTodoFromLocalStorage: function (id) {
+      let tasks = JSON.parse(localStorage.getItem('todos'));
+      tasks.forEach((todo, index) => {
+          if (parseFloat(id) === todo.id) {
+              tasks.splice(index, 1);
+          }
+      });
+      localStorage.setItem('todos', JSON.stringify(tasks));
     }
   }
 })())
@@ -62,5 +73,5 @@ const storage = ((function () {
 $(document).ready(function () {
   $(document).on('click', $add, actions.paint_todo);
   $(document).on('click', $rm_btn, actions.delete_todo);
-  $(document).on('click', $completed_todo, actions.compleated_todo);
+  $(document).on('click', $completed_todo, actions.completed_todo);
 })
