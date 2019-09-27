@@ -1,5 +1,12 @@
 [
   {
+    "id": 5,
+    "brand": "Toyota",
+    "model": "Corolla",
+    "engineVolume": 1.6,
+    "year": 2001
+  },
+  {
     "id": 6,
     "brand": "GMC",
     "model": "Sierra 2500",
@@ -51,7 +58,7 @@
   {
     "id": 13,
     "brand": "Porsche",
-    "model": "UpdatedModel",
+    "model": "Boxster",
     "engineVolume": 2.9,
     "year": 2001
   },
@@ -173,12 +180,5 @@
     "model": "Defender",
     "engineVolume": 1.9,
     "year": 1993
-  },
-  {
-    "id": 33,
-    "brand": "Lada",
-    "model": "Sedan",
-    "engineVolume": 3,
-    "year": 2019
   }
 ]
